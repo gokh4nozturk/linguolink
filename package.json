@@ -1,0 +1,12 @@
+{
+  "name": "@linguolink/core",
+  "version": "0.0.1",
+  "private": false,
+  "description": "LinguoLink",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
