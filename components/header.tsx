@@ -4,6 +4,7 @@ import { ModeToggle } from "./mode-toggle";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { Logo } from "./logo";
+import { Button } from "./ui/button";
 
 export function Header() {
 	return (
@@ -25,6 +26,13 @@ export function Header() {
 			</nav>
 			<div className="flex gap-2 items-center">
 				<ModeToggle />
+				<a
+					href="http://app.linguolink.gokhanozturk.io"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<Button variant="link">Login</Button>
+				</a>
 			</div>
 		</header>
 	);
