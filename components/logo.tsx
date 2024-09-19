@@ -22,6 +22,8 @@ import {
 	ContextMenuTrigger,
 } from "@/components/ui/context-menu";
 
+import { Badge } from "@/components/ui/badge";
+
 export function Logo() {
 	const { resolvedTheme } = useTheme();
 
@@ -29,7 +31,7 @@ export function Logo() {
 	return (
 		<ContextMenu>
 			<ContextMenuTrigger className="flex h-fit w-fit items-center justify-center">
-				<Link href="/">
+				<Link href="/" className="flex gap-1 items-center">
 					<Image
 						loading="lazy"
 						src={logoSrc}
@@ -41,6 +43,9 @@ export function Logo() {
 							height: "auto",
 						}}
 					/>
+					<Badge variant="custom" className="h-6">
+						Beta
+					</Badge>
 				</Link>
 			</ContextMenuTrigger>
 			<ContextMenuContent className="w-64">
