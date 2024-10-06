@@ -6,6 +6,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/header";
 import { ThemeProvider } from "next-themes";
+import Footer from "@/components/footer";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
 						<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 							<Header />
 							{children}
+							<Footer />
 						</ThemeProvider>
 					</>
 				</body>
