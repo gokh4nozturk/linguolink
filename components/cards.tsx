@@ -54,7 +54,7 @@ export default function Cards() {
 			{cards.map((card, index) => (
 				<Card
 					key={index}
-					className="hover:drop-shadow-lg hover:scale-105 dark:hover:drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)] transition-all"
+					className="hover:drop-shadow-lg hover:scale-[1.015] dark:hover:drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)] transition-all"
 				>
 					<CardHeader>{card.icon}</CardHeader>
 					<CardContent className="text-left space-y-1">
