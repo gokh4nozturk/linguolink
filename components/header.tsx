@@ -45,26 +45,19 @@ export function Header() {
 				<Logo />
 			</div>
 			<nav className="flex-1 text-sm justify-center items-center flex">
-				<ul className="flex gap-4 py-3 px-6 rounded-3xl items-center border font-medium">
+				<ul className="flex gap-4 px-6 rounded-full items-center border font-medium">
 					{LINKS.map(({ href, text }) => (
-						<li
-							key={href}
-							className={cn(
-								"hidden sm:inline text-muted-foreground hover:text-foreground",
-								currentHash === href && "text-foreground",
-							)}
-						>
-							<h1
-								className="cursor-pointer"
+						<li key={href} className={cn("hidden sm:inline")}>
+							<Button
+								className={cn(
+									"text-muted-foreground hover:text-foreground p-0",
+									currentHash === href && "text-foreground",
+								)}
+								variant="link"
 								onClick={handleRoute(href)}
-								onKeyUp={(e) => {
-									if (e.key === "Enter" || e.key === " ") {
-										handleRoute(href)();
-									}
-								}}
 							>
 								{text}
-							</h1>
+							</Button>
 						</li>
 					))}
 				</ul>
