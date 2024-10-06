@@ -1,7 +1,7 @@
 "use client";
 
 import { ModeToggle } from "./mode-toggle";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { Logo } from "./logo";
 import { Button } from "./ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
