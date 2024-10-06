@@ -31,35 +31,32 @@ export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
 
 	React.useEffect(() => {
-		// if (typeof window === "undefined") return;
-		// const sections = document.querySelectorAll("section");
-		// const observer = new IntersectionObserver(
-		// 	(entries) => {
-		// 		for (const entry of entries) {
-		// 			if (entry.isIntersecting) {
-		// 				setActiveSection(entry.target.id);
-		// 			}
-		// 		}
-		// 	},
-		// 	{
-		// 		threshold: 0.75, // %75 görünürlük için tetiklenir
-		// 	},
-		// );
-		// for (const section of sections) {
-		// 	observer.observe(section);
-		// }
-		// return () => {
-		// 	for (const section of sections) {
-		// 		observer.unobserve(section);
-		// 	}
-		// };
+		const sections = document.querySelectorAll("section");
+		const observer = new IntersectionObserver(
+			(entries) => {
+				for (const entry of entries) {
+					if (entry.isIntersecting) {
+						setActiveSection(entry.target.id);
+					}
+				}
+			},
+			{
+				threshold: 0.75, // %75 görünürlük için tetiklenir
+			},
+		);
+		for (const section of sections) {
+			observer.observe(section);
+		}
+		return () => {
+			for (const section of sections) {
+				observer.unobserve(section);
+			}
+		};
 	}, []);
 
 	return (
 		<header className="flex px-4 items-center h-20 container mx-auto fixed bg-inherit">
-			<div className="w-44">
-				<Logo />
-			</div>
+			<div className="w-44">{/* <Logo /> */}</div>
 			<nav className="flex-1 text-sm justify-center items-center flex">
 				<ul className="flex gap-4 py-2 px-6 rounded-full items-center border font-medium">
 					{LINKS.map(({ href, text }) => (
