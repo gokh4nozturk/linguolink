@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function useMediaQuery(query: string) {
+	if (typeof window === "undefined") return;
 	const mediaQuery = window.matchMedia(query);
 	const [isMatch, setIsMatch] = React.useState(mediaQuery.matches);
 
