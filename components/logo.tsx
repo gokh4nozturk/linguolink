@@ -1,10 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { useTheme } from "next-themes";
-import logo from "@/public/logo.svg";
-import logoDark from "@/public/logo-dark.svg";
+import { useMediaQuery } from "@/hooks";
+
+import logo from "@/public/logo@3x.svg";
+import logoIcon from "@/public/logo-icon@3x.svg";
+import logoDark from "@/public/logo-dark@3x.svg";
+import logoIconDark from "@/public/logo-icon-dark@3x.svg";
 
 import {
 	ContextMenu,
@@ -21,13 +25,22 @@ import {
 	ContextMenuSubTrigger,
 	ContextMenuTrigger,
 } from "@/components/ui/context-menu";
-
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "./ui/badge";
 
 export function Logo() {
 	const { resolvedTheme } = useTheme();
+	const isMobile = useMediaQuery("(max-width: 640px)") ? "mobile" : "desktop";
 
-	const logoSrc = resolvedTheme === "light" ? logo : logoDark;
+	const logoSrc = {
+		light: {
+			desktop: logo,
+			mobile: logoIcon,
+		},
+		dark: {
+			desktop: logoDark,
+			mobile: logoIconDark,
+		},
+	}[resolvedTheme as keyof typeof resolvedTheme][isMobile];
 	return (
 		<ContextMenu>
 			<ContextMenuTrigger className="flex h-fit w-fit items-center justify-center">
@@ -36,8 +49,7 @@ export function Logo() {
 						loading="lazy"
 						src={logoSrc}
 						alt="logo"
-						width={100}
-						height={50}
+						width={isMobile === "mobile" ? 40 : 100}
 						style={{
 							maxWidth: "100%",
 							height: "auto",
