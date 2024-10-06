@@ -1,6 +1,6 @@
 export default function Features() {
 	return (
-		<div id="features" className="h-dvh">
+		<div id="features" className="h-dvh scroll-m-10">
 			Features
 		</div>
 	);
