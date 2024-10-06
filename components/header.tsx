@@ -1,11 +1,34 @@
 "use client";
 
 import { ModeToggle } from "./mode-toggle";
-import { useTheme } from "next-themes";
 import Link from "next/link";
 import { Logo } from "./logo";
 import { Button } from "./ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { cn } from "@/lib/utils";
+
+const LINKS = [
+	{
+		href: "#features",
+		text: "Features",
+		active: false,
+	},
+	{
+		href: "#pricing",
+		text: "Pricing",
+		active: false,
+	},
+	{
+		href: "#testimonials",
+		text: "Testimonials",
+		active: false,
+	},
+	{
+		href: "#faq",
+		text: "FAQ",
+		active: false,
+	},
+];
 
 export function Header() {
 	return (
@@ -14,27 +37,20 @@ export function Header() {
 				<Logo />
 			</div>
 			<nav className="flex-1 text-sm justify-center items-center flex">
-				<ul className="flex gap-4 py-3 px-6 rounded-3xl items-center border">
-					<li className="hidden sm:inline">
-						<Link href="#features">
-							<h1>Features</h1>
-						</Link>
-					</li>
-					<li className="hidden sm:inline">
-						<Link href="#pricing">
-							<h1>Pricing</h1>
-						</Link>
-					</li>
-					<li className="hidden sm:inline">
-						<Link href="#testimonials">
-							<h1>Testimonials</h1>
-						</Link>
-					</li>
-					<li className="hidden sm:inline">
-						<Link href="#faq">
-							<h1>FAQ</h1>
-						</Link>
-					</li>
+				<ul className="flex gap-4 py-3 px-6 rounded-3xl items-center border font-medium">
+					{LINKS.map(({ href, text, active }) => (
+						<li
+							key={href}
+							className={cn(
+								"hidden sm:inline text-muted-foreground hover:text-foreground",
+								active && "text-foreground",
+							)}
+						>
+							<Link href={href}>
+								<h1>{text}</h1>
+							</Link>
+						</li>
+					))}
 				</ul>
 			</nav>
 			<div className="flex gap-2 items-center w-44 justify-end">
