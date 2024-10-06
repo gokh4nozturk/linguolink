@@ -7,6 +7,7 @@ import {
 	CardTitle,
 } from "./ui/card";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Packages() {
 	const packages = [
@@ -46,8 +47,11 @@ export default function Packages() {
 
 	return (
 		<div className="flex gap-2">
-			{packages.map((pkg) => (
-				<Card key={pkg.name} className="w-80 text-left">
+			{packages.map((pkg, idx) => (
+				<Card
+					key={pkg.name}
+					className={cn("w-80 text-left", idx === 1 && "scale-110")}
+				>
 					<CardHeader className="space-y-4">
 						<p className="text-3xl font-semibold">{pkg.name}</p>
 						<p className="text-base text-foreground/60">{pkg.description}</p>
