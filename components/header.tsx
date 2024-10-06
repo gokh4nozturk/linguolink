@@ -55,7 +55,7 @@ export function Header() {
 	}, []);
 
 	return (
-		<header className="flex px-4 items-center h-20 container mx-auto fixed bg-inherit">
+		<header className="flex px-4 items-center h-16 container mx-auto fixed z-50 backdrop-blur-[12px]">
 			<div className="w-44">
 				<Logo />
 			</div>
