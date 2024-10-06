@@ -83,7 +83,7 @@ export function Header() {
 				<Button
 					variant="link"
 					asChild
-					className="hover:bg-slate-100 rounded-3xl"
+					className="rounded-3xl hover:bg-slate-100 dark:hover:bg-slate-800"
 				>
 					<a
 						href="http://app.linguolink.gokhanozturk.io"
