@@ -6,7 +6,7 @@ import Banner from "./_components/banner";
 
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between sm:p-24 p-4">
+		<main className="flex min-h-screen flex-col items-center justify-between sm:p-24 p-4 max-sm:gap-10">
 			<Banner />
 			<Features />
 			<Pricing />

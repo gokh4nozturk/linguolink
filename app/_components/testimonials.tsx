@@ -6,7 +6,7 @@ export default function Testimonials() {
 	return (
 		<section
 			id="testimonials"
-			className="h-dvh scroll-m-24 text-center container mx-auto"
+			className="min-h-dvh scroll-m-24 text-center container mx-auto"
 		>
 			<Title>Testimonials</Title>
 			<CTA
