@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ModeToggle } from "./mode-toggle";
-import { useTransitionRouter } from "next-view-transitions";
+import { Link, useTransitionRouter } from "next-view-transitions";
 import { Logo } from "./logo";
 import { Button } from "./ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
@@ -28,16 +28,30 @@ const LINKS = [
 ];
 
 export function Header() {
-	const [currentHash, setCurrentHash] = React.useState("");
+	const [activeSection, setActiveSection] = React.useState("");
 
-	const router = useTransitionRouter();
+	React.useEffect(() => {
+		const handleScroll = () => {
+			const sections = document.querySelectorAll("section");
+			let closestSection = "";
 
-	function handleRoute(hash: string) {
-		return () => {
-			router.push(hash);
-			setCurrentHash(hash);
+			for (const section of sections) {
+				const rect = section.getBoundingClientRect();
+
+				if (rect.top <= window.innerHeight * 0.25 && rect.bottom >= 0) {
+					closestSection = section.id;
+				}
+			}
+
+			setActiveSection(closestSection);
 		};
-	}
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
 	return (
 		<header className="flex px-4 items-center h-20 container mx-auto fixed bg-inherit">
@@ -45,19 +59,19 @@ export function Header() {
 				<Logo />
 			</div>
 			<nav className="flex-1 text-sm justify-center items-center flex">
-				<ul className="flex gap-4 px-6 rounded-full items-center border font-medium">
+				<ul className="flex gap-4 py-2 px-6 rounded-full items-center border font-medium">
 					{LINKS.map(({ href, text }) => (
 						<li key={href} className={cn("hidden sm:inline")}>
-							<Button
+							<Link
+								href={href}
 								className={cn(
 									"text-muted-foreground hover:text-foreground p-0",
-									currentHash === href && "text-foreground",
+									`#${activeSection}` === href &&
+										"text-foreground underline underline-offset-4",
 								)}
-								variant="link"
-								onClick={handleRoute(href)}
 							>
 								{text}
-							</Button>
+							</Link>
 						</li>
 					))}
 				</ul>
