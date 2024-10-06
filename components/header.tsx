@@ -1,7 +1,8 @@
 "use client";
 
+import React from "react";
 import { ModeToggle } from "./mode-toggle";
-import { Link } from "next-view-transitions";
+import { useTransitionRouter } from "next-view-transitions";
 import { Logo } from "./logo";
 import { Button } from "./ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
@@ -11,44 +12,59 @@ const LINKS = [
 	{
 		href: "#features",
 		text: "Features",
-		active: false,
 	},
 	{
 		href: "#pricing",
 		text: "Pricing",
-		active: false,
 	},
 	{
 		href: "#testimonials",
 		text: "Testimonials",
-		active: false,
 	},
 	{
 		href: "#faq",
 		text: "FAQ",
-		active: false,
 	},
 ];
 
 export function Header() {
+	const [currentHash, setCurrentHash] = React.useState("");
+
+	const router = useTransitionRouter();
+
+	function handleRoute(hash: string) {
+		return () => {
+			router.push(hash);
+			setCurrentHash(hash);
+		};
+	}
+
 	return (
-		<header className="flex px-4 items-center h-20 container mx-auto">
+		<header className="flex px-4 items-center h-20 container mx-auto fixed">
 			<div className="w-44">
 				<Logo />
 			</div>
 			<nav className="flex-1 text-sm justify-center items-center flex">
 				<ul className="flex gap-4 py-3 px-6 rounded-3xl items-center border font-medium">
-					{LINKS.map(({ href, text, active }) => (
+					{LINKS.map(({ href, text }) => (
 						<li
 							key={href}
 							className={cn(
 								"hidden sm:inline text-muted-foreground hover:text-foreground",
-								active && "text-foreground",
+								currentHash === href && "text-foreground",
 							)}
 						>
-							<Link href={href}>
-								<h1>{text}</h1>
-							</Link>
+							<h1
+								className="cursor-pointer"
+								onClick={handleRoute(href)}
+								onKeyUp={(e) => {
+									if (e.key === "Enter" || e.key === " ") {
+										handleRoute(href)();
+									}
+								}}
+							>
+								{text}
+							</h1>
 						</li>
 					))}
 				</ul>
