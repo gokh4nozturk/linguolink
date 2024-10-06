@@ -29,40 +29,33 @@ const LINKS = [
 
 export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
-	const [mounted, setMounted] = React.useState(false);
 
 	React.useEffect(() => {
-		setMounted(true);
-	}, []);
+		const sections = document.querySelectorAll("section");
 
-	React.useEffect(() => {
-		if (!mounted) return;
-
-		const handleScroll = () => {
-			const sections = document.querySelectorAll("section");
-			let closestSection = "";
-
-			for (const section of sections) {
-				const rect = section.getBoundingClientRect();
-
-				if (rect.top <= window.innerHeight * 0.25 && rect.bottom >= 0) {
-					closestSection = section.id;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				for (const entry of entries) {
+					if (entry.isIntersecting) {
+						setActiveSection(entry.target.id);
+					}
 				}
-			}
+			},
+			{
+				threshold: 0.75, // %75 görünürlük için tetiklenir
+			},
+		);
 
-			setActiveSection(closestSection);
-		};
-
-		if (typeof window !== "undefined") {
-			window.addEventListener("scroll", handleScroll);
+		for (const section of sections) {
+			observer.observe(section);
 		}
 
 		return () => {
-			if (typeof window !== "undefined") {
-				window.removeEventListener("scroll", handleScroll);
+			for (const section of sections) {
+				observer.unobserve(section);
 			}
 		};
-	}, [mounted]);
+	}, []);
 
 	return (
 		<header className="flex px-4 items-center h-20 container mx-auto fixed bg-inherit">
