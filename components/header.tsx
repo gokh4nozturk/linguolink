@@ -29,8 +29,14 @@ const LINKS = [
 
 export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
+	const [mounted, setMounted] = React.useState(false);
 
 	React.useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	React.useEffect(() => {
+		if (!mounted) return;
 		const handleScroll = () => {
 			const sections = document.querySelectorAll("section");
 			let closestSection = "";
@@ -51,7 +57,7 @@ export function Header() {
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, []);
+	}, [mounted]);
 
 	return (
 		<header className="flex px-4 items-center h-20 container mx-auto fixed bg-inherit">
