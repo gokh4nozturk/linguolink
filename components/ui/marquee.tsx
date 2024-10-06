@@ -7,6 +7,7 @@ interface MarqueeProps {
 	children?: React.ReactNode;
 	vertical?: boolean;
 	repeat?: number;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	[key: string]: any;
 }
 
