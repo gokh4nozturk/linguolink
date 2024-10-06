@@ -97,8 +97,6 @@ export function Header() {
 									href={href}
 									className={cn(
 										"text-muted-foreground hover:text-foreground p-0 w-full",
-										`#${activeSection}` === href &&
-											"text-foreground underline underline-offset-4",
 									)}
 									onClick={() => {
 										setIsMenuOpen(!isMenuOpen);
@@ -110,30 +108,29 @@ export function Header() {
 						))}
 					</ul>
 
-					<div className="flex gap-10 items-center justify-end mt-10">
-						<ModeToggle />
-
-						<Button asChild className="w-full">
-							<a
-								href="http://app.linguolink.gokhanozturk.io"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Login
-								<ArrowRightIcon className="w-4 h-4 ml-2" />
-							</a>
-						</Button>
-					</div>
+					<Button asChild className="w-full mt-10">
+						<a
+							href="http://app.linguolink.gokhanozturk.io"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Login
+							<ArrowRightIcon className="w-4 h-4 ml-2" />
+						</a>
+					</Button>
 				</nav>
-				<Button
-					size="icon"
-					variant="outline"
-					onClick={() => {
-						setIsMenuOpen(!isMenuOpen);
-					}}
-				>
-					<Menu />
-				</Button>
+				<div className="flex gap-2 items-center">
+					<ModeToggle />
+					<Button
+						size="icon"
+						variant="outline"
+						onClick={() => {
+							setIsMenuOpen(!isMenuOpen);
+						}}
+					>
+						<Menu />
+					</Button>
+				</div>
 			</div>
 		</header>
 	);
