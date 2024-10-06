@@ -46,11 +46,11 @@ export default function Packages() {
 	];
 
 	return (
-		<div className="flex gap-2">
+		<div className="flex flex-col sm:flex-row gap-2">
 			{packages.map((pkg, idx) => (
 				<Card
 					key={pkg.name}
-					className={cn("w-80 text-left", idx === 1 && "scale-110")}
+					className={cn("sm:w-80 text-left", idx === 1 && "sm:scale-110")}
 				>
 					<CardHeader className="space-y-4">
 						<p className="text-3xl font-semibold">{pkg.name}</p>
