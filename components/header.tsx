@@ -33,30 +33,30 @@ export function Header() {
 	React.useEffect(() => {
 		if (typeof window === "undefined") return;
 
-		const sections = document.querySelectorAll("section");
+		// const sections = document.querySelectorAll("section");
 
-		const observer = new IntersectionObserver(
-			(entries) => {
-				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						setActiveSection(entry.target.id);
-					}
-				}
-			},
-			{
-				threshold: 0.75, // %75 görünürlük için tetiklenir
-			},
-		);
+		// const observer = new IntersectionObserver(
+		// 	(entries) => {
+		// 		for (const entry of entries) {
+		// 			if (entry.isIntersecting) {
+		// 				setActiveSection(entry.target.id);
+		// 			}
+		// 		}
+		// 	},
+		// 	{
+		// 		threshold: 0.75, // %75 görünürlük için tetiklenir
+		// 	},
+		// );
 
-		for (const section of sections) {
-			observer.observe(section);
-		}
+		// for (const section of sections) {
+		// 	observer.observe(section);
+		// }
 
-		return () => {
-			for (const section of sections) {
-				observer.unobserve(section);
-			}
-		};
+		// return () => {
+		// 	for (const section of sections) {
+		// 		observer.unobserve(section);
+		// 	}
+		// };
 	}, []);
 
 	return (
