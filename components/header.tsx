@@ -56,7 +56,9 @@ export function Header() {
 
 	return (
 		<header className="flex px-4 items-center h-20 container mx-auto fixed bg-inherit">
-			<div className="w-44">{/* <Logo /> */}</div>
+			<div className="w-44">
+				<Logo />
+			</div>
 			<nav className="flex-1 text-sm justify-center items-center flex">
 				<ul className="flex gap-4 py-2 px-6 rounded-full items-center border font-medium">
 					{LINKS.map(({ href, text }) => (
