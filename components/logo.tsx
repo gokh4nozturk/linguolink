@@ -49,7 +49,7 @@ export function Logo() {
 						loading="lazy"
 						src={logoSrc}
 						alt="logo"
-						width={isMobile === "mobile" ? 40 : 100}
+						width={100}
 						style={{
 							maxWidth: "100%",
 							height: "auto",
