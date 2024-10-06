@@ -31,6 +31,8 @@ export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
 
 	React.useEffect(() => {
+		if (typeof window === "undefined") return;
+
 		const sections = document.querySelectorAll("section");
 
 		const observer = new IntersectionObserver(
