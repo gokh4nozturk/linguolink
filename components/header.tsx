@@ -31,10 +31,8 @@ export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
 
 	React.useEffect(() => {
-		if (typeof window === "undefined") return;
-
+		// if (typeof window === "undefined") return;
 		// const sections = document.querySelectorAll("section");
-
 		// const observer = new IntersectionObserver(
 		// 	(entries) => {
 		// 		for (const entry of entries) {
@@ -47,11 +45,9 @@ export function Header() {
 		// 		threshold: 0.75, // %75 görünürlük için tetiklenir
 		// 	},
 		// );
-
 		// for (const section of sections) {
 		// 	observer.observe(section);
 		// }
-
 		// return () => {
 		// 	for (const section of sections) {
 		// 		observer.unobserve(section);
