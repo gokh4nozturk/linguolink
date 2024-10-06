@@ -29,7 +29,7 @@ import { Badge } from "./ui/badge";
 
 export function Logo() {
 	const { resolvedTheme } = useTheme();
-	const isMobile = useMediaQuery("(max-width: 640px)") ? "mobile" : "desktop";
+	// const isMobile = useMediaQuery("(max-width: 640px)") ? "mobile" : "desktop";
 
 	const logoSrc = {
 		light: {
@@ -40,7 +40,7 @@ export function Logo() {
 			desktop: logoDark,
 			mobile: logoIconDark,
 		},
-	}[resolvedTheme as keyof typeof resolvedTheme][isMobile];
+	}[resolvedTheme as keyof typeof resolvedTheme]["desktop"];
 	return (
 		<ContextMenu>
 			<ContextMenuTrigger className="flex h-fit w-fit items-center justify-center">
