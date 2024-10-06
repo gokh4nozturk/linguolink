@@ -37,29 +37,31 @@ export function Header() {
 
 	React.useEffect(() => {
 		if (!mounted) return;
-		if (typeof window !== "undefined") {
-			// window kullanımı
-			const handleScroll = () => {
-				const sections = document.querySelectorAll("section");
-				let closestSection = "";
 
-				for (const section of sections) {
-					const rect = section.getBoundingClientRect();
+		const handleScroll = () => {
+			const sections = document.querySelectorAll("section");
+			let closestSection = "";
 
-					if (rect.top <= window.innerHeight * 0.25 && rect.bottom >= 0) {
-						closestSection = section.id;
-					}
+			for (const section of sections) {
+				const rect = section.getBoundingClientRect();
+
+				if (rect.top <= window.innerHeight * 0.25 && rect.bottom >= 0) {
+					closestSection = section.id;
 				}
+			}
 
-				setActiveSection(closestSection);
-			};
+			setActiveSection(closestSection);
+		};
 
+		if (typeof window !== "undefined") {
 			window.addEventListener("scroll", handleScroll);
-
-			return () => {
-				window.removeEventListener("scroll", handleScroll);
-			};
 		}
+
+		return () => {
+			if (typeof window !== "undefined") {
+				window.removeEventListener("scroll", handleScroll);
+			}
+		};
 	}, [mounted]);
 
 	return (
