@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { Link } from "next-view-transitions";
 import { useTheme } from "next-themes";
@@ -28,13 +29,22 @@ import {
 import { Badge } from "./ui/badge";
 
 export function Logo() {
+	const { resolvedTheme } = useTheme();
+
+	const logoSrc = React.useMemo(() => {
+		if (resolvedTheme === "dark") {
+			return logoDark;
+		}
+		return logo;
+	}, [resolvedTheme]);
+
 	return (
 		<ContextMenu>
 			<ContextMenuTrigger className="flex h-fit w-fit items-center justify-center">
 				<Link href="/" className="flex gap-1 items-center">
 					<Image
 						loading="lazy"
-						src={logoIcon}
+						src={logoSrc}
 						alt="logo"
 						width={100}
 						style={{
