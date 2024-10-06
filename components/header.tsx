@@ -40,7 +40,7 @@ export function Header() {
 	}
 
 	return (
-		<header className="flex px-4 items-center h-20 container mx-auto fixed">
+		<header className="flex px-4 items-center h-20 container mx-auto fixed bg-inherit">
 			<div className="w-44">
 				<Logo />
 			</div>

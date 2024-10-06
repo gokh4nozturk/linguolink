@@ -1,9 +1,14 @@
+import CTA from "@/components/cta";
 import Title from "@/components/title";
 
 export default function Features() {
 	return (
-		<div id="features" className="h-dvh scroll-m-24">
+		<section id="features" className="h-dvh scroll-m-24 text-center">
 			<Title>Features</Title>
-		</div>
+			<CTA
+				title="Why choose our service?"
+				description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+			/>
+		</section>
 	);
 }

@@ -1,9 +1,14 @@
+import CTA from "@/components/cta";
 import Title from "@/components/title";
 
 export default function Pricing() {
 	return (
-		<div id="pricing" className="h-dvh scroll-m-24">
+		<section id="pricing" className="h-dvh scroll-m-24 text-center">
 			<Title>Pricing</Title>
-		</div>
+			<CTA
+				title="A plan for every need"
+				description="Pariatur laborum dolor ea commodo sit aute aliquip qui et cillum excepteur."
+			/>
+		</section>
 	);
 }
