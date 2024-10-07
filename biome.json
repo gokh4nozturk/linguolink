@@ -26,6 +26,16 @@
 			},
 			"security": {
 				"recommended": true
+			},
+			"nursery": {
+				"recommended": true,
+				"useSortedClasses": {
+					"level": "warn",
+					"fix": "safe"
+				}
+			},
+			"a11y": {
+				"recommended": true
 			}
 		}
 	},
