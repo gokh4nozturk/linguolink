@@ -1,51 +1,39 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-	"organizeImports": {
-		"enabled": true
+	"$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
 	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": ["node_modules", "dist", "coverage"],
+		"include": ["**/*.ts", "**/*.tsx"]
+	},
+	"formatter": { "enabled": true, "indentStyle": "tab" },
+	"organizeImports": { "enabled": true },
 	"linter": {
 		"enabled": true,
 		"ignore": ["node_modules", "dist", "coverage"],
 		"rules": {
 			"recommended": true,
-			"complexity": {
-				"recommended": true,
-				"noForEach": "warn"
-			},
-			"correctness": {
-				"useExhaustiveDependencies": "warn",
-				"recommended": true
-			},
-			"suspicious": {
-				"recommended": true,
-				"noArrayIndexKey": "off"
-			},
-			"style": {
-				"recommended": true,
-				"noNonNullAssertion": "warn"
-			},
-			"security": {
-				"recommended": true
-			},
 			"nursery": {
-				"recommended": true,
 				"useSortedClasses": {
 					"level": "warn",
 					"fix": "safe"
 				}
 			},
-			"a11y": {
-				"recommended": true
+			"suspicious": {
+				"noArrayIndexKey": {
+					"level": "warn"
+				}
 			}
 		}
 	},
-	"files": {
-		"ignore": ["node_modules", "dist", "coverage"],
-		"include": ["**/*.ts", "**/*.tsx"]
-	},
-	"formatter": {
-		"enabled": true,
-		"ignore": ["node_modules", "dist", "coverage"],
-		"attributePosition": "auto"
+	"javascript": { "formatter": { "quoteStyle": "double" } },
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
+		}
 	}
 }
