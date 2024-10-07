@@ -39,8 +39,8 @@ export function Header() {
 	}, []);
 
 	return (
-		<header className="container fixed z-50 mx-auto flex h-16 items-center justify-between px-4 backdrop-blur-md">
-			<div className="w-44">
+		<header className="fixed z-50 flex h-14 w-full items-center justify-between border-b px-4 backdrop-blur-md dark:border-b-background/10">
+			<div className="w-48 px-2 ">
 				<Logo />
 			</div>
 			<div className="invisible transition-[visibility] md:visible md:flex md:w-full md:items-center">
@@ -62,29 +62,31 @@ export function Header() {
 						))}
 					</ul>
 				</nav>
-				<div className="flex w-44 items-center justify-end gap-2">
-					<ModeToggle />
+				<div className="flex w-48 items-center justify-end">
+					<div className="flex items-center gap-2 pl-3">
+						<ModeToggle />
 
-					<Button
-						variant="link"
-						asChild
-						className="rounded-3xl hover:bg-slate-100 dark:hover:bg-slate-800"
-					>
-						<a
-							href="http://app.linguolink.gokhanozturk.io"
-							target="_blank"
-							rel="noopener noreferrer"
+						<Button
+							variant="link"
+							asChild
+							className="rounded-3xl hover:bg-slate-100 dark:hover:bg-slate-800"
 						>
-							Login
-							<ArrowRightIcon className="ml-2 h-4 w-4" />
-						</a>
-					</Button>
+							<a
+								href="http://app.linguolink.gokhanozturk.io"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Login
+								<ArrowRightIcon className="ml-2 h-4 w-4" />
+							</a>
+						</Button>
+					</div>
 				</div>
 			</div>
 			<div className="md:hidden">
 				<nav
 					className={cn(
-						"fixed top-16 left-0 z-50 h-dvh w-full border-t bg-background px-4 pt-4",
+						"fixed top-14 left-0 z-50 h-dvh w-full border-t bg-background px-4 pt-4",
 						isMenuOpen
 							? "visible translate-x-0 opacity-100"
 							: "invisible translate-x-[-100vw] opacity-0 delay-500",
