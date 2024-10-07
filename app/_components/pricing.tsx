@@ -4,7 +4,7 @@ import Title from "@/components/title";
 
 export default function Pricing() {
 	return (
-		<section id="pricing" className="min-h-dvh scroll-m-24 text-center w-full">
+		<section id="pricing" className="min-h-dvh scroll-m-24 text-center">
 			<Title>Pricing</Title>
 			<CTA
 				title="A plan for every need"

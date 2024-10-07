@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { LINKS } from "@/constants";
-import { CircleEllipsis, Ellipsis, EllipsisVertical, Menu } from "lucide-react";
+import { EllipsisVertical } from "lucide-react";
 
 export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
@@ -39,13 +39,13 @@ export function Header() {
 	}, []);
 
 	return (
-		<header className="flex px-4 items-center justify-between h-16 container mx-auto fixed z-50 backdrop-blur-[12px]">
+		<header className="flex px-4 items-center justify-between h-16 container mx-auto fixed z-50 backdrop-blur-md">
 			<div className="w-44">
 				<Logo />
 			</div>
 			<div className="invisible md:visible md:flex md:w-full md:items-center transition-[visibility]">
 				<nav className="flex-1 text-sm justify-center items-center flex">
-					<ul className="flex gap-4 py-2 px-6 rounded-full items-center border font-medium">
+					<ul className="flex gap-4 py-2 px-6 rounded-full items-center border bg-background/50 font-medium">
 						{LINKS.map(({ href, text }) => (
 							<li key={href} className={cn("hidden sm:inline")}>
 								<Link

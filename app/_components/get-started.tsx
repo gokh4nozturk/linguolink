@@ -5,7 +5,7 @@ export default function GetStarted() {
 	return (
 		<section
 			id="get-started"
-			className="bg-soft-blue py-40 scroll-m-24 text-center w-full"
+			className="bg-soft-blue-foreground py-40 scroll-m-24 text-center w-full"
 		>
 			<CTA
 				title="Ready to get started?"
