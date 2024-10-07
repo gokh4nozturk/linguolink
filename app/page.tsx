@@ -3,6 +3,7 @@ import Pricing from "./_components/pricing";
 import Testimonials from "./_components/testimonials";
 import FAQ from "./_components/faq";
 import Banner from "./_components/banner";
+import GetStarted from "./_components/get-started";
 
 export default function Home() {
 	return (
@@ -11,6 +12,7 @@ export default function Home() {
 			<Features />
 			<Pricing />
 			<Testimonials />
+			<GetStarted />
 			<FAQ />
 		</main>
 	);
