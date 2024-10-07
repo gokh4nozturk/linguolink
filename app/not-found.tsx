@@ -4,7 +4,7 @@ import { Link } from "next-view-transitions";
 
 export default function NotFound() {
 	return (
-		<div className="min-h-dvh w-full grid place-items-center">
+		<div className="grid min-h-dvh w-full place-items-center">
 			<div>
 				<Image
 					src="/404.webp"
@@ -16,7 +16,7 @@ export default function NotFound() {
 				<Button
 					asChild
 					variant="secondary"
-					className="w-full mt-2"
+					className="mt-2 w-full"
 					aria-label="Return Home"
 				>
 					<Link href="/">Return Home</Link>

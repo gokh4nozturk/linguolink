@@ -38,7 +38,7 @@ export function Logo() {
 	return (
 		<ContextMenu>
 			<ContextMenuTrigger className="flex h-fit w-fit items-center justify-center">
-				<Link href="/" className="flex gap-1 items-center">
+				<Link href="/" className="flex items-center gap-1">
 					<Image
 						loading="lazy"
 						src={logoSrc}

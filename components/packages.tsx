@@ -46,26 +46,26 @@ export default function Packages() {
 	];
 
 	return (
-		<div className="flex flex-col sm:flex-row gap-2">
+		<div className="flex flex-col gap-2 sm:flex-row">
 			{packages.map((pkg, idx) => (
 				<Card
 					key={pkg.name}
-					className={cn("sm:w-80 text-left", idx === 1 && "sm:scale-110")}
+					className={cn("text-left sm:w-80", idx === 1 && "sm:scale-110")}
 				>
 					<CardHeader className="space-y-4">
-						<p className="text-3xl font-semibold">{pkg.name}</p>
+						<p className="font-semibold text-3xl">{pkg.name}</p>
 						<p className="text-base text-foreground/60">{pkg.description}</p>
 					</CardHeader>
 
-					<CardContent className="space-y-4 justify-center flex flex-col">
-						<CardTitle className="text-4xl text-left">$ {pkg.price}</CardTitle>
+					<CardContent className="flex flex-col justify-center space-y-4">
+						<CardTitle className="text-left text-4xl">$ {pkg.price}</CardTitle>
 						<Button>Get Started</Button>
 						{pkg.features.map((feature, index) => (
 							<CardDescription
 								key={index}
-								className="flex items-center text-sm text-left"
+								className="flex items-center text-left text-sm"
 							>
-								<BadgeCheck className="w-4 h-4 inline-block mr-2" />
+								<BadgeCheck className="mr-2 inline-block h-4 w-4" />
 								{feature}
 							</CardDescription>
 						))}

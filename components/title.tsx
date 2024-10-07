@@ -1,6 +1,6 @@
 export default function Title({ children }: { children: React.ReactNode }) {
 	return (
-		<h2 className="text-soft-blue-foreground font-semibold text-base">
+		<h2 className="font-semibold text-base text-soft-blue-foreground">
 			{children}
 		</h2>
 	);
