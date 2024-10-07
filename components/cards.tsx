@@ -12,6 +12,7 @@ import {
 	ChartSpline,
 	Check,
 	Cog,
+	Cpu,
 	HandCoins,
 	Lock,
 	Rabbit,
@@ -32,12 +33,6 @@ export default function Cards() {
 				"Built with stability in mind, ensuring consistent performance and minimizing downtime.",
 			icon: <Check />,
 		},
-		// {
-		// 	title: "Secure",
-		// 	description:
-		// 		"Advanced security measures to protect your data and ensure privacy.",
-		// 	icon: <Lock />,
-		// },
 		{
 			title: "Synced",
 			description:
@@ -57,10 +52,10 @@ export default function Cards() {
 			icon: <HandCoins />,
 		},
 		{
-			title: "Scalable",
+			title: "AI-powered",
 			description:
-				"Designed to grow with your needs, easily handling increasing workloads and users.",
-			icon: <ChartSpline />,
+				"Utilizes artificial intelligence and machine learning to enhance performance and accuracy.",
+			icon: <Cpu />,
 		},
 	];
 	return (
