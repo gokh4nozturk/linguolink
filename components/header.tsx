@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { LINKS } from "@/constants";
-import { Menu } from "lucide-react";
+import { CircleEllipsis, Ellipsis, EllipsisVertical, Menu } from "lucide-react";
 
 export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
@@ -124,11 +124,17 @@ export function Header() {
 					<Button
 						size="icon"
 						variant="outline"
+						className="rounded-full size-7"
 						onClick={() => {
 							setIsMenuOpen(!isMenuOpen);
 						}}
 					>
-						<Menu />
+						<EllipsisVertical
+							className={cn(
+								"w-4 h-4 transition-all delay-300",
+								isMenuOpen ? "rotate-90" : "rotate-0",
+							)}
+						/>
 					</Button>
 				</div>
 			</div>
