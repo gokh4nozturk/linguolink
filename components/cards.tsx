@@ -59,14 +59,14 @@ export default function Cards() {
 		},
 	];
 	return (
-		<div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+		<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
 			{cards.map((card, index) => (
 				<Card
 					key={index}
-					className="hover:drop-shadow-lg hover:scale-[1.015] dark:hover:drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)] transition-all"
+					className="transition-all hover:scale-[1.015] hover:drop-shadow-lg dark:hover:drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)]"
 				>
 					<CardHeader>{card.icon}</CardHeader>
-					<CardContent className="text-left space-y-1">
+					<CardContent className="space-y-1 text-left">
 						<CardTitle>{card.title}</CardTitle>
 						<CardDescription>{card.description}</CardDescription>
 					</CardContent>

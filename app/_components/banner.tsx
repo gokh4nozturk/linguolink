@@ -5,14 +5,14 @@ export default function Banner() {
 	return (
 		<section
 			id="banner"
-			className="min-h-dvh scroll-m-24 text-center pt-1 pb-32 flex flex-col items-center w-full"
+			className="flex min-h-dvh w-full scroll-m-24 flex-col items-center pt-1 pb-32 text-center"
 		>
 			<div className="text-foreground">
 				<div className="py-12 text-center">
-					<h1 className="text-3xl sm:text-7xl font-bold">
+					<h1 className="font-bold text-3xl sm:text-7xl">
 						Transform Your Translation Experience!
 					</h1>
-					<p className="text-lg mt-4 text-foreground/60">
+					<p className="mt-4 text-foreground/60 text-lg">
 						Unlock Seamless Translation Management! Experience the future of
 						collaboration and efficiency with our intuitive platform.
 					</p>

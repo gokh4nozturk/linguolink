@@ -39,19 +39,19 @@ export function Header() {
 	}, []);
 
 	return (
-		<header className="flex px-4 items-center justify-between h-16 container mx-auto fixed z-50 backdrop-blur-md">
+		<header className="container fixed z-50 mx-auto flex h-16 items-center justify-between px-4 backdrop-blur-md">
 			<div className="w-44">
 				<Logo />
 			</div>
-			<div className="invisible md:visible md:flex md:w-full md:items-center transition-[visibility]">
-				<nav className="flex-1 text-sm justify-center items-center flex">
-					<ul className="flex gap-4 py-2 px-6 rounded-full items-center border bg-background/50 font-medium">
+			<div className="invisible transition-[visibility] md:visible md:flex md:w-full md:items-center">
+				<nav className="flex flex-1 items-center justify-center text-sm">
+					<ul className="flex items-center gap-4 rounded-full border bg-background/50 px-6 py-2 font-medium">
 						{LINKS.map(({ href, text }) => (
 							<li key={href} className={cn("hidden sm:inline")}>
 								<Link
 									href={href}
 									className={cn(
-										"text-muted-foreground hover:text-foreground p-0",
+										"p-0 text-muted-foreground hover:text-foreground",
 										`#${activeSection}` === href &&
 											"text-foreground underline underline-offset-4",
 									)}
@@ -62,7 +62,7 @@ export function Header() {
 						))}
 					</ul>
 				</nav>
-				<div className="flex gap-2 items-center w-44 justify-end">
+				<div className="flex w-44 items-center justify-end gap-2">
 					<ModeToggle />
 
 					<Button
@@ -76,7 +76,7 @@ export function Header() {
 							rel="noopener noreferrer"
 						>
 							Login
-							<ArrowRightIcon className="w-4 h-4 ml-2" />
+							<ArrowRightIcon className="ml-2 h-4 w-4" />
 						</a>
 					</Button>
 				</div>
@@ -84,10 +84,10 @@ export function Header() {
 			<div className="md:hidden">
 				<nav
 					className={cn(
-						"top-16 left-0 fixed w-full h-dvh bg-background z-50 px-4 border-t pt-4",
+						"fixed top-16 left-0 z-50 h-dvh w-full border-t bg-background px-4 pt-4",
 						isMenuOpen
 							? "visible translate-x-0 opacity-100"
-							: "invisible delay-500 translate-x-[-100vw] opacity-0",
+							: "invisible translate-x-[-100vw] opacity-0 delay-500",
 					)}
 				>
 					<ul className=" space-y-4">
@@ -96,7 +96,7 @@ export function Header() {
 								<Link
 									href={href}
 									className={cn(
-										"text-muted-foreground hover:text-foreground p-0 w-full",
+										"w-full p-0 text-muted-foreground hover:text-foreground",
 									)}
 									onClick={() => {
 										setIsMenuOpen(!isMenuOpen);
@@ -108,30 +108,30 @@ export function Header() {
 						))}
 					</ul>
 
-					<Button asChild className="w-full mt-10">
+					<Button asChild className="mt-10 w-full">
 						<a
 							href="http://app.linguolink.gokhanozturk.io"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							Login
-							<ArrowRightIcon className="w-4 h-4 ml-2" />
+							<ArrowRightIcon className="ml-2 h-4 w-4" />
 						</a>
 					</Button>
 				</nav>
-				<div className="flex gap-2 items-center">
+				<div className="flex items-center gap-2">
 					<ModeToggle />
 					<Button
 						size="icon"
 						variant="outline"
-						className="rounded-full size-7"
+						className="size-7 rounded-full"
 						onClick={() => {
 							setIsMenuOpen(!isMenuOpen);
 						}}
 					>
 						<EllipsisVertical
 							className={cn(
-								"w-4 h-4 transition-all delay-300",
+								"h-4 w-4 transition-all delay-300",
 								isMenuOpen ? "rotate-90" : "rotate-0",
 							)}
 						/>

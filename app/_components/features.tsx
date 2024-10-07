@@ -4,7 +4,7 @@ import Title from "@/components/title";
 
 export default function Features() {
 	return (
-		<section id="features" className="min-h-dvh scroll-m-24 text-center w-full">
+		<section id="features" className="min-h-dvh w-full scroll-m-24 text-center">
 			<Title>Features</Title>
 			<CTA
 				title="Why choose our service?"
