@@ -84,7 +84,7 @@ export function Header() {
 			<div className="md:hidden">
 				<nav
 					className={cn(
-						"top-16 left-0 fixed backdrop-blur-[12px] w-full transition-all h-dvh bg-background z-50 px-4",
+						"top-16 left-0 fixed w-full h-dvh bg-background z-50 px-4",
 						isMenuOpen
 							? "visible translate-x-0 opacity-100"
 							: "invisible delay-500 translate-x-[-100vw] opacity-0",
