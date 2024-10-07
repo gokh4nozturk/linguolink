@@ -8,7 +8,15 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { ChartSpline, Check, Cog, HandCoins, Lock, Rabbit } from "lucide-react";
+import {
+	ChartSpline,
+	Check,
+	Cog,
+	HandCoins,
+	Lock,
+	Rabbit,
+	Workflow,
+} from "lucide-react";
 
 export default function Cards() {
 	const cards = [
@@ -24,11 +32,17 @@ export default function Cards() {
 				"Built with stability in mind, ensuring consistent performance and minimizing downtime.",
 			icon: <Check />,
 		},
+		// {
+		// 	title: "Secure",
+		// 	description:
+		// 		"Advanced security measures to protect your data and ensure privacy.",
+		// 	icon: <Lock />,
+		// },
 		{
-			title: "Secure",
+			title: "Synced",
 			description:
-				"Advanced security measures to protect your data and ensure privacy.",
-			icon: <Lock />,
+				"Seamless integration with other tools and platforms to streamline your workflow.",
+			icon: <Workflow />,
 		},
 		{
 			title: "Fast",
