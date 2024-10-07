@@ -5,7 +5,7 @@ export default function Banner() {
 	return (
 		<section
 			id="banner"
-			className="min-h-dvh scroll-m-24 text-center pt-1 pb-32 flex flex-col items-center"
+			className="min-h-dvh scroll-m-24 text-center pt-1 pb-32 flex flex-col items-center w-full"
 		>
 			<div className="text-foreground">
 				<div className="py-12 text-center">
