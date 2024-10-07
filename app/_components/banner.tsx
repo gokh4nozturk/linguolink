@@ -18,7 +18,11 @@ export default function Banner() {
 					</p>
 				</div>
 			</div>
-			<Image className="-mr-8" src={experience} alt="experience" />
+			<Image
+				className="sm:-mr-8 max-sm:w-10/12"
+				src={experience}
+				alt="experience"
+			/>
 		</section>
 	);
 }
