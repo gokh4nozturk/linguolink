@@ -1,15 +1,12 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { Link } from "next-view-transitions";
 import { useTheme } from "next-themes";
-import { useMediaQuery } from "@/hooks";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import React from "react";
 
-import logo from "@/public/logo@3x.svg";
-import logoIcon from "@/public/logo-icon@3x.svg";
 import logoDark from "@/public/logo-dark@3x.svg";
-import logoIconDark from "@/public/logo-icon-dark@3x.svg";
+import logo from "@/public/logo@3x.svg";
 
 import {
 	ContextMenu,

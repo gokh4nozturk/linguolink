@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import {
 	Card,
 	CardContent,
@@ -8,16 +7,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import {
-	ChartSpline,
-	Check,
-	Cog,
-	Cpu,
-	HandCoins,
-	Lock,
-	Rabbit,
-	Workflow,
-} from "lucide-react";
+import { Check, Cog, Cpu, HandCoins, Rabbit, Workflow } from "lucide-react";
 
 export default function Cards() {
 	const cards = [

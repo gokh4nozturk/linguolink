@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import {
 	CommandDialog,
 	CommandEmpty,
@@ -8,21 +7,13 @@ import {
 	CommandInput,
 	CommandItem,
 	CommandList,
-	CommandSeparator,
-	CommandShortcut,
 } from "@/components/ui/command";
-import {
-	Command,
-	Menu,
-	Monitor,
-	MoonIcon,
-	SearchCode,
-	SunIcon,
-} from "lucide-react";
-import { Button } from "./ui/button";
-import { useTransitionRouter } from "next-view-transitions";
 import { LINKS } from "@/constants";
+import { Command, Monitor, MoonIcon, SearchCode, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useTransitionRouter } from "next-view-transitions";
+import * as React from "react";
+import { Button } from "./ui/button";
 
 export function CommandMenu() {
 	const [open, setOpen] = React.useState(false);

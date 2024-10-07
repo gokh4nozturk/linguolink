@@ -1,4 +1,6 @@
+import { cn } from "@/lib/utils";
 import { BadgeCheck } from "lucide-react";
+import { Button } from "./ui/button";
 import {
 	Card,
 	CardContent,
@@ -6,8 +8,6 @@ import {
 	CardHeader,
 	CardTitle,
 } from "./ui/card";
-import { Button } from "./ui/button";
-import { cn } from "@/lib/utils";
 
 export default function Packages() {
 	const packages = [

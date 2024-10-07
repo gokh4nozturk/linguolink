@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
-import { ModeToggle } from "./mode-toggle";
-import { Link } from "next-view-transitions";
-import { Logo } from "./logo";
-import { Button } from "./ui/button";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { cn } from "@/lib/utils";
 import { LINKS } from "@/constants";
+import { cn } from "@/lib/utils";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { EllipsisVertical } from "lucide-react";
+import { Link } from "next-view-transitions";
+import React from "react";
+import { Logo } from "./logo";
+import { ModeToggle } from "./mode-toggle";
+import { Button } from "./ui/button";
 
 export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
