@@ -17,6 +17,11 @@ export default function Footer() {
 			>
 				Terms
 			</a>
+			<div>
+				<a href="mailto:linguolink.app@gmail.com?subject=Inquiry%20from%20Linguolink%20Website">
+					Contact Us
+				</a>
+			</div>
 		</footer>
 	);
 }
