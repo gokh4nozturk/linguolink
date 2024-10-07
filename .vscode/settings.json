@@ -9,5 +9,7 @@
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": true,
 	"files.autoSave": "onFocusChange",
-	"eslint.enable": false
+	"eslint.enable": false,
+	"biome.lspBin": "biome-language-server",
+	"biome.enabled": true,
 }
