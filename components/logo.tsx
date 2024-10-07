@@ -1,13 +1,5 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { Link } from "next-view-transitions";
-import Image from "next/image";
-import React from "react";
-
-import logoDark from "@/public/logo-dark@3x.svg";
-import logo from "@/public/logo@3x.svg";
-
 import {
 	ContextMenu,
 	ContextMenuCheckboxItem,
@@ -23,16 +15,20 @@ import {
 	ContextMenuSubTrigger,
 	ContextMenuTrigger,
 } from "@/components/ui/context-menu";
+import logoDark from "@/public/logo-dark@3x.svg";
+import logo from "@/public/logo@3x.svg";
+import { useTheme } from "next-themes";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import * as React from "react";
 import { Badge } from "./ui/badge";
 
 export function Logo() {
+	const [src, setSrc] = React.useState(logo);
 	const { resolvedTheme } = useTheme();
 
-	const logoSrc = React.useMemo(() => {
-		if (resolvedTheme === "dark") {
-			return logoDark;
-		}
-		return logo;
+	React.useEffect(() => {
+		setSrc(resolvedTheme === "dark" ? logoDark : logo);
 	}, [resolvedTheme]);
 
 	return (
@@ -41,7 +37,7 @@ export function Logo() {
 				<Link href="/" className="flex items-center gap-1">
 					<Image
 						loading="lazy"
-						src={logoSrc}
+						src={src}
 						alt="logo"
 						width={100}
 						style={{
