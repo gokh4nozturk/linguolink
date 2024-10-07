@@ -11,7 +11,7 @@ export default function Testimonials() {
 			<Title>Testimonials</Title>
 			<CTA
 				title="What our customers are saying."
-				description="Proident sunt exercitation minim laborum enim laboris labore esse."
+				description="See how our platform is transforming translation management for teams like yours. Discover success stories from satisfied users and learn why they trust us to streamline their workflows."
 			/>
 			<Reviews />
 		</section>

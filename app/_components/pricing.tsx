@@ -8,7 +8,7 @@ export default function Pricing() {
 			<Title>Pricing</Title>
 			<CTA
 				title="A plan for every need"
-				description="Pariatur laborum dolor ea commodo sit aute aliquip qui et cillum excepteur."
+				description="Find the perfect plan for your needs. Start today and scale with ease."
 			/>
 			<Packages />
 		</section>

@@ -8,7 +8,7 @@ export default function Features() {
 			<Title>Features</Title>
 			<CTA
 				title="Why choose our service?"
-				description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+				description="Manage translations effortlessly and save time! Grow your projects quickly with our platform, and collaborate instantly with your team."
 			/>
 			<Cards />
 		</section>
