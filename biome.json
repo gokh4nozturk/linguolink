@@ -7,14 +7,30 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["node_modules", "dist", "coverage"],
-		"include": ["**/*.ts", "**/*.tsx"]
+		"ignore": [
+			"node_modules",
+			"dist",
+			"coverage"
+		],
+		"include": [
+			"**/*.ts",
+			"**/*.tsx"
+		]
 	},
-	"formatter": { "enabled": true, "indentStyle": "tab" },
-	"organizeImports": { "enabled": true },
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
 	"linter": {
 		"enabled": true,
-		"ignore": ["node_modules", "dist", "coverage"],
+		"ignore": [
+			"node_modules",
+			"dist",
+			"coverage"
+		],
 		"rules": {
 			"recommended": true,
 			"nursery": {
@@ -30,7 +46,11 @@
 			}
 		}
 	},
-	"javascript": { "formatter": { "quoteStyle": "double" } },
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
 	"json": {
 		"formatter": {
 			"trailingCommas": "none"

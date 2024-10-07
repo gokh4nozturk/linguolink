@@ -12,4 +12,11 @@
 	"eslint.enable": false,
 	"biome.lspBin": "biome-language-server",
 	"biome.enabled": true,
+	"[json]": {
+		"editor.quickSuggestions": {
+			"strings": true
+		},
+		"editor.suggest.insertMode": "replace",
+		"editor.defaultFormatter": "vscode.json-language-features"
+	}
 }
