@@ -39,7 +39,7 @@ export function Header() {
 	}, []);
 
 	return (
-		<header className="fixed z-50 flex h-14 w-full items-center justify-between border-b px-4 backdrop-blur-md dark:border-b-background/10">
+		<header className="fixed z-50 flex h-14 w-full items-center justify-between px-4 backdrop-blur-md dark:border-b dark:border-b-background/10">
 			<div className="w-48 px-2 ">
 				<Logo />
 			</div>
