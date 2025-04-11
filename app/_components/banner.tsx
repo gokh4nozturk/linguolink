@@ -101,7 +101,7 @@ export default function Banner() {
   }, []);
 
   const handleGetStarted = () => {
-    router.push('/signup?plan=Free');
+    router.push('/signup?plan=free');
   };
 
   const handleSeeAction = () => {
