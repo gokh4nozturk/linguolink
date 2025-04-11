@@ -2,7 +2,7 @@ import Footer from '@/components/footer';
 import { Header } from '@/components/header';
 import { SubscriptionProvider } from '@/contexts/subscription-context';
 import { cn } from '@/lib/utils';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
@@ -12,9 +12,80 @@ const fontSans = FontSans({
   variable: '--font-sans',
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: 'LinguoLink - Automate Your Translation Workflow',
-  description: 'Effortlessly manage and automate your translation workflows with LinguoLink.',
+  title: {
+    default: 'LinguoLink - Automate Your Translation Workflow',
+    template: '%s | LinguoLink',
+  },
+  description:
+    'Effortlessly manage and automate your translation workflows with LinguoLink. Smart localization management for developers, streamlining translation pipelines.',
+  keywords: [
+    'LinguoLink',
+    'translation management',
+    'localization',
+    'localization management',
+    'i18n',
+    'translation automation',
+    'translation workflow',
+    'localization tools',
+    'developer translation',
+  ],
+  authors: [{ name: 'LinguoLink Team' }],
+  creator: 'LinguoLink',
+  publisher: 'LinguoLink',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://linguolink.com',
+    siteName: 'LinguoLink',
+    title: 'LinguoLink - Automate Your Translation Workflow',
+    description:
+      'Smart localization management for developers. Streamline your translation pipelines and reduce costs.',
+    images: [
+      {
+        url: 'https://linguolink.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'LinguoLink - Localization Management for Developers',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LinguoLink - Automate Your Translation Workflow',
+    description:
+      'Smart localization management for developers. Streamline your translation pipelines and reduce costs.',
+    images: ['https://linguolink.com/og-image.png'],
+    creator: '@linguolink',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  metadataBase: new URL('https://linguolink.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+    },
+  },
+  category: 'Technology',
 };
 
 export default function RootLayout({

@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LinguoLink - Translation Workflow Automation Platform
+
+LinguoLink helps development teams automate translation workflows, reduce costs, and scale localization with smart pipelines and developer-friendly tools.
+
+## Features
+
+- **Automatic Sync**: Never worry about manual updates. LinguoLink automatically syncs your translations as content changes.
+- **Webhook & CI/CD Integration**: Seamlessly integrate with your existing development workflows and deployment pipelines.
+- **Inline Editor**: Edit translations directly in the platform with a user-friendly interface that supports multiple languages.
+- **API Key Management**: Securely manage and rotate API keys for all your projects with fine-grained permissions.
+- **Usage-Based Pricing**: Only pay for what you use with our transparent, scalable pricing model that grows with your needs.
+- **Fast Performance**: Get rapid response times and lightning-fast translation processing to keep your localization pipelines flowing.
 
 ## Getting Started
 
-First, run the development server:
+Visit [LinguoLink.com](https://linguolink.com) to create your free account and start automating your translation workflows today.
+
+### Development Setup
+
+This is a [Next.js](https://nextjs.org/) project. If you're contributing to the codebase, here's how to set up your development environment:
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/linguolink.git
+cd linguolink
+
+# Install dependencies
+npm install
+# or
+yarn
+# or
+bun install
+
+# Start the development server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
 # or
 bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Frontend**: Next.js, React, TypeScript, TailwindCSS
+- **Styling**: Shadcn UI, Tailwind CSS
+- **Deployment**: Vercel
 
-## Learn More
+## About Localization Management
 
-To learn more about Next.js, take a look at the following resources:
+Localization management involves coordinating the translation and adaptation of content for different markets. Modern software development teams need efficient solutions to:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Automate translation workflows
+- Connect development pipelines with translation processes
+- Maintain quality across multiple languages
+- Scale localization efforts efficiently
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+LinguoLink addresses these challenges with a developer-first approach to translation automation.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[MIT](LICENSE)
