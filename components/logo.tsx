@@ -18,8 +18,8 @@ import {
 import logoDark from '@/public/logo-dark.svg';
 import logo from '@/public/logo.svg';
 import { useTheme } from 'next-themes';
-import { Link } from 'next-view-transitions';
 import Image from 'next/image';
+import Link from 'next/link';
 import * as React from 'react';
 import { Badge } from './ui/badge';
 
