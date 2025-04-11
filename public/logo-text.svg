@@ -1,21 +1,5 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116.748046875 43" width="116.748046875" height="43">
-  <!-- svg-source:excalidraw -->
-  
-  <defs>
-    <style class="style-fonts">
-      @font-face {
-        font-family: "Virgil";
-        src: url("https://excalidraw.com/Virgil.woff2");
-      }
-      @font-face {
-        font-family: "Cascadia";
-        src: url("https://excalidraw.com/Cascadia.woff2");
-      }
-      @font-face {
-        font-family: "Assistant";
-        src: url("https://excalidraw.com/Assistant-Regular.woff2");
-      }
-    </style>
-    
-  </defs>
-  <g transform="translate(10 10) rotate(0 48.3740234375 11.5)"><text x="0" y="18.400390625" font-family="Helvetica, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">LinguoLink</text></g></svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <text x="10" y="30" font-family="sans-serif" font-size="24px" font-weight="600" fill="#1e1e1e" text-anchor="start">
+    Linguolink
+  </text>
+</svg>
