@@ -34,30 +34,45 @@ export default function Packages() {
         'Priority support',
         'Role management',
         'CI/CD integration',
+        'Email notifications',
       ],
     },
   ];
 
   return (
-    <div className="flex flex-col gap-2 sm:flex-row">
+    <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 sm:flex-row">
       {packages.map((pkg, idx) => (
-        <Card key={pkg.name} className={cn('text-left sm:w-80', idx === 1 && 'sm:scale-110')}>
-          <CardHeader className="space-y-4">
-            <p className="font-semibold text-3xl">{pkg.name}</p>
+        <Card
+          key={pkg.name}
+          className={cn(
+            'flex flex-1 flex-col border text-left',
+            idx === 1 && 'sm:-mt-4 sm:border-primary sm:shadow-lg'
+          )}
+        >
+          <CardHeader className="space-y-2 pb-0">
+            <p className="font-bold text-3xl">{pkg.name}</p>
             <p className="text-base text-foreground/60">{pkg.description}</p>
           </CardHeader>
 
-          <CardContent className="flex flex-col justify-center space-y-4">
-            <CardTitle className="text-left text-4xl">
-              {pkg.price === 0 ? 'Free' : `$${pkg.price}/mo`}
-            </CardTitle>
-            <Button>{pkg.price === 0 ? 'Start Free' : 'Subscribe'}</Button>
-            {pkg.features.map((feature, index) => (
-              <CardDescription key={index} className="flex items-center text-left text-sm">
-                <BadgeCheck className="mr-2 inline-block h-4 w-4" />
-                {feature}
-              </CardDescription>
-            ))}
+          <CardContent className="flex h-full flex-col justify-between space-y-6 pt-4">
+            <div>
+              <CardTitle className="mb-6 text-left font-bold text-4xl">
+                {pkg.price === 0 ? 'Free' : `$${pkg.price}/mo`}
+              </CardTitle>
+
+              <div className="space-y-3">
+                {pkg.features.map((feature) => (
+                  <CardDescription key={feature} className="flex items-center text-left text-sm">
+                    <BadgeCheck className="mr-2 inline-block h-4 w-4 text-primary" />
+                    {feature}
+                  </CardDescription>
+                ))}
+              </div>
+            </div>
+
+            <Button variant={idx === 1 ? 'default' : 'outline'} size="lg" className="mt-6 w-full">
+              {pkg.price === 0 ? 'Start Free' : 'Subscribe'}
+            </Button>
           </CardContent>
         </Card>
       ))}

@@ -14,7 +14,7 @@ export default function Banner() {
             Automate Your Translation Workflow — Instantly
           </h1>
           <p className="mt-4 text-foreground/60 text-lg">
-            Linguolink helps dev teams localize faster and reduce costs with smart, scalable
+            LinguoLink helps dev teams localize faster and reduce costs with smart, scalable
             translation pipelines.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
@@ -28,11 +28,14 @@ export default function Banner() {
           </p>
         </div>
       </div>
-      <Image
-        className="sm:-mr-8 max-sm:w-10/12"
-        src={experience}
-        alt="Translation workflow automation dashboard"
-      />
+      <div className="relative w-full max-w-5xl">
+        <Image
+          className="w-full"
+          src={experience}
+          alt="Translation workflow automation dashboard with team collaboration"
+          priority
+        />
+      </div>
     </section>
   );
 }
