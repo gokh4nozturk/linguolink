@@ -26,7 +26,11 @@ export default function Home() {
     >
       <Banner />
       <ProblemSolutions />
-      <section itemScope itemType="https://schema.org/Product">
+      <section
+        itemScope
+        itemType="https://schema.org/Product"
+        className="grid grid-cols-1 gap-20 max-sm:gap-10"
+      >
         <meta itemProp="name" content="LinguoLink" />
         <meta
           itemProp="description"

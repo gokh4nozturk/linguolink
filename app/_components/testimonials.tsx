@@ -7,7 +7,7 @@ export default function Testimonials() {
     <section id="testimonials" className="min-h-dvh w-full scroll-m-24 text-center">
       <Title>Real feedback from real users</Title>
       <CTA
-        title="Developers, product managers, and localization specialists are already saving time and money with Linguolink's automated translation management platform."
+        title="Teams are saving time and money with Linguolink's automated translation platform."
         description=""
       />
       <Reviews />
