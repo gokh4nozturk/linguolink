@@ -2,7 +2,7 @@
 
 import { type SubscriptionPlan, useSubscription } from '@/contexts/subscription-context';
 import { cn } from '@/lib/utils';
-import { BadgeCheck } from 'lucide-react';
+import { ArrowRight, BadgeCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
@@ -13,86 +13,120 @@ export default function Packages() {
 
   const packages = [
     {
+      id: 'free',
       name: 'Free',
-      description: 'For small projects and individual developers',
+      description: 'For individuals and small projects',
       price: 0,
-      features: ['1 project', '10,000 characters/month', '1 user', 'Basic dashboard'],
+      features: ['1 project', '1,000 characters limit', 'Basic dashboard'],
     },
     {
-      name: 'Growth',
-      description: 'For growing teams and startups',
+      id: 'starter',
+      name: 'Starter',
+      description: 'For growing projects',
       price: 19,
-      features: [
-        '5 projects',
-        '100,000 characters/month',
-        'Team access',
-        'Webhook support',
-        'Export functionality',
-      ],
+      features: ['3 projects', '10,000 characters', 'Webhook support', 'Export functionality'],
     },
     {
-      name: 'Pro',
+      id: 'growth',
+      name: 'Growth',
       description: 'For professional teams',
-      price: 79,
-      features: [
-        'Unlimited projects',
-        'Unlimited characters',
-        'API access',
-        'Priority support',
-        'Role management',
-        'CI/CD integration',
-        'Email notifications',
-      ],
+      price: 49,
+      features: ['10 projects', '100,000 characters', 'Collaboration features', 'Role management'],
     },
   ];
 
-  const handleSelectPackage = (packageName: SubscriptionPlan) => {
-    setSelectedPlan(packageName);
-    router.push(`/signup?plan=${packageName}`);
+  const enterprisePlan = {
+    id: 'pro',
+    name: 'Pro / Enterprise',
+    description: 'For organizations with advanced needs',
+    features: [
+      'Unlimited projects',
+      'Custom domain',
+      'SSO authentication',
+      'SLA support',
+      'Custom integrations',
+    ],
+  };
+
+  const handleSelectPackage = (packageId: string) => {
+    const selectedPackage = packages.find((pkg) => pkg.id === packageId);
+    if (selectedPackage) {
+      setSelectedPlan(selectedPackage.name as SubscriptionPlan);
+      router.push(`/signup?plan=${selectedPackage.id}`);
+    }
+  };
+
+  const handleEnterpriseContact = () => {
+    setSelectedPlan('Pro / Enterprise' as SubscriptionPlan);
+    router.push('/contact?plan=pro');
   };
 
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 sm:flex-row">
-      {packages.map((pkg, idx) => (
-        <Card
-          key={pkg.name}
-          className={cn(
-            'flex flex-1 flex-col border text-left',
-            idx === 1 && 'sm:-mt-4 sm:border-primary sm:shadow-lg'
-          )}
-        >
-          <CardHeader className="space-y-2 pb-0">
-            <p className="font-bold text-3xl">{pkg.name}</p>
-            <p className="text-base text-foreground/60">{pkg.description}</p>
-          </CardHeader>
+    <div className="flex flex-col items-center gap-12">
+      <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 sm:flex-row">
+        {packages.map((pkg, idx) => (
+          <Card
+            key={pkg.id}
+            className={cn(
+              'flex flex-1 flex-col border text-left',
+              idx === 1 && 'sm:-mt-4 sm:border-primary sm:shadow-lg'
+            )}
+          >
+            <CardHeader className="space-y-2 pb-0">
+              <p className="font-bold text-3xl">{pkg.name}</p>
+              <p className="text-base text-foreground/60">{pkg.description}</p>
+            </CardHeader>
 
-          <CardContent className="flex h-full flex-col justify-between space-y-6 pt-4">
-            <div>
-              <CardTitle className="mb-6 text-left font-bold text-4xl">
-                {pkg.price === 0 ? 'Free' : `$${pkg.price}/mo`}
-              </CardTitle>
+            <CardContent className="flex h-full flex-col justify-between space-y-6 pt-4">
+              <div>
+                <CardTitle className="mb-6 text-left font-bold text-4xl">
+                  {pkg.price === 0 ? 'Free' : `$${pkg.price}/mo`}
+                </CardTitle>
 
-              <div className="space-y-3">
-                {pkg.features.map((feature) => (
-                  <CardDescription key={feature} className="flex items-center text-left text-sm">
-                    <BadgeCheck className="mr-2 inline-block h-4 w-4 text-primary" />
-                    {feature}
-                  </CardDescription>
-                ))}
+                <div className="space-y-3">
+                  {pkg.features.map((feature) => (
+                    <CardDescription key={feature} className="flex items-center text-left text-sm">
+                      <BadgeCheck className="mr-2 inline-block h-4 w-4 text-primary" />
+                      {feature}
+                    </CardDescription>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <Button
-              variant={idx === 1 ? 'default' : 'outline'}
-              size="lg"
-              className="mt-6 w-full"
-              onClick={() => handleSelectPackage(pkg.name as SubscriptionPlan)}
-            >
-              {pkg.price === 0 ? 'Start Free' : 'Subscribe'}
-            </Button>
-          </CardContent>
-        </Card>
-      ))}
+              <Button
+                variant={idx === 1 ? 'default' : 'outline'}
+                size="lg"
+                className="mt-6 w-full"
+                onClick={() => handleSelectPackage(pkg.id)}
+              >
+                {pkg.price === 0 ? 'Start Free' : 'Subscribe'}
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      <div className="mx-auto max-w-3xl rounded-lg border border-primary/30 border-dashed bg-background/50 p-6 text-center">
+        <h3 className="mb-2 font-bold text-2xl">{enterprisePlan.name}</h3>
+        <p className="mb-4 text-muted-foreground">{enterprisePlan.description}</p>
+
+        <div className="mt-4 mb-6 flex flex-wrap justify-center gap-x-8 gap-y-2">
+          {enterprisePlan.features.map((feature) => (
+            <span key={feature} className="flex items-center text-sm">
+              <BadgeCheck className="mr-1 inline-block h-4 w-4 text-primary" />
+              {feature}
+            </span>
+          ))}
+        </div>
+
+        <Button
+          onClick={handleEnterpriseContact}
+          variant="ghost"
+          className="font-medium text-primary hover:text-primary/80"
+        >
+          Contact our sales team for custom pricing <ArrowRight className="ml-1 h-4 w-4" />
+        </Button>
+      </div>
     </div>
   );
 }
