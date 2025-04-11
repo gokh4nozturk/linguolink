@@ -111,7 +111,7 @@ export default function Banner() {
   return (
     <section
       id="banner"
-      className="flex w-full flex-col items-center overflow-hidden py-6 text-center"
+      className="flex w-full flex-col items-center gap-10 overflow-hidden py-6 text-center"
     >
       <div className="w-full max-w-2xl px-4 text-foreground">
         <div className="py-4 text-center">

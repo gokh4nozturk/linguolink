@@ -1,32 +1,38 @@
 export const LINKS = [
   {
-    href: '#problem-solutions',
+    href: '/#problem-solutions',
     text: 'How It Works',
     icon: '🔧',
+    isExternal: false,
   },
   {
-    href: '#features',
+    href: '/#features',
     text: 'Features',
     icon: '🚀',
+    isExternal: false,
   },
   {
-    href: '#pricing',
+    href: '/#pricing',
     text: 'Pricing',
     icon: '💰',
+    isExternal: false,
   },
   {
-    href: '#testimonials',
+    href: '/#testimonials',
     text: 'Testimonials',
     icon: '👥',
+    isExternal: false,
   },
   {
-    href: '#faq',
+    href: '/faq',
     text: 'FAQ',
     icon: '❓',
+    isExternal: false,
   },
   {
     href: '/docs',
     text: 'Documentation',
     icon: '📚',
+    isExternal: false,
   },
 ];

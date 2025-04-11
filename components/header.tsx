@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { EllipsisVertical } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 import { Logo } from './logo';
 import { ModeToggle } from './mode-toggle';
@@ -25,7 +26,7 @@ function debounce<Args extends unknown[]>(
 export function Header() {
   const [activeSection, setActiveSection] = React.useState('');
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
+  const pathname = usePathname();
   const appRedirectionUrl = process.env.NEXT_PUBLIC_APP_REDIRECTION_URL;
 
   React.useEffect(() => {
@@ -59,6 +60,29 @@ export function Header() {
     };
   }, []);
 
+  // Check if a link is active based on URL
+  const isLinkActive = React.useCallback(
+    (href: string) => {
+      // For home page sections
+      if (href.startsWith('/#')) {
+        // When on homepage, check by section id
+        if (pathname === '/') {
+          return `/#${activeSection}` === href;
+        }
+
+        // For standalone pages that match home page sections
+        // Remove the hash and compare with current pathname
+        // Example: href="/#pricing" should match pathname="/pricing"
+        const sectionPath = `/${href.split('#')[1]}`;
+        return pathname === sectionPath;
+      }
+
+      // For regular pages (comparing pathname directly)
+      return pathname === href;
+    },
+    [activeSection, pathname]
+  );
+
   // Memoize menu items to prevent unnecessary re-renders
   const navItems = React.useMemo(
     () =>
@@ -68,7 +92,7 @@ export function Header() {
             href={href}
             className={cn(
               'p-0 text-muted-foreground hover:text-foreground',
-              `#${activeSection}` === href && 'text-foreground underline underline-offset-4'
+              isLinkActive(href) && 'text-foreground underline underline-offset-4'
             )}
             prefetch={true}
           >
@@ -76,7 +100,7 @@ export function Header() {
           </Link>
         </li>
       )),
-    [activeSection]
+    [isLinkActive]
   );
 
   // Memoize mobile menu items
@@ -86,7 +110,10 @@ export function Header() {
         <li key={href}>
           <Link
             href={href}
-            className={cn('w-full p-0 text-muted-foreground hover:text-foreground')}
+            className={cn(
+              'w-full p-0 text-muted-foreground hover:text-foreground',
+              isLinkActive(href) && 'text-foreground underline underline-offset-4'
+            )}
             onClick={() => setIsMenuOpen(false)}
             prefetch={true}
           >
@@ -94,7 +121,7 @@ export function Header() {
           </Link>
         </li>
       )),
-    []
+    [isLinkActive]
   );
 
   return (
