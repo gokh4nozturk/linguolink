@@ -11,7 +11,7 @@ export default function Footer() {
           </p>
           <div className="mt-4 flex space-x-4">
             <a
-              href="https://twitter.com/linguolinkapp"
+              href="https://twitter.com/gokh4nozturk"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary"
@@ -19,7 +19,7 @@ export default function Footer() {
               <Twitter size={20} />
             </a>
             <a
-              href="https://github.com/linguolinkapp"
+              href="https://github.com/gokh4nozturk/linguolink"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary"

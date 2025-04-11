@@ -123,11 +123,21 @@ export default function SignupPage() {
         <CardFooter className="flex justify-center border-t px-6 py-4">
           <CardDescription>
             By signing up, you agree to our{' '}
-            <a href="/terms" className="text-primary hover:underline">
+            <a
+              href="https://linguolink-s3.s3.eu-central-1.amazonaws.com/legal/LinguoLink-Terms.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
               Terms of Service
             </a>{' '}
             and{' '}
-            <a href="/privacy" className="text-primary hover:underline">
+            <a
+              href="https://linguolink-s3.s3.eu-central-1.amazonaws.com/legal/LinguoLink-Privacy-Policy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
               Privacy Policy
             </a>
             .
