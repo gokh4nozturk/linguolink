@@ -12,35 +12,39 @@ import {
 export default function Packages() {
 	const packages = [
 		{
-			name: "Basic",
-			description: "Basic package",
-			price: 0.99,
+			name: "Free",
+			description: "For small projects and individual developers",
+			price: 0,
 			features: [
-				"Access to core features",
-				"Up to 5 users",
-				"Basic customer support",
+				"1 project",
+				"10,000 characters/month",
+				"1 user",
+				"Basic dashboard",
+			],
+		},
+		{
+			name: "Growth",
+			description: "For growing teams and startups",
+			price: 19,
+			features: [
+				"5 projects",
+				"100,000 characters/month",
+				"Team access",
+				"Webhook support",
+				"Export functionality",
 			],
 		},
 		{
 			name: "Pro",
-			description: "Pro package",
-			price: 4.99,
+			description: "For professional teams",
+			price: 79,
 			features: [
-				"All Basic features included",
-				"Up to 20 users",
-				"Priority customer support",
-				"Advanced analytics and reporting",
-			],
-		},
-		{
-			name: "Enterprise",
-			description: "Enterprise package",
-			price: 9.99,
-			features: [
-				"All Pro features included",
-				"Unlimited users",
-				"Dedicated account manager",
-				"Custom integrations and solutions",
+				"Unlimited projects",
+				"Unlimited characters",
+				"API access",
+				"Priority support",
+				"Role management",
+				"CI/CD integration",
 			],
 		},
 	];
@@ -58,8 +62,10 @@ export default function Packages() {
 					</CardHeader>
 
 					<CardContent className="flex flex-col justify-center space-y-4">
-						<CardTitle className="text-left text-4xl">$ {pkg.price}</CardTitle>
-						<Button>Get Started</Button>
+						<CardTitle className="text-left text-4xl">
+							{pkg.price === 0 ? "Free" : `$${pkg.price}/mo`}
+						</CardTitle>
+						<Button>{pkg.price === 0 ? "Start Free" : "Subscribe"}</Button>
 						{pkg.features.map((feature, index) => (
 							<CardDescription
 								key={index}

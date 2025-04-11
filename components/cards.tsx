@@ -22,45 +22,45 @@ export default function Cards() {
 	const controls = useAnimation();
 	const cards = [
 		{
-			title: "Easy to use",
+			title: "Automatic Sync",
 			description:
-				"User-friendly interface designed to simplify complex tasks, making it easy for anyone to get started.",
-			icon: <CogIcon />,
-		},
-		{
-			title: "Reliable",
-			description:
-				"Built with stability in mind, ensuring consistent performance and minimizing downtime.",
-			icon: <CheckIcon />,
-		},
-		{
-			title: "Synced",
-			description:
-				"Seamless integration with other tools and platforms to streamline your workflow.",
+				"Never worry about manual updates. Linguolink automatically syncs your translations as content changes.",
 			icon: <WorkflowIcon />,
 		},
 		{
-			title: "Fast",
+			title: "Webhook & CI/CD Integration",
 			description:
-				"Optimized for speed to deliver quick responses and efficient processing.",
-			icon: <RabbitIcon />,
+				"Seamlessly integrate with your existing development workflows and deployment pipelines.",
+			icon: <CogIcon />,
 		},
 		{
-			title: "Affordable",
+			title: "Inline Editor",
 			description:
-				"Cost-effective solutions that provide high value without breaking the bank.",
+				"Edit translations directly in the platform with a user-friendly interface that supports multiple languages.",
+			icon: <CheckIcon />,
+		},
+		{
+			title: "API Key Management",
+			description:
+				"Securely manage and rotate API keys for all your projects with fine-grained permissions.",
+			icon: <CpuIcon />,
+		},
+		{
+			title: "Usage-Based Pricing",
+			description:
+				"Only pay for what you use with our transparent, scalable pricing model that grows with your needs.",
 			icon: <HandCoinsIcon />,
 		},
 		{
-			title: "AI-powered",
+			title: "Fast Performance",
 			description:
-				"Utilizes artificial intelligence and machine learning to enhance performance and accuracy.",
-			icon: <CpuIcon />,
+				"Get rapid response times and lightning-fast translation processing to keep your localization pipelines flowing.",
+			icon: <RabbitIcon />,
 		},
 	];
 
 	return (
-		<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+		<div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-2 xl:grid-cols-3">
 			{cards.map((card, index) => {
 				const controls = useAnimation();
 

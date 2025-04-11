@@ -5,10 +5,10 @@ import Title from "@/components/title";
 export default function Pricing() {
 	return (
 		<section id="pricing" className="min-h-dvh scroll-m-24 text-center">
-			<Title>Pricing</Title>
+			<Title>Transparent Pricing</Title>
 			<CTA
-				title="A plan for every need"
-				description="Find the perfect plan for your needs. Start today and scale with ease."
+				title="Simple, usage-based pricing that scales with you"
+				description="Choose the plan that fits your needs now and easily upgrade as your translation requirements grow. No hidden fees, no surprises."
 			/>
 			<Packages />
 		</section>

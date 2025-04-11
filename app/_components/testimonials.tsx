@@ -8,10 +8,10 @@ export default function Testimonials() {
 			id="testimonials"
 			className="min-h-dvh w-full scroll-m-24 text-center"
 		>
-			<Title>Testimonials</Title>
+			<Title>What Early Adopters Are Saying</Title>
 			<CTA
-				title="What our customers are saying."
-				description="See how our platform is transforming translation management for teams like yours. Discover success stories from satisfied users and learn why they trust us to streamline their workflows."
+				title="Real feedback from real users"
+				description="Developers, product managers, and localization specialists are already saving time and money with Linguolink's automated translation management platform."
 			/>
 			<Reviews />
 		</section>

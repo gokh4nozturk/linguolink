@@ -9,10 +9,15 @@ export default function GetStarted() {
 		>
 			<div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 w-screen bg-soft-blue px-10 py-20 sm:py-40">
 				<CTA
-					title="Ready to get started?"
-					description="Sign up today and start managing translations effortlessly. Our platform is designed to streamline your workflow and make your life easier."
+					title="Start translating smarter today"
+					description="Join developers from around the world who are transforming their translation workflows and saving hours of manual work every week."
 				/>
-				<Button>Get Started</Button>
+				<div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+					<Button size="lg">Start Free</Button>
+					<Button size="lg" variant="outline">
+						Book a Demo
+					</Button>
+				</div>
 			</div>
 		</section>
 	);
