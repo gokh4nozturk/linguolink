@@ -89,29 +89,29 @@ export default function Banner() {
   return (
     <section
       id="banner"
-      className="flex min-h-dvh w-full scroll-m-24 flex-col items-center pt-1 pb-32 text-center"
+      className="flex w-full flex-col items-center overflow-hidden py-6 text-center"
     >
-      <div className="max-w-4xl text-foreground">
-        <div className="py-12 text-center">
-          <h1 className="font-bold text-3xl sm:text-7xl">
+      <div className="w-full max-w-2xl px-4 text-foreground">
+        <div className="py-4 text-center">
+          <h1 className="font-bold text-xl sm:text-3xl md:text-4xl lg:text-5xl">
             Automate Your Translation Workflow — Instantly
           </h1>
-          <p className="mt-4 text-foreground/60 text-lg">
+          <p className="mx-auto mt-2 max-w-xl text-foreground/60 text-sm sm:text-base">
             LinguoLink helps dev teams localize faster and reduce costs with smart, scalable
             translation pipelines.
           </p>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button size="lg">Get Started Free</Button>
-            <Button size="lg" variant="outline">
+          <div className="mt-4 flex flex-col justify-center gap-2 sm:flex-row">
+            <Button size="default">Get Started Free</Button>
+            <Button size="default" variant="outline">
               See it in Action
             </Button>
           </div>
-          <p className="mt-4 text-foreground/60 text-sm">
+          <p className="mt-2 text-foreground/60 text-xs">
             Backed by developers from leading tech companies
           </p>
         </div>
       </div>
-      <div className="relative w-full max-w-5xl overflow-hidden">
+      <div className="relative w-full max-w-3xl overflow-hidden px-4">
         <AnimatePresence initial={false} mode="wait" custom={direction}>
           <motion.div
             key={currentImageIndex}
@@ -121,14 +121,14 @@ export default function Banner() {
             animate="center"
             exit="exit"
             transition={springTransition}
-            className="flex h-[400px] w-full items-center justify-center"
+            className="flex h-[180px] w-full items-center justify-center sm:h-[220px] md:h-[250px]"
           >
             <Image
-              className="max-h-[400px] w-full rounded-2xl object-contain"
+              className="max-h-[170px] w-full rounded-xl object-contain sm:max-h-[210px] md:max-h-[240px]"
               src={carouselImages[currentImageIndex].src}
               alt={carouselImages[currentImageIndex].alt}
-              width={800}
-              height={400}
+              width={700}
+              height={300}
             />
           </motion.div>
         </AnimatePresence>
@@ -153,9 +153,9 @@ export default function Banner() {
         </button>
 
         <div className="-translate-x-1/2 absolute bottom-4 left-1/2 flex gap-2">
-          {carouselImages.map((_, i) => (
+          {carouselImages.map((image, i) => (
             <button
-              key={`image-${i}`}
+              key={image.src}
               type="button"
               className={`h-2 w-2 rounded-full ${
                 i === currentImageIndex ? 'bg-primary' : 'bg-primary/30'
