@@ -40,8 +40,8 @@ export default function CareersPage() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12 md:px-6">
-      <div className="mx-auto max-w-4xl">
+    <main className="flex min-h-screen flex-col pt-14">
+      <div className="mx-auto max-w-4xl px-4 py-12 md:px-6">
         <h1 className="mb-6 font-bold text-4xl">Join Our Team</h1>
         <p className="mb-10 text-xl">
           We're on a mission to transform how businesses handle translation and localization. Join
@@ -91,6 +91,6 @@ export default function CareersPage() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

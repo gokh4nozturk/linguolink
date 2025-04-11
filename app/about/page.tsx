@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-12 md:px-6">
-      <div className="mx-auto max-w-3xl">
+    <main className="flex min-h-screen flex-col pt-14">
+      <div className="mx-auto max-w-3xl px-4 py-12 md:px-6">
         <h1 className="mb-6 font-bold text-4xl">About LinguoLink</h1>
         <p className="mb-8 text-xl">
           LinguoLink was founded with a clear mission: to streamline and automate translation
@@ -43,6 +43,6 @@ export default function AboutPage() {
           </section>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

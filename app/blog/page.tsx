@@ -35,8 +35,8 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12 md:px-6">
-      <div className="mx-auto max-w-4xl">
+    <main className="flex min-h-screen flex-col pt-14">
+      <div className="mx-auto max-w-4xl px-4 py-12 md:px-6">
         <h1 className="mb-10 font-bold text-4xl">Blog</h1>
         <p className="mb-12 text-xl">
           The latest insights, tips, and updates from the LinguoLink team on translation automation,
@@ -63,6 +63,6 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
