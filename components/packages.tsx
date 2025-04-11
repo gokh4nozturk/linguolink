@@ -1,9 +1,16 @@
+'use client';
+
+import { type SubscriptionPlan, useSubscription } from '@/contexts/subscription-context';
 import { cn } from '@/lib/utils';
 import { BadgeCheck } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 export default function Packages() {
+  const { setSelectedPlan } = useSubscription();
+  const router = useRouter();
+
   const packages = [
     {
       name: 'Free',
@@ -39,6 +46,11 @@ export default function Packages() {
     },
   ];
 
+  const handleSelectPackage = (packageName: SubscriptionPlan) => {
+    setSelectedPlan(packageName);
+    router.push('/signup');
+  };
+
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 sm:flex-row">
       {packages.map((pkg, idx) => (
@@ -70,7 +82,12 @@ export default function Packages() {
               </div>
             </div>
 
-            <Button variant={idx === 1 ? 'default' : 'outline'} size="lg" className="mt-6 w-full">
+            <Button
+              variant={idx === 1 ? 'default' : 'outline'}
+              size="lg"
+              className="mt-6 w-full"
+              onClick={() => handleSelectPackage(pkg.name as SubscriptionPlan)}
+            >
               {pkg.price === 0 ? 'Start Free' : 'Subscribe'}
             </Button>
           </CardContent>

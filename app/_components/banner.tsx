@@ -4,9 +4,11 @@ import { Button } from '@/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Banner() {
+  const router = useRouter();
   const storageBaseUrl = 'https://storage.linguol.ink/images';
 
   const carouselImages = [
@@ -86,6 +88,14 @@ export default function Banner() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleGetStarted = () => {
+    router.push('/signup');
+  };
+
+  const handleSeeAction = () => {
+    router.push('/demo');
+  };
+
   return (
     <section
       id="banner"
@@ -101,8 +111,10 @@ export default function Banner() {
             translation pipelines.
           </p>
           <div className="mt-4 flex flex-col justify-center gap-2 sm:flex-row">
-            <Button size="default">Get Started Free</Button>
-            <Button size="default" variant="outline">
+            <Button size="default" onClick={handleGetStarted}>
+              Get Started Free
+            </Button>
+            <Button size="default" variant="outline" onClick={handleSeeAction}>
               See it in Action
             </Button>
           </div>
