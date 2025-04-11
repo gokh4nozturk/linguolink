@@ -54,9 +54,9 @@ export default function DemoPage() {
     <main className="flex min-h-screen flex-col pt-14">
       <div className="container mx-auto py-12">
         <div className="mb-12 text-center">
-          <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl">See LinguoLink in Action</h1>
+          <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl">See Linguolink in Action</h1>
           <p className="mx-auto mt-4 max-w-3xl text-foreground/60 text-lg">
-            Watch how LinguoLink streamlines the translation process for development teams
+            Watch how Linguolink streamlines the translation process for development teams
           </p>
         </div>
 
