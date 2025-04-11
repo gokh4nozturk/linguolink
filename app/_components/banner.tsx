@@ -13,28 +13,40 @@ export default function Banner() {
 
   const carouselImages = [
     {
-      src: `${storageBaseUrl}/analytics.svg`,
-      alt: 'Analytics dashboard showing translation metrics',
-    },
-    {
       src: `${storageBaseUrl}/cloud-docs.svg`,
       alt: 'Cloud document management interface',
-    },
-    {
-      src: `${storageBaseUrl}/collaborating.svg`,
-      alt: 'Team collaboration on translation projects',
-    },
-    {
-      src: `${storageBaseUrl}/file-manager.svg`,
-      alt: 'File management system for translations',
     },
     {
       src: `${storageBaseUrl}/file-sync.svg`,
       alt: 'File synchronization across platforms',
     },
     {
-      src: `${storageBaseUrl}/in-sync.svg`,
+      src: `${storageBaseUrl}/percentages.svg`,
+      alt: 'Percentage of translation progress',
+    },
+    {
+      src: `${storageBaseUrl}/pull-request.svg`,
+      alt: 'Pull request for translation',
+    },
+    {
+      src: `${storageBaseUrl}/real-time-sync.svg`,
       alt: 'Synchronization across devices and platforms',
+    },
+    {
+      src: `${storageBaseUrl}/file-manager.svg`,
+      alt: 'File management system for translations',
+    },
+    {
+      src: `${storageBaseUrl}/speech-to-text.svg`,
+      alt: 'Speech-to-text translation',
+    },
+    {
+      src: `${storageBaseUrl}/time-management.svg`,
+      alt: 'Time management for translations',
+    },
+    {
+      src: `${storageBaseUrl}/typewriter.svg`,
+      alt: 'Typewriter for translations',
     },
   ];
 
@@ -107,7 +119,7 @@ export default function Banner() {
             Automate Your Translation Workflow — Instantly
           </h1>
           <p className="mx-auto mt-2 max-w-xl text-foreground/60 text-sm sm:text-base">
-            LinguoLink helps dev teams localize faster and reduce costs with smart, scalable
+            Linguolink helps dev teams localize faster and reduce costs with smart, scalable
             translation pipelines.
           </p>
           <div className="mt-4 flex flex-col justify-center gap-2 sm:flex-row">
