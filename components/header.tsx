@@ -14,6 +14,8 @@ export function Header() {
 	const [activeSection, setActiveSection] = React.useState("");
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+	const appRedirectionUrl = process.env.NEXT_PUBLIC_APP_REDIRECTION_URL;
+
 	React.useEffect(() => {
 		const sections = document.querySelectorAll("section");
 		const observer = new IntersectionObserver(
@@ -72,7 +74,7 @@ export function Header() {
 							className="rounded-3xl hover:bg-slate-100 dark:hover:bg-slate-800"
 						>
 							<a
-								href="http://app.linguolink.gokhanozturk.io"
+								href={appRedirectionUrl}
 								target="_blank"
 								rel="noopener noreferrer"
 							>
@@ -112,7 +114,7 @@ export function Header() {
 
 					<Button asChild className="mt-10 w-full">
 						<a
-							href="http://app.linguolink.gokhanozturk.io"
+							href={appRedirectionUrl}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
