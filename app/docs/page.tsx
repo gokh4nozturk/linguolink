@@ -35,7 +35,7 @@ export default function DocsPage() {
   const [activeSection, setActiveSection] = useState('introduction');
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-6">
       <h1 className="mb-8 font-bold text-4xl">Documentation</h1>
 
       <div className="flex flex-col gap-10 md:flex-row">
@@ -63,7 +63,7 @@ export default function DocsPage() {
 
         {/* Main Content */}
         <main className="prose prose-slate dark:prose-invert max-w-none flex-1">
-          <section id="introduction" className="scroll-mt-16">
+          <section id="introduction" className="scroll-mt-24">
             <h2 className="mb-4 font-bold text-2xl">Introduction</h2>
             <p>
               Welcome to Linguolink documentation. This guide will help you understand how to use
@@ -75,7 +75,7 @@ export default function DocsPage() {
             </p>
           </section>
 
-          <section id="getting-started" className="mt-12 scroll-mt-16">
+          <section id="getting-started" className="mt-12 scroll-mt-24">
             <h2 className="mb-4 font-bold text-2xl">Getting Started</h2>
             <p>To get started with Linguolink, follow these simple steps:</p>
             <ol className="list-decimal space-y-2 pl-6">
@@ -92,7 +92,7 @@ export default function DocsPage() {
             </ol>
           </section>
 
-          <section id="features" className="mt-12 scroll-mt-16">
+          <section id="features" className="mt-12 scroll-mt-24">
             <h2 className="mb-4 font-bold text-2xl">Features</h2>
             <p>
               Linguolink offers a variety of features to enhance your language learning experience:
@@ -106,7 +106,7 @@ export default function DocsPage() {
             </ul>
           </section>
 
-          <section id="api-reference" className="mt-12 scroll-mt-16">
+          <section id="api-reference" className="mt-12 scroll-mt-24">
             <h2 className="mb-4 font-bold text-2xl">API Reference</h2>
             <p>
               For developers looking to integrate with Linguolink, we provide a comprehensive API.
@@ -142,7 +142,7 @@ export default function DocsPage() {
             </div>
           </section>
 
-          <section id="examples" className="mt-12 scroll-mt-16">
+          <section id="examples" className="mt-12 scroll-mt-24">
             <h2 className="mb-4 font-bold text-2xl">Examples</h2>
             <p>Here are some examples of how to use Linguolink effectively:</p>
             <div className="my-4 rounded-md bg-muted p-4">
@@ -161,7 +161,7 @@ export default function DocsPage() {
             </div>
           </section>
 
-          <section id="faq" className="mt-12 mb-16 scroll-mt-16">
+          <section id="faq" className="mt-12 mb-16 scroll-mt-24">
             <h2 className="mb-4 font-bold text-2xl">Frequently Asked Questions</h2>
             <div className="space-y-6">
               <div>

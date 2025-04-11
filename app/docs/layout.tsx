@@ -13,7 +13,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="relative">
+    <div className="relative pt-14">
       {/* Breadcrumbs */}
       <div className="border-b bg-muted/40">
         <div className="container mx-auto px-4 py-3">
