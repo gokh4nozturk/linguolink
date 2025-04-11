@@ -1,5 +1,10 @@
 export const LINKS = [
   {
+    href: '#problem-solutions',
+    text: 'How It Works',
+    icon: '🔧',
+  },
+  {
     href: '#features',
     text: 'Features',
     icon: '🚀',

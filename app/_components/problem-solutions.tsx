@@ -3,7 +3,10 @@ import Title from '@/components/title';
 
 export default function ProblemSolutions() {
   return (
-    <section id="features" className="min-h-dvh w-full scroll-m-24">
+    <section
+      id="problem-solutions"
+      className="flex min-h-fit w-full scroll-m-24 flex-col justify-center"
+    >
       <Title>How It Works</Title>
       <div className="mx-auto mb-12 flex max-w-6xl flex-col justify-between gap-8 px-4 md:flex-row">
         <div className="flex-1 rounded-lg bg-muted/50 p-6 text-center">
