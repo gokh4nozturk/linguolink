@@ -8,7 +8,7 @@ export default function GetStarted() {
   const router = useRouter();
 
   const handleStartFree = () => {
-    router.push('/signup');
+    router.push('/signup?plan=Free');
   };
 
   const handleBookDemo = () => {

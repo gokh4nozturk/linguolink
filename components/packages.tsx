@@ -48,7 +48,7 @@ export default function Packages() {
 
   const handleSelectPackage = (packageName: SubscriptionPlan) => {
     setSelectedPlan(packageName);
-    router.push('/signup');
+    router.push(`/signup?plan=${packageName}`);
   };
 
   return (

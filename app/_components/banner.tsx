@@ -89,7 +89,7 @@ export default function Banner() {
   }, []);
 
   const handleGetStarted = () => {
-    router.push('/signup');
+    router.push('/signup?plan=Free');
   };
 
   const handleSeeAction = () => {

@@ -9,9 +9,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { useSubscription } from '@/contexts/subscription-context';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { type SubscriptionPlan, useSubscription } from '@/contexts/subscription-context';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 // Since we don't have Input and Label components, let's create simple versions
 const Input = ({
@@ -56,17 +56,37 @@ const Label = ({
 );
 
 export default function SignupPage() {
-  const { selectedPlan } = useSubscription();
+  const { selectedPlan, setSelectedPlan } = useSubscription();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [planFromUrl, setPlanFromUrl] = useState<SubscriptionPlan | null>(null);
+
+  useEffect(() => {
+    // Read plan from URL parameter
+    const planParam = searchParams.get('plan');
+    if (planParam && (planParam === 'Free' || planParam === 'Growth' || planParam === 'Pro')) {
+      setPlanFromUrl(planParam);
+      setSelectedPlan(planParam);
+    }
+  }, [searchParams, setSelectedPlan]);
+
+  const displayPlan = selectedPlan || planFromUrl;
 
   const handleSignup = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log('signup', {
+      email,
+      password,
+      name,
+      plan: displayPlan,
+    });
+
     // Here you would handle the actual signup process
     // For now, we'll just redirect to a success page
-    router.push('/dashboard');
+    // window.location.href = 'https://app.linguol.ink';
   };
 
   return (
@@ -75,8 +95,8 @@ export default function SignupPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Create an account</CardTitle>
           <CardDescription>
-            {selectedPlan
-              ? `You've selected the ${selectedPlan} plan. Complete your registration to get started.`
+            {displayPlan
+              ? `You've selected the ${displayPlan} plan. Complete your registration to get started.`
               : 'Complete your registration to get started with LinguoLink.'}
           </CardDescription>
         </CardHeader>
@@ -123,21 +143,11 @@ export default function SignupPage() {
         <CardFooter className="flex justify-center border-t px-6 py-4">
           <CardDescription>
             By signing up, you agree to our{' '}
-            <a
-              href="https://linguolink-s3.s3.eu-central-1.amazonaws.com/legal/LinguoLink-Terms.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
+            <a href="/terms" className="text-primary hover:underline">
               Terms of Service
             </a>{' '}
             and{' '}
-            <a
-              href="https://linguolink-s3.s3.eu-central-1.amazonaws.com/legal/LinguoLink-Privacy-Policy.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
+            <a href="/privacy" className="text-primary hover:underline">
               Privacy Policy
             </a>
             .
