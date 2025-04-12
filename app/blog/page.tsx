@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Localization Management Blog | Linguolink',
     description:
       'Expert insights on translation automation, localization management, and optimizing your translation workflows.',
-    url: 'https://Linguolink.com/blog',
+    url: 'https://linguol.ink/blog',
   },
   alternates: {
     canonical: '/blog',
@@ -112,13 +112,13 @@ export default function BlogPage() {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://Linguolink.com',
+              item: 'https://linguol.ink',
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Blog',
-              item: 'https://Linguolink.com/blog',
+              item: 'https://linguol.ink/blog',
             },
           ],
         }}

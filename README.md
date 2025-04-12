@@ -13,7 +13,7 @@ Linguolink helps development teams automate translation workflows, reduce costs,
 
 ## Getting Started
 
-Visit [Linguolink.com](https://Linguolink.com) to create your free account and start automating your translation workflows today.
+Visit [linguol.ink](https://linguol.ink) to create your free account and start automating your translation workflows today.
 
 ### Development Setup
 

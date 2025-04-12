@@ -45,14 +45,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://Linguolink.com',
+    url: 'https://linguol.ink',
     siteName: 'Linguolink',
     title: 'Linguolink - Automate Your Translation Workflow',
     description:
       'Smart localization management for developers. Streamline your translation pipelines and reduce costs.',
     images: [
       {
-        url: 'https://Linguolink.com/og-image.png',
+        url: 'https://linguol.ink/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Linguolink - Localization Management for Developers',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: 'Linguolink - Automate Your Translation Workflow',
     description:
       'Smart localization management for developers. Streamline your translation pipelines and reduce costs.',
-    images: ['https://Linguolink.com/og-image.png'],
+    images: ['https://linguol.ink/og-image.png'],
     creator: '@Linguolink',
   },
   robots: {
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  metadataBase: new URL('https://Linguolink.com'),
+  metadataBase: new URL('https://linguol.ink'),
   alternates: {
     canonical: '/',
     languages: {

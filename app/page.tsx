@@ -49,7 +49,7 @@ export default function Home() {
         data={{
           name: 'Linguolink',
           description: 'Translation workflow automation platform for developers',
-          image: 'https://Linguolink.com/logo.webp',
+          image: 'https://linguol.ink/logo.webp',
           brand: {
             '@type': 'Brand',
             name: 'Linguolink',
@@ -73,10 +73,10 @@ export default function Home() {
         type="WebSite"
         data={{
           name: 'Linguolink',
-          url: 'https://Linguolink.com',
+          url: 'https://linguol.ink',
           potentialAction: {
             '@type': 'SearchAction',
-            target: 'https://Linguolink.com/search?q={search_term_string}',
+            target: 'https://linguol.ink/search?q={search_term_string}',
             'query-input': 'required name=search_term_string',
           },
         }}
@@ -87,8 +87,8 @@ export default function Home() {
         type="Organization"
         data={{
           name: 'Linguolink',
-          url: 'https://Linguolink.com',
-          logo: 'https://Linguolink.com/logo.webp',
+          url: 'https://linguol.ink',
+          logo: 'https://linguol.ink/logo.webp',
           sameAs: [
             'https://twitter.com/Linguolink',
             'https://github.com/Linguolink',
