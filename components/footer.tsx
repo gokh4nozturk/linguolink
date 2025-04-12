@@ -2,11 +2,11 @@ import { Github, Mail, Twitter } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-soft-blue-foreground p-12 text-white md:p-24">
+    <footer className="bg-soft-blue-foreground p-12 text-primary md:p-24 [&_*]:text-pretty">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-4">
         <div className="text-left">
           <h3 className="mb-4 font-semibold text-lg">Linguolink</h3>
-          <p className="text-gray-300 text-sm">
+          <p className="text-sm">
             Automate your translation workflow and scale globally with ease.
           </p>
           <div className="mt-4 flex space-x-4">
@@ -34,7 +34,7 @@ export default function Footer() {
 
         <div className="text-left">
           <h3 className="mb-4 font-semibold text-lg">Product</h3>
-          <ul className="space-y-2 text-gray-300 text-sm">
+          <ul className="space-y-2 text-sm">
             <li>
               <a href="#features" className="hover:text-primary">
                 Features
@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="text-left">
           <h3 className="mb-4 font-semibold text-lg">Company</h3>
-          <ul className="space-y-2 text-gray-300 text-sm">
+          <ul className="space-y-2 text-sm">
             <li>
               <a href="/about" className="hover:text-primary">
                 About
@@ -86,7 +86,7 @@ export default function Footer() {
 
         <div className="text-left">
           <h3 className="mb-4 font-semibold text-lg">Legal</h3>
-          <ul className="space-y-2 text-gray-300 text-sm">
+          <ul className="space-y-2 text-sm">
             <li>
               <a
                 href="https://linguolink-s3.s3.eu-central-1.amazonaws.com/legal/LinguoLink-Privacy-Policy.pdf"
@@ -111,7 +111,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-12 border-gray-700 border-t pt-8 text-center text-gray-400 text-sm">
+      <div className="mt-12 border-gray-700 border-t pt-8 text-center text-primary/70 text-sm">
         <p>&copy; {new Date().getFullYear()} Linguolink. All rights reserved.</p>
       </div>
     </footer>

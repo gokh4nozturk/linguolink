@@ -17,21 +17,33 @@ export default function Packages() {
       name: 'Free',
       description: 'For individuals and small projects',
       price: 0,
-      features: ['1 project', '500 words limit', 'Basic dashboard'],
+      features: ['1 project', '500 words limit', 'Basic dashboard', 'No credit card required'],
     },
     {
       id: 'starter',
       name: 'Starter',
       description: 'For growing projects',
       price: 19,
-      features: ['3 projects', '5,000 words', 'Webhook support', 'Export functionality'],
+      features: [
+        '3 projects',
+        '5,000 words',
+        'Webhook support',
+        'Export functionality',
+        'No credit card required',
+      ],
     },
     {
       id: 'growth',
       name: 'Growth',
       description: 'For professional teams',
       price: 49,
-      features: ['10 projects', '10,000 words', 'Collaboration features', 'Role management'],
+      features: [
+        '10 projects',
+        '10,000 words',
+        'Collaboration features',
+        'Role management',
+        'No credit card required',
+      ],
     },
   ];
 
