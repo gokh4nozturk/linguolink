@@ -15,8 +15,8 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from '@/components/ui/context-menu';
-import logoDark from '@/public/logo-dark.svg';
-import logo from '@/public/logo.svg';
+import logoDark from '@/public/logo-dark@3x.svg';
+import logo from '@/public/logo@3x.svg';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
