@@ -1,7 +1,7 @@
 export const LINKS = [
   {
     href: '/#problem-solutions',
-    text: 'How It Works',
+    text: 'Home',
     icon: '🔧',
     isExternal: false,
   },

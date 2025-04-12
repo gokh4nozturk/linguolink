@@ -1,5 +1,6 @@
 import CTA from '@/components/cta';
 import Title from '@/components/title';
+import { Check, X } from 'lucide-react';
 
 export default function ProblemSolutions() {
   return (
@@ -36,15 +37,21 @@ export default function ProblemSolutions() {
           <h3 className="mb-4 font-semibold text-xl">Common Problems</h3>
           <ul className="space-y-4">
             <li className="flex items-start">
-              <span className="mr-2 text-destructive">✕</span>
+              <span className="mr-2 pt-1 text-destructive">
+                <X size={16} />
+              </span>
               <p>Continuously updating translations wastes valuable time</p>
             </li>
             <li className="flex items-start">
-              <span className="mr-2 text-destructive">✕</span>
+              <span className="mr-2 pt-1 text-destructive">
+                <X size={16} />
+              </span>
               <p>Manual processes are error-prone and slow down development</p>
             </li>
             <li className="flex items-start">
-              <span className="mr-2 text-destructive">✕</span>
+              <span className="mr-2 pt-1 text-destructive">
+                <X size={16} />
+              </span>
               <p>Disconnect between development teams and translators</p>
             </li>
           </ul>
@@ -54,15 +61,21 @@ export default function ProblemSolutions() {
           <h3 className="mb-4 font-semibold text-xl">Linguolink Solutions</h3>
           <ul className="space-y-4">
             <li className="flex items-start">
-              <span className="mr-2 text-primary">✓</span>
+              <span className="mr-2 pt-1 text-emerald-500">
+                <Check size={16} />
+              </span>
               <p>Set up translation pipelines in minutes with automatic workflows</p>
             </li>
             <li className="flex items-start">
-              <span className="mr-2 text-primary">✓</span>
+              <span className="mr-2 pt-1 text-emerald-500">
+                <Check size={16} />
+              </span>
               <p>Developer-first approach with robust APIs and SDKs</p>
             </li>
             <li className="flex items-start">
-              <span className="mr-2 text-primary">✓</span>
+              <span className="mr-2 pt-1 text-emerald-500">
+                <Check size={16} />
+              </span>
               <p>Centralized management for all your projects</p>
             </li>
           </ul>
