@@ -9,9 +9,9 @@ import ProblemSolutions from './_components/problem-solutions';
 import Testimonials from './_components/testimonials';
 
 export const metadata: Metadata = {
-  title: 'LinguoLink - Automate Your Translation Workflow',
+  title: 'Linguolink - Automate Your Translation Workflow',
   description:
-    'LinguoLink helps development teams automate translation workflows, reduce costs, and scale localization with smart pipelines and developer-friendly tools.',
+    'Linguolink helps development teams automate translation workflows, reduce costs, and scale localization with smart pipelines and developer-friendly tools.',
   alternates: {
     canonical: '/',
   },
@@ -31,7 +31,7 @@ export default function Home() {
         itemType="https://schema.org/Product"
         className="grid grid-cols-1 gap-20 max-sm:gap-10"
       >
-        <meta itemProp="name" content="LinguoLink" />
+        <meta itemProp="name" content="Linguolink" />
         <meta
           itemProp="description"
           content="Translation workflow automation platform for developers"
@@ -47,12 +47,12 @@ export default function Home() {
       <StructuredData
         type="Product"
         data={{
-          name: 'LinguoLink',
+          name: 'Linguolink',
           description: 'Translation workflow automation platform for developers',
-          image: 'https://linguolink.com/logo.webp',
+          image: 'https://Linguolink.com/logo.webp',
           brand: {
             '@type': 'Brand',
-            name: 'LinguoLink',
+            name: 'Linguolink',
           },
           offers: {
             '@type': 'AggregateOffer',
@@ -72,11 +72,11 @@ export default function Home() {
       <StructuredData
         type="WebSite"
         data={{
-          name: 'LinguoLink',
-          url: 'https://linguolink.com',
+          name: 'Linguolink',
+          url: 'https://Linguolink.com',
           potentialAction: {
             '@type': 'SearchAction',
-            target: 'https://linguolink.com/search?q={search_term_string}',
+            target: 'https://Linguolink.com/search?q={search_term_string}',
             'query-input': 'required name=search_term_string',
           },
         }}
@@ -86,13 +86,13 @@ export default function Home() {
       <StructuredData
         type="Organization"
         data={{
-          name: 'LinguoLink',
-          url: 'https://linguolink.com',
-          logo: 'https://linguolink.com/logo.webp',
+          name: 'Linguolink',
+          url: 'https://Linguolink.com',
+          logo: 'https://Linguolink.com/logo.webp',
           sameAs: [
-            'https://twitter.com/linguolink',
-            'https://github.com/linguolink',
-            'https://www.linkedin.com/company/linguolink',
+            'https://twitter.com/Linguolink',
+            'https://github.com/Linguolink',
+            'https://www.linkedin.com/company/Linguolink',
           ],
         }}
       />

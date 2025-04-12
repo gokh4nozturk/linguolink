@@ -19,7 +19,7 @@ export default function Footer() {
               <Twitter size={20} />
             </a>
             <a
-              href="https://github.com/gokh4nozturk/linguolink"
+              href="https://github.com/gokh4nozturk/Linguolink"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary"
@@ -89,7 +89,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li>
               <a
-                href="https://linguolink-s3.s3.eu-central-1.amazonaws.com/legal/LinguoLink-Privacy-Policy.pdf"
+                href="https://Linguolink-s3.s3.eu-central-1.amazonaws.com/legal/Linguolink-Privacy-Policy.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
@@ -99,7 +99,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://linguolink-s3.s3.eu-central-1.amazonaws.com/legal/LinguoLink-Terms.pdf"
+                href="https://Linguolink-s3.s3.eu-central-1.amazonaws.com/legal/Linguolink-Terms.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"

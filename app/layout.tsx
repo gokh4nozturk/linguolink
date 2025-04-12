@@ -23,13 +23,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'LinguoLink - Automate Your Translation Workflow',
-    template: '%s | LinguoLink',
+    default: 'Linguolink - Automate Your Translation Workflow',
+    template: '%s | Linguolink',
   },
   description:
-    'Effortlessly manage and automate your translation workflows with LinguoLink. Smart localization management for developers, streamlining translation pipelines.',
+    'Effortlessly manage and automate your translation workflows with Linguolink. Smart localization management for developers, streamlining translation pipelines.',
   keywords: [
-    'LinguoLink',
+    'Linguolink',
     'translation management',
     'localization',
     'localization management',
@@ -39,33 +39,33 @@ export const metadata: Metadata = {
     'localization tools',
     'developer translation',
   ],
-  authors: [{ name: 'LinguoLink Team' }],
-  creator: 'LinguoLink',
-  publisher: 'LinguoLink',
+  authors: [{ name: 'Linguolink Team' }],
+  creator: 'Linguolink',
+  publisher: 'Linguolink',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://linguolink.com',
-    siteName: 'LinguoLink',
-    title: 'LinguoLink - Automate Your Translation Workflow',
+    url: 'https://Linguolink.com',
+    siteName: 'Linguolink',
+    title: 'Linguolink - Automate Your Translation Workflow',
     description:
       'Smart localization management for developers. Streamline your translation pipelines and reduce costs.',
     images: [
       {
-        url: 'https://linguolink.com/og-image.png',
+        url: 'https://Linguolink.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'LinguoLink - Localization Management for Developers',
+        alt: 'Linguolink - Localization Management for Developers',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LinguoLink - Automate Your Translation Workflow',
+    title: 'Linguolink - Automate Your Translation Workflow',
     description:
       'Smart localization management for developers. Streamline your translation pipelines and reduce costs.',
-    images: ['https://linguolink.com/og-image.png'],
-    creator: '@linguolink',
+    images: ['https://Linguolink.com/og-image.png'],
+    creator: '@Linguolink',
   },
   robots: {
     index: true,
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  metadataBase: new URL('https://linguolink.com'),
+  metadataBase: new URL('https://Linguolink.com'),
   alternates: {
     canonical: '/',
     languages: {

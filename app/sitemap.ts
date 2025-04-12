@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://linguolink.com';
+  const baseUrl = 'https://Linguolink.com';
   const lastModified = new Date();
 
   return [

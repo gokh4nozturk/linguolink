@@ -15,7 +15,7 @@ export default function DemoPage() {
     {
       id: 'auto-detection',
       title: 'Automatic Translation Detection',
-      description: 'LinguoLink automatically detects strings that need translation in your code.',
+      description: 'Linguolink automatically detects strings that need translation in your code.',
       icon: '🔍',
     },
     {

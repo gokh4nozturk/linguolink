@@ -6,14 +6,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Localization Management Blog | LinguoLink',
+  title: 'Localization Management Blog | Linguolink',
   description:
     'Expert insights on translation automation, localization management, and optimizing your translation workflows for developers and global teams.',
   openGraph: {
-    title: 'Localization Management Blog | LinguoLink',
+    title: 'Localization Management Blog | Linguolink',
     description:
       'Expert insights on translation automation, localization management, and optimizing your translation workflows.',
-    url: 'https://linguolink.com/blog',
+    url: 'https://Linguolink.com/blog',
   },
   alternates: {
     canonical: '/blog',
@@ -112,13 +112,13 @@ export default function BlogPage() {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://linguolink.com',
+              item: 'https://Linguolink.com',
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Blog',
-              item: 'https://linguolink.com/blog',
+              item: 'https://Linguolink.com/blog',
             },
           ],
         }}

@@ -7,7 +7,7 @@
   <path d="M560 200 L640 200 M600 160 L600 240" stroke="white" stroke-width="12" stroke-linecap="round"/>
   
   <!-- Title -->
-  <text x="600" y="350" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="60" font-weight="700" fill="white">LinguoLink</text>
+  <text x="600" y="350" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="60" font-weight="700" fill="white">Linguolink</text>
   
   <!-- Tagline -->
   <text x="600" y="430" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="400" fill="#94A3B8">Automate Your Translation Workflow</text>

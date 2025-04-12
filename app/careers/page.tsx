@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Careers | LinguoLink',
+  title: 'Careers | Linguolink',
   description: 'Join our team and help build the future of translation automation.',
 };
 

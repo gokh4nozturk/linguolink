@@ -19,7 +19,7 @@ export default function Cards() {
       id: 'automatic-sync',
       title: 'Automatic Sync',
       description:
-        'Never worry about manual updates. LinguoLink automatically syncs your translations as content changes.',
+        'Never worry about manual updates. Linguolink automatically syncs your translations as content changes.',
       icon: <WorkflowIcon />,
     },
     {

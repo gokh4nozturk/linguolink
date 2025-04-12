@@ -18,7 +18,7 @@ export default function SignupPage() {
           <CardDescription>
             {selectedPlan
               ? `You've selected the ${selectedPlan} plan. Complete your registration to get started.`
-              : 'Complete your registration to get started with LinguoLink.'}
+              : 'Complete your registration to get started with Linguolink.'}
           </CardDescription>
         </CardHeader>
         <Suspense fallback={<div className="p-6">Loading form...</div>}>

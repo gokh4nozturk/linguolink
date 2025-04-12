@@ -1,10 +1,10 @@
-# LinguoLink - Translation Workflow Automation Platform
+# Linguolink - Translation Workflow Automation Platform
 
-LinguoLink helps development teams automate translation workflows, reduce costs, and scale localization with smart pipelines and developer-friendly tools.
+Linguolink helps development teams automate translation workflows, reduce costs, and scale localization with smart pipelines and developer-friendly tools.
 
 ## Features
 
-- **Automatic Sync**: Never worry about manual updates. LinguoLink automatically syncs your translations as content changes.
+- **Automatic Sync**: Never worry about manual updates. Linguolink automatically syncs your translations as content changes.
 - **Webhook & CI/CD Integration**: Seamlessly integrate with your existing development workflows and deployment pipelines.
 - **Inline Editor**: Edit translations directly in the platform with a user-friendly interface that supports multiple languages.
 - **API Key Management**: Securely manage and rotate API keys for all your projects with fine-grained permissions.
@@ -13,7 +13,7 @@ LinguoLink helps development teams automate translation workflows, reduce costs,
 
 ## Getting Started
 
-Visit [LinguoLink.com](https://linguolink.com) to create your free account and start automating your translation workflows today.
+Visit [Linguolink.com](https://Linguolink.com) to create your free account and start automating your translation workflows today.
 
 ### Development Setup
 
@@ -21,8 +21,8 @@ This is a [Next.js](https://nextjs.org/) project. If you're contributing to the 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/linguolink.git
-cd linguolink
+git clone https://github.com/yourusername/Linguolink.git
+cd Linguolink
 
 # Install dependencies
 npm install
@@ -56,7 +56,7 @@ Localization management involves coordinating the translation and adaptation of 
 - Maintain quality across multiple languages
 - Scale localization efforts efficiently
 
-LinguoLink addresses these challenges with a developer-first approach to translation automation.
+Linguolink addresses these challenges with a developer-first approach to translation automation.
 
 ## License
 
