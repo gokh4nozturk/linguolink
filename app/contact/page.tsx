@@ -21,9 +21,9 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowLeft } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 
-export default function ContactPage() {
+function ContactForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const plan = searchParams.get('plan') || '';
@@ -174,5 +174,17 @@ export default function ContactPage() {
         </form>
       </Card>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center py-12">Loading...</div>
+      }
+    >
+      <ContactForm />
+    </Suspense>
   );
 }
