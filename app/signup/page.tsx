@@ -3,12 +3,16 @@
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useSubscription } from '@/contexts/subscription-context';
 import { useRouter } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import SignupForm from './signup-form';
 
 export default function SignupPage() {
   const router = useRouter();
   const { selectedPlan } = useSubscription();
+
+  useEffect(() => {
+    window.location.href = 'https://app.linguol.ink';
+  });
 
   return (
     <div className="flex min-h-screen items-center justify-center py-12">
