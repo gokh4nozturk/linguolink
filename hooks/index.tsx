@@ -1,3 +1,4 @@
-import useMediaQuery from "./use-media-query";
+import useMediaQuery from './use-media-query';
+import useCycle from './useCycle';
 
-export { useMediaQuery };
+export { useCycle, useMediaQuery };
