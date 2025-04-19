@@ -120,7 +120,7 @@ const PackageCard = ({
   handleSelectPackage: (packageId: string) => void;
 }) => {
   const [selectedPackage, cycleValue] = useCycle([0, pkg.price]);
-  const [mounted, setMounted] = useState(false);
+  const [doAnimate, setDoAnimate] = useState(false);
   const [active, setActive] = useState(false);
 
   const handleActive = useCallback(() => {
@@ -146,26 +146,26 @@ const PackageCard = ({
   }, []);
 
   useEffect(() => {
-    setMounted(true);
+    setDoAnimate(true);
     onPackage();
   }, [onPackage]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
-    if (mounted) {
+    if (doAnimate) {
       window.addEventListener('scroll', handleActive);
       return () => {
         window.removeEventListener('scroll', handleActive);
       };
     }
-  }, [mounted]);
+  }, [doAnimate]);
 
   useEffect(() => {
-    if (mounted && active) {
+    if (doAnimate && active) {
       cycleValue();
-      setMounted(false);
+      setDoAnimate(false);
     }
-  }, [mounted, cycleValue, active]);
+  }, [doAnimate, active, cycleValue]);
 
   return (
     <Card
