@@ -126,7 +126,6 @@ const PackageCard = ({
   const handleActive = useCallback(() => {
     const parent = document.querySelector('#pricing-packages');
     if (parent) {
-      setActive(false);
       const rect = parent.getBoundingClientRect();
       const isInViewport = rect.top + rect.height / 4 <= window.innerHeight;
 
