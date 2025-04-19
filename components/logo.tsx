@@ -46,6 +46,7 @@ export function Logo() {
               maxWidth: '100%',
               height: 'auto',
             }}
+            height={100}
           />
           <Badge variant="custom" className="h-6">
             Beta

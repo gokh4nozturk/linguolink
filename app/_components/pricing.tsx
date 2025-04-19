@@ -1,5 +1,3 @@
-'use client';
-
 import CTA from '@/components/cta';
 import Packages from '@/components/packages';
 import Title from '@/components/title';

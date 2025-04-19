@@ -2,6 +2,7 @@
 
 import { type SubscriptionPlan, useSubscription } from '@/contexts/subscription-context';
 import { cn } from '@/lib/utils';
+import NumberFlow from '@number-flow/react';
 import { ArrowRight, BadgeCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
@@ -13,8 +14,8 @@ export default function Packages() {
 
   const packages = [
     {
-      id: 'free',
-      name: 'Free',
+      id: 'individual',
+      name: 'Individual',
       description: 'For individuals and small projects',
       price: 0,
       features: ['1 project', '500 words limit', 'Basic dashboard', 'No credit card required'],
@@ -92,7 +93,20 @@ export default function Packages() {
             <CardContent className="flex h-full flex-col justify-between space-y-6 pt-4">
               <div>
                 <CardTitle className="mb-6 text-left font-bold text-4xl">
-                  {pkg.price === 0 ? 'Free' : `$${pkg.price}/mo`}
+                  {pkg.price === 0 ? (
+                    'Free'
+                  ) : (
+                    <NumberFlow
+                      value={pkg.price}
+                      format={{
+                        style: 'currency',
+                        currency: 'USD',
+                        trailingZeroDisplay: 'stripIfInteger',
+                      }}
+                      suffix="/mo"
+                      willChange
+                    />
+                  )}
                 </CardTitle>
 
                 <div className="space-y-3">
