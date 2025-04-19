@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import NumberFlow from '@number-flow/react';
 import { ArrowRight, BadgeCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
@@ -77,7 +77,7 @@ export default function Packages() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-12">
+    <div id="pricing-packages" className="flex flex-col items-center gap-12">
       <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 sm:flex-row">
         {packages.map((pkg, idx) => (
           <PackageCard key={pkg.id} pkg={pkg} idx={idx} handleSelectPackage={handleSelectPackage} />
@@ -121,20 +121,56 @@ const PackageCard = ({
 }) => {
   const [selectedPackage, cycleValue] = useCycle([0, pkg.price]);
   const [mounted, setMounted] = useState(false);
+  const [active, setActive] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
+  const handleActive = useCallback(() => {
+    const parent = document.querySelector('#pricing-packages');
+    if (parent) {
+      setActive(false);
+      const rect = parent.getBoundingClientRect();
+      const isInViewport = rect.top + rect.height / 4 <= window.innerHeight;
+
+      setActive(isInViewport);
+    }
+  }, []);
+
+  const onPackage = useCallback(() => {
+    const parent = document.querySelector('#pricing-packages');
+    if (parent) {
+      const rect = parent.getBoundingClientRect();
+      const isInViewport = rect.top <= window.innerHeight;
+
+      if (isInViewport) {
+        setActive(true);
+      }
+    }
   }, []);
 
   useEffect(() => {
+    setMounted(true);
+    onPackage();
+  }, [onPackage]);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
     if (mounted) {
+      window.addEventListener('scroll', handleActive);
+      return () => {
+        window.removeEventListener('scroll', handleActive);
+      };
+    }
+  }, [mounted]);
+
+  useEffect(() => {
+    if (mounted && active) {
       cycleValue();
       setMounted(false);
     }
-  }, [mounted, cycleValue]);
+  }, [mounted, cycleValue, active]);
 
   return (
     <Card
+      id={pkg.id}
       key={pkg.id}
       className={cn(
         'flex flex-1 flex-col border text-left',
@@ -159,6 +195,7 @@ const PackageCard = ({
                   currency: 'USD',
                   trailingZeroDisplay: 'stripIfInteger',
                 }}
+                locales="en-US"
                 suffix="/mo"
                 willChange
               />
