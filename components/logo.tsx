@@ -15,8 +15,6 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from '@/components/ui/context-menu';
-import logoDark from '@/public/logo-dark@3x.svg';
-import logo from '@/public/logo@3x.svg';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,11 +22,15 @@ import * as React from 'react';
 import { Badge } from './ui/badge';
 
 export function Logo() {
-  const [src, setSrc] = React.useState(logo);
+  const [src, setSrc] = React.useState('https://storage.linguol.ink/brand/logo.svg');
   const { resolvedTheme } = useTheme();
 
   React.useEffect(() => {
-    setSrc(resolvedTheme === 'dark' ? logoDark : logo);
+    setSrc(
+      resolvedTheme === 'dark'
+        ? 'https://storage.linguol.ink/brand/logo-dark.svg'
+        : 'https://storage.linguol.ink/brand/logo.svg'
+    );
   }, [resolvedTheme]);
 
   return (
