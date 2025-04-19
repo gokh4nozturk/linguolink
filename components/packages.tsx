@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import NumberFlow from '@number-flow/react';
 import { ArrowRight, BadgeCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
@@ -119,16 +119,19 @@ const PackageCard = ({
   idx: number;
   handleSelectPackage: (packageId: string) => void;
 }) => {
-  const [selectedPackage, cycleValue] = useCycle([pkg.price]);
+  const [selectedPackage, cycleValue] = useCycle([0, pkg.price]);
+  const [mounted, setMounted] = useState(false);
 
-  const handleCycleValue = useCallback(() => {
-    cycleValue();
-  }, [cycleValue]);
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
-    handleCycleValue();
+    setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      cycleValue();
+      setMounted(false);
+    }
+  }, [mounted, cycleValue]);
 
   return (
     <Card
@@ -158,15 +161,6 @@ const PackageCard = ({
                 }}
                 suffix="/mo"
                 willChange
-                onAnimationsStart={() => {
-                  console.log('Animations started');
-                }}
-                onAnimationsFinish={() => {
-                  console.log('Animations ended');
-                }}
-                onAnimationStart={() => {
-                  console.log('Animation started');
-                }}
               />
             )}
           </CardTitle>
@@ -185,7 +179,11 @@ const PackageCard = ({
           variant={idx === 1 ? 'default' : 'outline'}
           size="lg"
           className="mt-6 w-full"
-          onClick={() => handleSelectPackage(pkg.id)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            handleSelectPackage(pkg.id);
+          }}
         >
           {pkg.price === 0 ? 'Start Free' : 'Subscribe'}
         </Button>
