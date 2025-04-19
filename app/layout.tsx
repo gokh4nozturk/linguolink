@@ -6,6 +6,7 @@ import type { Metadata, Viewport } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -108,6 +109,7 @@ export default function RootLayout({
             <Footer />
           </SubscriptionProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
