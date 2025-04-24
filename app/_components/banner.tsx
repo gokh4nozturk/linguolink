@@ -13,7 +13,7 @@ export default function Banner() {
           <h1 className="font-bold text-xl sm:text-3xl md:text-4xl lg:text-5xl">
             Automate Your Translation Workflow — Instantly
           </h1>
-          <p className="mx-auto mt-2 max-w-xl text-foreground/60 text-sm sm:text-base">
+          <p className="mx-auto mt-2 max-w-xl text-foreground/80 text-sm sm:text-base">
             Linguolink helps dev teams localize faster and reduce costs with smart, scalable
             translation pipelines.
           </p>
@@ -25,7 +25,7 @@ export default function Banner() {
               <Link href="/demo">See it in Action</Link>
             </Button>
           </div>
-          <p className="mt-2 text-foreground/60 text-xs">
+          <p className="mt-2 text-foreground/80 text-xs">
             Backed by developers from leading tech companies
           </p>
         </div>
