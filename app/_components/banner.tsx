@@ -182,7 +182,7 @@ export default function Banner() {
             <button
               key={image.src}
               type="button"
-              className={`h-2 w-2 rounded-full ${
+              className={`h-2 w-6 rounded-full ${
                 i === currentImageIndex ? 'bg-primary' : 'bg-primary/30'
               }`}
               onClick={() => setCurrentImageIndex(i)}
