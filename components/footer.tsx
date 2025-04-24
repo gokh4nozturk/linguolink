@@ -1,4 +1,4 @@
-import { Github, Mail, Twitter } from 'lucide-react';
+import { Github, Link, Mail, Twitter } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -15,6 +15,8 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary"
+              title="X"
+              aria-label="X"
             >
               <Twitter size={20} />
             </a>
@@ -23,10 +25,17 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary"
+              title="GitHub"
+              aria-label="GitHub"
             >
               <Github size={20} />
             </a>
-            <a href="mailto:hello@linguol.ink" className="hover:text-primary">
+            <a
+              href="mailto:hello@linguol.ink"
+              className="hover:text-primary"
+              title="Email"
+              aria-label="Email"
+            >
               <Mail size={20} />
             </a>
           </div>
@@ -36,24 +45,24 @@ export default function Footer() {
           <h3 className="mb-4 font-semibold text-lg">Product</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#features" className="hover:text-primary">
+              <Link href="#features" className="hover:text-primary">
                 Features
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#pricing" className="hover:text-primary">
+              <Link href="#pricing" className="hover:text-primary">
                 Pricing
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#testimonials" className="hover:text-primary">
+              <Link href="#testimonials" className="hover:text-primary">
                 Testimonials
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/docs" className="hover:text-primary">
+              <Link href="/docs" className="hover:text-primary">
                 Documentation
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -62,24 +71,24 @@ export default function Footer() {
           <h3 className="mb-4 font-semibold text-lg">Company</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="/about" className="hover:text-primary">
+              <Link href="/about" className="hover:text-primary">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/blog" className="hover:text-primary">
+              <Link href="/blog" className="hover:text-primary">
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/careers" className="hover:text-primary">
+              <Link href="/careers" className="hover:text-primary">
                 Careers
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="mailto:hello@linguol.ink" className="hover:text-primary">
+              <Link href="mailto:hello@linguol.ink" className="hover:text-primary">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -93,6 +102,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
+                title="Privacy Policy"
+                aria-label="Privacy Policy"
               >
                 Privacy Policy
               </a>
@@ -103,6 +114,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
+                title="Terms of Service"
+                aria-label="Terms of Service"
               >
                 Terms of Service
               </a>
