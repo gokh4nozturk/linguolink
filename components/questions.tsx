@@ -42,7 +42,10 @@ export default function Questions() {
     <Accordion type="single" collapsible>
       {faq.map((question, index) => (
         <AccordionItem
-          key={`item-${question.question.replace(/\s+/g, '-')}`}
+          key={`item-${
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            index
+          }`}
           value={`item-${index}`}
         >
           <AccordionTrigger>{question.question}</AccordionTrigger>
