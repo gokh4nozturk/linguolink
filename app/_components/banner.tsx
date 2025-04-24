@@ -145,14 +145,15 @@ export default function Banner() {
             animate="center"
             exit="exit"
             transition={springTransition}
-            className="flex h-[180px] w-full items-center justify-center sm:h-[220px] md:h-[250px]"
+            className="flex h-[180px] w-full items-center justify-center sm:h-[520px] lg:h-[340px]"
           >
             <Image
-              className="max-h-[170px] w-full rounded-xl object-contain sm:max-h-[210px] md:max-h-[240px]"
+              className="max-h-[170px] w-full rounded-xl object-contain sm:max-h-[510px] lg:max-h-[330px]"
               src={carouselImages[currentImageIndex].src}
               alt={carouselImages[currentImageIndex].alt}
               width={700}
-              height={300}
+              height={330}
+              loading={currentImageIndex === 0 || currentImageIndex === 1 ? 'eager' : 'lazy'}
             />
           </motion.div>
         </AnimatePresence>
