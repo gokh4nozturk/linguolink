@@ -1,5 +1,9 @@
 'use client';
 
+import GithubButton from '@/components/ground/github-button';
+import { Logo } from '@/components/logo';
+import { ModeToggle } from '@/components/mode-toggle';
+import { Button } from '@/components/ui/button';
 import { LINKS } from '@/constants';
 import { cn } from '@/lib/utils';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
@@ -7,9 +11,6 @@ import { EllipsisVertical } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import { Logo } from './logo';
-import { ModeToggle } from './mode-toggle';
-import { Button } from './ui/button';
 
 // Simple debounce function to limit function call frequency
 function debounce<Args extends unknown[]>(
@@ -139,16 +140,11 @@ export function Header() {
           <div className="flex items-center gap-2 pl-3">
             <ModeToggle />
 
-            <Button
-              variant="link"
-              asChild
-              className="rounded-3xl hover:bg-slate-100 dark:hover:bg-slate-800"
-            >
+            <GithubButton variant="link">
               <a href={appRedirectionUrl} target="_blank" rel="noopener noreferrer">
                 Login
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
               </a>
-            </Button>
+            </GithubButton>
           </div>
         </div>
       </div>
