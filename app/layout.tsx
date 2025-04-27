@@ -2,11 +2,11 @@ import Footer from '@/components/footer';
 import { Header } from '@/components/header';
 import { SubscriptionProvider } from '@/contexts/subscription-context';
 import { cn } from '@/lib/utils';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
-import { Analytics } from '@vercel/analytics/react';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     'localization tools',
     'developer translation',
   ],
-  authors: [{ name: 'Linguolink Team' }],
-  creator: 'Linguolink',
-  publisher: 'Linguolink',
+  authors: [{ name: 'gokh4nozturk' }],
+  creator: 'gokh4nozturk',
+  publisher: 'gokh4nozturk',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       'Smart localization management for developers. Streamline your translation pipelines and reduce costs.',
     images: [
       {
-        url: 'https://linguol.ink/og-image.png',
+        url: 'https://linguol.ink/api/og',
         width: 1200,
         height: 630,
         alt: 'Linguolink - Localization Management for Developers',
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     title: 'Linguolink - Automate Your Translation Workflow',
     description:
       'Smart localization management for developers. Streamline your translation pipelines and reduce costs.',
-    images: ['https://linguol.ink/og-image.png'],
-    creator: '@Linguolink',
+    images: ['https://linguol.ink/api/og'],
+    creator: '@gokh4nozturk',
   },
   robots: {
     index: true,
