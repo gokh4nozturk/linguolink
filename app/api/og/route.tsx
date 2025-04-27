@@ -61,7 +61,7 @@ export async function GET(request: Request) {
               src="https://storage.linguol.ink/brand/logo-white.png"
               style={{
                 width: '600px',
-                height: '280px',
+                height: '260px',
                 marginLeft: '-60px',
                 marginBottom: '-60px',
               }}
