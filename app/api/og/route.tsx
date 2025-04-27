@@ -1,5 +1,4 @@
 import { ImageResponse } from '@vercel/og';
-import React from 'react';
 
 export const runtime = 'edge';
 
@@ -41,6 +40,10 @@ export async function GET(request: Request) {
           overflow: 'hidden',
           fontFamily:
             'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif',
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale',
+          background: 'rgba(17, 16, 16, 1)',
+          color: 'rgba(159, 168, 178, 1)',
         }}
       >
         <div
@@ -50,33 +53,24 @@ export async function GET(request: Request) {
             display: 'flex',
             flexDirection: 'column',
             gap: '32px',
-            width: '100%',
           }}
         >
-          <img
-            src="https://storage.linguol.ink/brand/logo.svg"
-            alt="logo"
-            height={240}
-            width={240}
-          />
-
           {/* Content section */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '16px' }}>
-            <div
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <img
+              src="https://storage.linguol.ink/brand/logo-white.png"
               style={{
-                fontSize: '52px',
-                fontWeight: '700',
-                lineHeight: '1.2',
-                maxWidth: '760px',
+                width: '600px',
+                height: '280px',
+                marginLeft: '-60px',
+                marginBottom: '-60px',
               }}
-            >
-              {title}
-            </div>
+              alt="logo"
+            />
             <div
               style={{
-                fontSize: '24px',
-                fontWeight: '400',
-                maxWidth: '760px',
+                fontSize: '28px',
+                fontWeight: '500',
               }}
             >
               {description}
