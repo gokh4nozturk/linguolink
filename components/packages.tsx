@@ -1,5 +1,8 @@
 'use client';
 
+import GitHubButton from '@/components/ground/github-button';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { type SubscriptionPlan, useSubscription } from '@/contexts/subscription-context';
 import { useCycle } from '@/hooks';
 import { cn } from '@/lib/utils';
@@ -7,9 +10,6 @@ import NumberFlow from '@number-flow/react';
 import { ArrowRight, BadgeCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
-import { Button } from './ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-
 const packages = [
   {
     id: 'individual',
@@ -98,13 +98,13 @@ export default function Packages() {
           ))}
         </div>
 
-        <Button
+        <GitHubButton
           onClick={handleEnterpriseContact}
           variant="ghost"
           className="font-medium text-primary hover:text-primary/80"
         >
-          Contact our sales team for custom pricing <ArrowRight className="ml-1 h-4 w-4" />
-        </Button>
+          Contact our sales team for custom pricing
+        </GitHubButton>
       </div>
     </div>
   );
