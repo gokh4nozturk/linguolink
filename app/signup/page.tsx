@@ -21,7 +21,7 @@ export default function SignupPage() {
   // const { selectedPlan } = useSubscription();
 
   useEffect(() => {
-    window.location.href = 'https://app.linguol.ink';
+    window.location.href = process.env.NEXT_PUBLIC_APP_REDIRECTION_URL || '';
   });
 
   return (
