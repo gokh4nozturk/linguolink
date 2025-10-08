@@ -1,6 +1,16 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from '@/components/ui/empty';
+import { Spinner } from '@/components/ui/spinner';
 import { useSubscription } from '@/contexts/subscription-context';
 import { useRouter } from 'next/navigation';
 import { Suspense, useEffect } from 'react';
@@ -8,7 +18,7 @@ import SignupForm from './signup-form';
 
 export default function SignupPage() {
   const router = useRouter();
-  const { selectedPlan } = useSubscription();
+  // const { selectedPlan } = useSubscription();
 
   useEffect(() => {
     window.location.href = 'https://app.linguol.ink';
@@ -16,7 +26,23 @@ export default function SignupPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center py-12">
-      <Card className="w-full max-w-md">
+      <Empty className="w-full">
+        <EmptyHeader>
+          <EmptyMedia variant="icon">
+            <Spinner />
+          </EmptyMedia>
+          <EmptyTitle>Processing your request</EmptyTitle>
+          <EmptyDescription>
+            Please wait while we process your request. Do not refresh the page.
+          </EmptyDescription>
+        </EmptyHeader>
+        <EmptyContent>
+          <Button variant="outline" size="sm" onClick={() => router.back()}>
+            Back
+          </Button>
+        </EmptyContent>
+      </Empty>
+      {/*<Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl">Create an account</CardTitle>
           <CardDescription>
@@ -41,7 +67,7 @@ export default function SignupPage() {
             .
           </CardDescription>
         </CardFooter>
-      </Card>
+      </Card>*/}
     </div>
   );
 }
