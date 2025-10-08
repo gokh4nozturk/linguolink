@@ -24,15 +24,15 @@ export const LINKS = [
     isExternal: false,
   },
   {
-    href: '/faq',
+    href: '/#faq',
     text: 'FAQ',
     icon: '❓',
     isExternal: false,
   },
-  {
-    href: '/docs',
-    text: 'Documentation',
-    icon: '📚',
-    isExternal: false,
-  },
+  // {
+  //   href: '/docs',
+  //   text: 'Documentation',
+  //   icon: '📚',
+  //   isExternal: false,
+  // },
 ];

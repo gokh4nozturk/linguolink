@@ -1,10 +1,10 @@
 'use client';
 
 import {
+  BrainCircuitIcon,
   CheckIcon,
   CogIcon,
   CpuIcon,
-  HandCoinsIcon,
   RabbitIcon,
   WorkflowIcon,
 } from '@/components/icons';
@@ -44,11 +44,10 @@ export default function Cards() {
       icon: <CpuIcon />,
     },
     {
-      id: 'usage-based-pricing',
-      title: 'Usage-Based Pricing',
-      description:
-        'Only pay for what you use with our transparent, scalable pricing model that grows with your needs.',
-      icon: <HandCoinsIcon />,
+      id: 'ai-integration',
+      title: 'AI Integration',
+      description: 'Integrate AI-powered translation services to enhance accuracy and efficiency.',
+      icon: <BrainCircuitIcon />,
     },
     {
       id: 'fast-performance',

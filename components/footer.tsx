@@ -58,12 +58,12 @@ export default function Footer() {
             <li>
               <Link href="/about">About</Link>
             </li>
-            <li>
+            {/*<li>
               <Link href="/blog">Blog</Link>
-            </li>
-            <li>
+            </li>*/}
+            {/*<li>
               <Link href="/careers">Careers</Link>
-            </li>
+            </li>*/}
             <li>
               <Link href="mailto:hello@linguol.ink">Contact</Link>
             </li>
