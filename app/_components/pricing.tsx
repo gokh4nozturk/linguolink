@@ -1,6 +1,7 @@
 import CTA from '@/components/cta';
 import Packages from '@/components/packages';
 import Title from '@/components/title';
+import { UsageBasedPricingDemo } from '@/components/usage-based-pricing-demo';
 
 export default function Pricing() {
   return (
@@ -11,6 +12,7 @@ export default function Pricing() {
       <Title>Simple, usage-based pricing that scales with you</Title>
       <CTA title="Simple pricing plans that grow with your needs. No hidden fees." description="" />
       <Packages />
+      <UsageBasedPricingDemo />
     </section>
   );
 }
