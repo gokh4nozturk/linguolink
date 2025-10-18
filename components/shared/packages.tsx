@@ -1,15 +1,16 @@
 'use client';
 
+import NumberFlow from '@number-flow/react';
+import { BadgeCheck } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
 import GitHubButton from '@/components/ground/github-button';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { type SubscriptionPlan, useSubscription } from '@/contexts/subscription-context';
 import { useCycle } from '@/hooks';
 import { cn } from '@/lib/utils';
-import NumberFlow from '@number-flow/react';
-import { ArrowRight, BadgeCheck } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+
 const packages = [
   {
     id: 'individual',
@@ -77,22 +78,22 @@ export default function Packages() {
   };
 
   return (
-    <div id="pricing-packages" className="flex flex-col items-center gap-12">
-      <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 sm:flex-row">
+    <div id='pricing-packages' className='flex flex-col items-center gap-12'>
+      <div className='mx-auto flex max-w-5xl flex-col gap-4 px-4 sm:flex-row'>
         {packages.map((pkg, idx) => (
           <PackageCard key={pkg.id} pkg={pkg} idx={idx} handleSelectPackage={handleSelectPackage} />
         ))}
       </div>
 
       {/* Enterprise Plan */}
-      <div className="mx-auto max-w-3xl rounded-lg border border-primary/30 border-dashed bg-background/50 p-6 text-center">
-        <h3 className="mb-2 font-bold text-2xl">{enterprisePlan.name}</h3>
-        <p className="mb-4 text-muted-foreground">{enterprisePlan.description}</p>
+      <div className='mx-auto max-w-3xl rounded-lg border border-primary/30 border-dashed bg-background/50 p-6 text-center'>
+        <h3 className='mb-2 font-bold text-2xl'>{enterprisePlan.name}</h3>
+        <p className='mb-4 text-muted-foreground'>{enterprisePlan.description}</p>
 
-        <div className="mt-4 mb-6 flex flex-wrap justify-center gap-x-8 gap-y-2">
+        <div className='mt-4 mb-6 flex flex-wrap justify-center gap-x-8 gap-y-2'>
           {enterprisePlan.features.map((feature) => (
-            <span key={feature} className="flex items-center text-sm">
-              <BadgeCheck className="mr-1 inline-block h-4 w-4 text-primary" />
+            <span key={feature} className='flex items-center text-sm'>
+              <BadgeCheck className='mr-1 inline-block h-4 w-4 text-primary' />
               {feature}
             </span>
           ))}
@@ -100,8 +101,8 @@ export default function Packages() {
 
         <GitHubButton
           onClick={handleEnterpriseContact}
-          variant="ghost"
-          className="font-medium text-primary hover:text-primary/80"
+          variant='ghost'
+          className='font-medium text-primary hover:text-primary/80'
         >
           Contact our sales team for custom pricing
         </GitHubButton>
@@ -173,17 +174,17 @@ const PackageCard = ({
       key={pkg.id}
       className={cn(
         'flex flex-1 flex-col border text-left',
-        idx === 1 && 'sm:-mt-4 sm:border-primary sm:shadow-lg'
+        idx === 1 && 'sm:-mt-4 sm:border-primary sm:shadow-lg',
       )}
     >
-      <CardHeader className="space-y-2 pb-0">
-        <p className="font-bold text-3xl">{pkg.name}</p>
-        <p className="text-base text-foreground/60">{pkg.description}</p>
+      <CardHeader className='space-y-2 pb-0'>
+        <p className='font-bold text-3xl'>{pkg.name}</p>
+        <p className='text-base text-foreground/60'>{pkg.description}</p>
       </CardHeader>
 
-      <CardContent className="flex h-full flex-col justify-between space-y-6 pt-4">
+      <CardContent className='flex h-full flex-col justify-between space-y-6 pt-4'>
         <div>
-          <CardTitle className="mb-6 text-left font-bold text-4xl">
+          <CardTitle className='mb-6 text-left font-bold text-4xl'>
             {pkg.price === 0 ? (
               'Free'
             ) : (
@@ -194,17 +195,17 @@ const PackageCard = ({
                   currency: 'USD',
                   trailingZeroDisplay: 'stripIfInteger',
                 }}
-                locales="en-US"
-                suffix="/mo"
+                locales='en-US'
+                suffix='/mo'
                 willChange
               />
             )}
           </CardTitle>
 
-          <div className="space-y-3">
+          <div className='space-y-3'>
             {pkg.features.map((feature) => (
-              <CardDescription key={feature} className="flex items-center text-left text-sm">
-                <BadgeCheck className="mr-2 inline-block h-4 w-4 text-primary" />
+              <CardDescription key={feature} className='flex items-center text-left text-sm'>
+                <BadgeCheck className='mr-2 inline-block h-4 w-4 text-primary' />
                 {feature}
               </CardDescription>
             ))}
@@ -213,8 +214,8 @@ const PackageCard = ({
 
         <Button
           variant={idx === 1 ? 'default' : 'outline'}
-          size="lg"
-          className="mt-6 w-full"
+          size='lg'
+          className='mt-6 w-full'
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
