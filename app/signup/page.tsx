@@ -25,10 +25,10 @@ export default function SignupPage() {
   });
 
   return (
-    <div className="flex min-h-screen items-center justify-center py-12">
-      <Empty className="w-full">
+    <div className='flex min-h-screen items-center justify-center py-12'>
+      <Empty className='w-full'>
         <EmptyHeader>
-          <EmptyMedia variant="icon">
+          <EmptyMedia variant='icon'>
             <Spinner />
           </EmptyMedia>
           <EmptyTitle>Processing your request</EmptyTitle>
@@ -37,7 +37,7 @@ export default function SignupPage() {
           </EmptyDescription>
         </EmptyHeader>
         <EmptyContent>
-          <Button variant="outline" size="sm" onClick={() => router.back()}>
+          <Button variant='outline' size='sm' onClick={() => router.back()}>
             Back
           </Button>
         </EmptyContent>

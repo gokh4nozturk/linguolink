@@ -77,57 +77,57 @@ export default function SignupForm() {
   };
 
   return (
-    <CardContent className="p-6">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="space-y-2">
-          <label htmlFor="name" className="font-medium text-sm">
+    <CardContent className='p-6'>
+      <form onSubmit={handleSubmit} className='space-y-4'>
+        <div className='space-y-2'>
+          <label htmlFor='name' className='font-medium text-sm'>
             Full Name
           </label>
           <input
-            id="name"
-            name="name"
-            type="text"
+            id='name'
+            name='name'
+            type='text'
             value={formData.name}
             onChange={handleChange}
-            placeholder="Enter your name"
-            className="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            placeholder='Enter your name'
+            className='w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary'
           />
-          {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+          {errors.name && <p className='text-red-500 text-sm'>{errors.name}</p>}
         </div>
 
-        <div className="space-y-2">
-          <label htmlFor="email" className="font-medium text-sm">
+        <div className='space-y-2'>
+          <label htmlFor='email' className='font-medium text-sm'>
             Email
           </label>
           <input
-            id="email"
-            name="email"
-            type="email"
+            id='email'
+            name='email'
+            type='email'
             value={formData.email}
             onChange={handleChange}
-            placeholder="Enter your email"
-            className="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            placeholder='Enter your email'
+            className='w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary'
           />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          {errors.email && <p className='text-red-500 text-sm'>{errors.email}</p>}
         </div>
 
-        <div className="space-y-2">
-          <label htmlFor="password" className="font-medium text-sm">
+        <div className='space-y-2'>
+          <label htmlFor='password' className='font-medium text-sm'>
             Password
           </label>
           <input
-            id="password"
-            name="password"
-            type="password"
+            id='password'
+            name='password'
+            type='password'
             value={formData.password}
             onChange={handleChange}
-            placeholder="Create a password"
-            className="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            placeholder='Create a password'
+            className='w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary'
           />
-          {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+          {errors.password && <p className='text-red-500 text-sm'>{errors.password}</p>}
         </div>
 
-        <Button type="submit" className="w-full" disabled={isLoading}>
+        <Button type='submit' className='w-full' disabled={isLoading}>
           {isLoading ? 'Creating account...' : 'Create account'}
         </Button>
       </form>

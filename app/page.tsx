@@ -20,21 +20,21 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main
-      className="grid min-h-screen grid-cols-1 gap-20 p-4 max-sm:gap-10 sm:p-24"
+      className='grid min-h-screen grid-cols-1 gap-20 p-4 max-sm:gap-10 sm:p-24'
       itemScope
-      itemType="https://schema.org/WebPage"
+      itemType='https://schema.org/WebPage'
     >
       <Banner />
       <ProblemSolutions />
       <section
         itemScope
-        itemType="https://schema.org/Product"
-        className="grid grid-cols-1 gap-20 max-sm:gap-10"
+        itemType='https://schema.org/Product'
+        className='grid grid-cols-1 gap-20 max-sm:gap-10'
       >
-        <meta itemProp="name" content="Linguolink" />
+        <meta itemProp='name' content='Linguolink' />
         <meta
-          itemProp="description"
-          content="Translation workflow automation platform for developers"
+          itemProp='description'
+          content='Translation workflow automation platform for developers'
         />
         <Features />
         <Pricing />
@@ -45,7 +45,7 @@ export default function Home() {
 
       {/* Product structured data */}
       <StructuredData
-        type="Product"
+        type='Product'
         data={{
           name: 'Linguolink',
           description: 'Translation workflow automation platform for developers',
@@ -70,7 +70,7 @@ export default function Home() {
 
       {/* WebSite structured data */}
       <StructuredData
-        type="WebSite"
+        type='WebSite'
         data={{
           name: 'Linguolink',
           url: 'https://linguol.ink',
@@ -84,7 +84,7 @@ export default function Home() {
 
       {/* Organization structured data */}
       <StructuredData
-        type="Organization"
+        type='Organization'
         data={{
           name: 'Linguolink',
           url: 'https://linguol.ink',

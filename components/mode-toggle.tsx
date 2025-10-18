@@ -16,9 +16,9 @@ export function ModeToggle() {
 
   const switchTheme = useCallback(
     (theme: string) => {
-      // @ts-ignore -- View Transitions API may not be in current TypeScript DOM definitions
+      // @ts-expect-error -- View Transitions API may not be in current TypeScript DOM definitions
       if (document.startViewTransition) {
-        // @ts-ignore -- View Transitions API may not be in current TypeScript DOM definitions
+        // @ts-expect-error -- View Transitions API may not be in current TypeScript DOM definitions
         document.startViewTransition(() => {
           setTheme(theme);
         });
