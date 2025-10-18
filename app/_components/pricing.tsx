@@ -1,5 +1,5 @@
 import CTA from '@/components/cta';
-import Packages from '@/components/packages';
+import Packages from '@/components/shared/packages';
 import Title from '@/components/title';
 import { UsageBasedPricingDemo } from '@/components/usage-based-pricing-demo';
 
