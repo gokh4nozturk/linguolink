@@ -29,10 +29,10 @@ export function UsageBasedPackage({ className }: UsageBasedPackageProps) {
         value={credits}
         onChange={setCredits}
         title='Pay-as-you-use pricing'
-        subtitle='Start with a flat monthly rate that includes 2,000 credits.'
+        subtitle='Start with a flat monthly rate that includes 2,000 keys.'
       />
       <div className='text-muted-foreground text-xs'>
-        Current value: {credits.toLocaleString()} credits
+        Current value: {credits.toLocaleString()} keys
       </div>
     </div>
   );

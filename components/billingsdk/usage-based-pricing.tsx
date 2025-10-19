@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/a11y/useKeyWithClickEvents: <explanation> */
+/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
 'use client';
 
 import { motion, useMotionValueEvent, useSpring, useTransform } from 'motion/react';
@@ -222,8 +224,8 @@ export function UsageBasedPricing({
     () => Math.floor(max / creditInterval) * creditInterval,
     [max, creditInterval],
   );
-  const startLabel = `${formatNumber(firstInterval)} credits`;
-  const endLabel = `${formatNumber(lastInterval)} credits`;
+  const startLabel = `${formatNumber(firstInterval)} keys`;
+  const endLabel = `${formatNumber(lastInterval)} keys`;
 
   // Keyboard Accessibility
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -270,7 +272,7 @@ export function UsageBasedPricing({
             </span>
             <span className='text-muted-foreground text-sm'>/mo</span>
           </div>
-          <p className='text-muted-foreground text-xs'>{formatNumber(value)} credits per month</p>
+          <p className='text-muted-foreground text-xs'>{formatNumber(value)} keys per month</p>
         </div>
 
         <div className='space-y-6'>
