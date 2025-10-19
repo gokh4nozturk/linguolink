@@ -13,20 +13,20 @@ export default function DocsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="relative pt-14">
+    <div className='relative pt-14'>
       {/* Breadcrumbs */}
-      <div className="border-b bg-muted/40">
-        <div className="container mx-auto px-4 py-3">
-          <nav className="flex" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 text-sm">
+      <div className='border-b bg-muted/40'>
+        <div className='container mx-auto px-4 py-3'>
+          <nav className='flex' aria-label='Breadcrumb'>
+            <ol className='flex items-center space-x-2 text-sm'>
               <li>
-                <Link href="/" className="text-muted-foreground hover:underline">
+                <Link href='/' className='text-muted-foreground hover:underline'>
                   Home
                 </Link>
               </li>
-              <li className="flex items-center">
-                <span className="mx-2 text-muted-foreground">/</span>
-                <span className="font-medium">Documentation</span>
+              <li className='flex items-center'>
+                <span className='mx-2 text-muted-foreground'>/</span>
+                <span className='font-medium'>Documentation</span>
               </li>
             </ol>
           </nav>

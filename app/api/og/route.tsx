@@ -58,14 +58,14 @@ export async function GET(request: Request) {
           {/* Content section */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <img
-              src="https://storage.linguol.ink/brand/logo-white.png"
+              src='https://storage.linguol.ink/brand/logo-white.png'
               style={{
                 width: '600px',
                 height: '260px',
                 marginLeft: '-60px',
                 marginBottom: '-60px',
               }}
-              alt="logo"
+              alt='logo'
             />
             <div
               style={{
@@ -105,7 +105,7 @@ export async function GET(request: Request) {
             weight: 700,
           },
         ],
-      }
+      },
     );
   } catch (e: unknown) {
     console.log(`${e instanceof Error ? e.message : String(e)}`);

@@ -62,18 +62,18 @@ function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="flex min-h-screen items-center justify-center py-12">
-        <Card className="w-full max-w-lg">
+      <div className='flex min-h-screen items-center justify-center py-12'>
+        <Card className='w-full max-w-lg'>
           <CardHeader>
-            <CardTitle className="text-2xl">Thank you for contacting us</CardTitle>
+            <CardTitle className='text-2xl'>Thank you for contacting us</CardTitle>
             <CardDescription>
               We've received your inquiry about our {plan === 'pro' ? 'Pro / Enterprise' : ''} plan.
               Our team will get back to you within 24 hours.
             </CardDescription>
           </CardHeader>
           <CardFooter>
-            <Button onClick={() => router.push('/')} variant="outline" className="mt-4">
-              <ArrowLeft className="mr-2 h-4 w-4" />
+            <Button onClick={() => router.push('/')} variant='outline' className='mt-4'>
+              <ArrowLeft className='mr-2 h-4 w-4' />
               Return to Home
             </Button>
           </CardFooter>
@@ -83,10 +83,10 @@ function ContactForm() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center py-12">
-      <Card className="w-full max-w-lg">
+    <div className='flex min-h-screen items-center justify-center py-12'>
+      <Card className='w-full max-w-lg'>
         <CardHeader>
-          <CardTitle className="text-2xl">Contact our Sales Team</CardTitle>
+          <CardTitle className='text-2xl'>Contact our Sales Team</CardTitle>
           <CardDescription>
             {plan === 'pro'
               ? 'Learn more about our Pro / Enterprise plan tailored for your organization.'
@@ -94,80 +94,80 @@ function ContactForm() {
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
+          <CardContent className='space-y-4'>
+            <div className='space-y-2'>
+              <Label htmlFor='name'>Full Name</Label>
               <Input
-                id="name"
-                name="name"
+                id='name'
+                name='name'
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your name"
+                placeholder='Your name'
                 required
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+            <div className='space-y-2'>
+              <Label htmlFor='email'>Email</Label>
               <Input
-                id="email"
-                name="email"
-                type="email"
+                id='email'
+                name='email'
+                type='email'
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="your.email@company.com"
+                placeholder='your.email@company.com'
                 required
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="company">Company</Label>
+            <div className='space-y-2'>
+              <Label htmlFor='company'>Company</Label>
               <Input
-                id="company"
-                name="company"
+                id='company'
+                name='company'
                 value={formData.company}
                 onChange={handleChange}
-                placeholder="Your company name"
+                placeholder='Your company name'
                 required
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="employeeCount">Company Size</Label>
+            <div className='space-y-2'>
+              <Label htmlFor='employeeCount'>Company Size</Label>
               <Select onValueChange={handleSelectChange} value={formData.employeeCount}>
-                <SelectTrigger id="employeeCount">
-                  <SelectValue placeholder="Select company size" />
+                <SelectTrigger id='employeeCount'>
+                  <SelectValue placeholder='Select company size' />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="1-10">1-10 employees</SelectItem>
-                  <SelectItem value="11-50">11-50 employees</SelectItem>
-                  <SelectItem value="51-200">51-200 employees</SelectItem>
-                  <SelectItem value="201-500">201-500 employees</SelectItem>
-                  <SelectItem value="501+">501+ employees</SelectItem>
+                  <SelectItem value='1-10'>1-10 employees</SelectItem>
+                  <SelectItem value='11-50'>11-50 employees</SelectItem>
+                  <SelectItem value='51-200'>51-200 employees</SelectItem>
+                  <SelectItem value='201-500'>201-500 employees</SelectItem>
+                  <SelectItem value='501+'>501+ employees</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
+            <div className='space-y-2'>
+              <Label htmlFor='message'>Message</Label>
               <Textarea
-                id="message"
-                name="message"
+                id='message'
+                name='message'
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Tell us about your needs and requirements"
-                className="min-h-[120px]"
+                placeholder='Tell us about your needs and requirements'
+                className='min-h-[120px]'
                 required
               />
             </div>
           </CardContent>
 
-          <CardFooter className="flex justify-between">
-            <Button type="button" variant="outline" onClick={() => router.back()}>
-              <ArrowLeft className="mr-2 h-4 w-4" />
+          <CardFooter className='flex justify-between'>
+            <Button type='button' variant='outline' onClick={() => router.back()}>
+              <ArrowLeft className='mr-2 h-4 w-4' />
               Back
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button type='submit' disabled={isSubmitting}>
               {isSubmitting ? 'Submitting...' : 'Submit Request'}
             </Button>
           </CardFooter>
@@ -181,7 +181,7 @@ export default function ContactPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-screen items-center justify-center py-12">Loading...</div>
+        <div className='flex min-h-screen items-center justify-center py-12'>Loading...</div>
       }
     >
       <ContactForm />

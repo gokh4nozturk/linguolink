@@ -65,32 +65,32 @@ export default function BlogPage() {
   ];
 
   return (
-    <main className="container mx-auto px-4 py-12">
+    <main className='container mx-auto px-4 py-12'>
       <Title>Localization Management Blog</Title>
-      <p className="mx-auto mb-12 max-w-2xl text-center text-foreground/60">
+      <p className='mx-auto mb-12 max-w-2xl text-center text-foreground/60'>
         Expert insights on translation automation, localization management, and optimizing your
         workflows for global teams.
       </p>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
         {blogPosts.map((post) => (
-          <Link key={post.id} href={`/blog/${post.id}`} className="no-underline">
-            <Card className="h-full transition-all hover:shadow-md">
-              <div className="relative h-48 w-full">
-                <Image src={post.image} alt={post.alt} fill className="rounded-t-lg object-cover" />
+          <Link key={post.id} href={`/blog/${post.id}`} className='no-underline'>
+            <Card className='h-full transition-all hover:shadow-md'>
+              <div className='relative h-48 w-full'>
+                <Image src={post.image} alt={post.alt} fill className='rounded-t-lg object-cover' />
               </div>
               <CardHeader>
-                <div className="mb-2 flex items-center justify-between">
-                  <span className="rounded bg-primary/10 px-2 py-1 font-medium text-primary text-xs">
+                <div className='mb-2 flex items-center justify-between'>
+                  <span className='rounded bg-primary/10 px-2 py-1 font-medium text-primary text-xs'>
                     {post.category}
                   </span>
-                  <span className="text-foreground/60 text-xs">{post.readTime}</span>
+                  <span className='text-foreground/60 text-xs'>{post.readTime}</span>
                 </div>
-                <CardTitle className="line-clamp-2">{post.title}</CardTitle>
-                <CardDescription className="line-clamp-3">{post.description}</CardDescription>
+                <CardTitle className='line-clamp-2'>{post.title}</CardTitle>
+                <CardDescription className='line-clamp-3'>{post.description}</CardDescription>
               </CardHeader>
               <CardFooter>
-                <time dateTime={post.date} className="text-foreground/60 text-sm">
+                <time dateTime={post.date} className='text-foreground/60 text-sm'>
                   {new Date(post.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
@@ -105,7 +105,7 @@ export default function BlogPage() {
 
       {/* Blog structured data */}
       <StructuredData
-        type="BreadcrumbList"
+        type='BreadcrumbList'
         data={{
           itemListElement: [
             {
