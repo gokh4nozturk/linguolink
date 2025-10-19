@@ -1,16 +1,16 @@
 'use client';
 
+import { useAnimation } from 'framer-motion';
+import React from 'react';
 import {
   BrainCircuitIcon,
   CheckIcon,
+  CloudIcon,
   CogIcon,
-  CpuIcon,
   RabbitIcon,
   WorkflowIcon,
 } from '@/components/icons';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useAnimation } from 'framer-motion';
-import React from 'react';
 
 export default function Cards() {
   const controls = useAnimation();
@@ -37,16 +37,16 @@ export default function Cards() {
       icon: <CheckIcon />,
     },
     {
-      id: 'api-key-management',
-      title: 'API Key Management',
+      id: 'serverless-storage',
+      title: 'Serverless Storage Integrations',
       description:
-        'Securely manage and rotate API keys for all your projects with fine-grained permissions.',
-      icon: <CpuIcon />,
+        'Connect seamlessly with AWS S3, GCS, Azure Blob, and other cloud storage services.',
+      icon: <CloudIcon />,
     },
     {
       id: 'ai-integration',
       title: 'AI Integration',
-      description: 'Integrate AI-powered translation services to enhance accuracy and efficiency.',
+      description: 'AI-powered bulk translations with enhanced accuracy and efficiency.',
       icon: <BrainCircuitIcon />,
     },
     {
@@ -59,23 +59,23 @@ export default function Cards() {
   ];
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-2 xl:grid-cols-3">
+    <div className='mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-2 xl:grid-cols-3'>
       {cards.map((card) => {
         const controls = useAnimation();
 
         return (
           <Card
             key={card.id}
-            className="border-t-4 border-t-primary transition-all hover:scale-[1.015] hover:drop-shadow-lg dark:hover:drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)]"
+            className='border-t-4 border-t-primary transition-all hover:scale-[1.015] hover:drop-shadow-lg dark:hover:drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)]'
             onMouseEnter={() => controls.start('animate')}
             onMouseLeave={() => controls.start('normal')}
           >
-            <CardHeader className="flex items-center justify-center">
-              <div className="rounded-full bg-primary/10 p-3">
+            <CardHeader className='flex items-center justify-center'>
+              <div className='rounded-full bg-primary/10 p-3'>
                 {React.cloneElement(card.icon, { controls })}
               </div>
             </CardHeader>
-            <CardContent className="space-y-1 text-center">
+            <CardContent className='space-y-1 text-center'>
               <CardTitle>{card.title}</CardTitle>
               <CardDescription>{card.description}</CardDescription>
             </CardContent>
