@@ -1,9 +1,9 @@
 'use client';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
 import { motion, useMotionValueEvent, useSpring, useTransform } from 'motion/react';
 import { type ReactNode, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 export type UsageBasedPricingProps = {
   className?: string;
@@ -19,6 +19,8 @@ export type UsageBasedPricingProps = {
   basePrice?: number;
   includedCredits?: number;
   unitPricePerCredit?: number;
+  creditInterval?: number;
+  pricePerInterval?: number;
   title?: string;
   subtitle?: string;
 };
@@ -43,6 +45,8 @@ export function UsageBasedPricing({
   currency = '$',
   basePrice = 29.99,
   includedCredits = 1000,
+  creditInterval = 1000,
+  pricePerInterval = 10,
   title = 'Pay as you use pricing',
   subtitle = 'Start with a flat monthly rate that includes 4,000 credits.',
 }: UsageBasedPricingProps) {
@@ -77,12 +81,12 @@ export function UsageBasedPricing({
   }, []);
 
   const price = useMemo(() => {
-    // Pricing: basePrice covers includedCredits. For every additional 1,000 credits, add $10.
+    // Pricing: basePrice covers includedCredits. For every additional creditInterval, add pricePerInterval.
     const extra = Math.max(0, value - includedCredits);
-    const thousandsOver = Math.ceil(extra / 1000);
-    const extraCost = thousandsOver * 10;
+    const intervalsOver = Math.ceil(extra / creditInterval);
+    const extraCost = intervalsOver * pricePerInterval;
     return basePrice + extraCost;
-  }, [value, includedCredits, basePrice]);
+  }, [value, includedCredits, basePrice, creditInterval, pricePerInterval]);
 
   const priceSpring = useSpring(price, { stiffness: 140, damping: 18, mass: 0.6 });
   useEffect(() => {
@@ -107,7 +111,7 @@ export function UsageBasedPricing({
   const tickCount = useMemo(() => Math.max(80, Math.floor((trackWidth || 1) / 6)), [trackWidth]);
   const currentTickIndexFloat = useMemo(
     () => (posPct / 100) * (tickCount - 1),
-    [posPct, tickCount]
+    [posPct, tickCount],
   );
 
   const commitValue = (v: number, fireEnd = false) => {
@@ -150,7 +154,7 @@ export function UsageBasedPricing({
     hasMovedRef.current = false;
   };
   // easing function for dot click animation
-  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+  const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
   // animate to target value (used by clickable dots)
   const animateTo = (targetValue: number) => {
     // cancel any existing animation
@@ -209,11 +213,17 @@ export function UsageBasedPricing({
     commitValue(next, true);
   };
 
-  // Positions for labels centered under first and last 1000-multiple dots
-  const firstThousand = useMemo(() => Math.ceil(min / 1000) * 1000, [min]);
-  const lastThousand = useMemo(() => Math.floor(max / 1000) * 1000, [max]);
-  const startLabel = `${formatNumber(firstThousand)} credits`;
-  const endLabel = `${formatNumber(lastThousand)} credits`;
+  // Positions for labels centered under first and last creditInterval-multiple dots
+  const firstInterval = useMemo(
+    () => Math.ceil(min / creditInterval) * creditInterval,
+    [min, creditInterval],
+  );
+  const lastInterval = useMemo(
+    () => Math.floor(max / creditInterval) * creditInterval,
+    [max, creditInterval],
+  );
+  const startLabel = `${formatNumber(firstInterval)} credits`;
+  const endLabel = `${formatNumber(lastInterval)} credits`;
 
   // Keyboard Accessibility
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -247,26 +257,26 @@ export function UsageBasedPricing({
 
   return (
     <Card className={cn('mx-auto w-full min-w-lg max-w-3xl', className)}>
-      <CardHeader className="text-left">
+      <CardHeader className='text-left'>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{subtitle}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="mt-4 flex flex-col items-center gap-2">
-          <div className="flex items-baseline gap-1">
-            <span className="font-bold text-4xl tabular-nums">
+        <div className='mt-4 flex flex-col items-center gap-2'>
+          <div className='flex items-baseline gap-1'>
+            <span className='font-bold text-4xl tabular-nums'>
               {currency}
               {priceText}
             </span>
-            <span className="text-muted-foreground text-sm">/mo</span>
+            <span className='text-muted-foreground text-sm'>/mo</span>
           </div>
-          <p className="text-muted-foreground text-xs">{formatNumber(value)} credits per month</p>
+          <p className='text-muted-foreground text-xs'>{formatNumber(value)} credits per month</p>
         </div>
 
-        <div className="space-y-6">
-          <div className="relative mb-6 h-0">
-            <div className="-top-10 absolute" style={{ left: `${pct}%` }}>
-              <div className="-translate-x-1/2 rounded-md border bg-background px-3 py-1 text-xs shadow-sm">
+        <div className='space-y-6'>
+          <div className='relative mb-6 h-0'>
+            <div className='-top-10 absolute' style={{ left: `${pct}%` }}>
+              <div className='-translate-x-1/2 rounded-md border bg-background px-3 py-1 text-xs shadow-sm'>
                 {formatNumber(value)}
               </div>
             </div>
@@ -274,7 +284,7 @@ export function UsageBasedPricing({
 
           <div
             ref={trackRef}
-            className="relative h-12 select-none"
+            className='relative h-12 select-none'
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
@@ -295,7 +305,7 @@ export function UsageBasedPricing({
             }}
           >
             {/* Animated ruler ticks */}
-            <div className="pointer-events-none absolute inset-0">
+            <div className='pointer-events-none absolute inset-0'>
               {Array.from({ length: tickCount }).map((_, i) => {
                 const left = (i / (tickCount - 1)) * 100;
                 const distFloat = Math.abs(currentTickIndexFloat - i);
@@ -323,7 +333,7 @@ export function UsageBasedPricing({
             </div>
 
             {/* Clickable dots every 1000 credits */}
-            <div className="pointer-events-auto absolute inset-0">
+            <div className='pointer-events-auto absolute inset-0'>
               {(() => {
                 const first = Math.ceil(min / 1000) * 1000;
                 const dots: ReactNode[] = [];
@@ -334,7 +344,7 @@ export function UsageBasedPricing({
                   dots.push(
                     <div
                       key={`dot-${v}`}
-                      role="button"
+                      role='button'
                       tabIndex={0}
                       aria-label={`${v.toLocaleString()} credits`}
                       onClick={() => {
@@ -355,28 +365,28 @@ export function UsageBasedPricing({
                         height: '4px',
                         cursor: 'pointer',
                       }}
-                    />
+                    />,
                   );
                 }
                 return dots;
               })()}
             </div>
 
-            <div className="-translate-y-1/2 absolute top-1/2" style={{ left: `${pct}%` }}>
+            <div className='-translate-y-1/2 absolute top-1/2' style={{ left: `${pct}%` }}>
               <div
-                role="slider"
+                role='slider'
                 aria-valuemin={min}
                 aria-valuemax={max}
                 aria-valuenow={value}
                 aria-valuetext={`${formatNumber(value)} credits`}
                 tabIndex={0}
                 onKeyDown={handleKeyDown}
-                className="sr-only"
+                className='sr-only'
               />
             </div>
           </div>
 
-          <div className="flex justify-between px-1 text-muted-foreground text-xs">
+          <div className='flex justify-between px-1 text-muted-foreground text-xs'>
             <span>{startLabel}</span>
             <span>{endLabel}</span>
           </div>
