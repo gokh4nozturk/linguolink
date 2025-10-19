@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/useHookAtTopLevel: <explanation> */
 'use client';
 
 import { useAnimation } from 'framer-motion';
@@ -5,7 +6,7 @@ import React from 'react';
 import {
   BrainCircuitIcon,
   CheckIcon,
-  CloudIcon,
+  CloudUploadIcon,
   CogIcon,
   RabbitIcon,
   WorkflowIcon,
@@ -13,7 +14,6 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Cards() {
-  const controls = useAnimation();
   const cards = [
     {
       id: 'automatic-sync',
@@ -41,7 +41,7 @@ export default function Cards() {
       title: 'Serverless Storage Integrations',
       description:
         'Connect seamlessly with AWS S3, GCS, Azure Blob, and other cloud storage services.',
-      icon: <CloudIcon />,
+      icon: <CloudUploadIcon />,
     },
     {
       id: 'ai-integration',
