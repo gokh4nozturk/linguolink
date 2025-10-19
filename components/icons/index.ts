@@ -1,9 +1,9 @@
 import { BrainCircuitIcon } from '@/components/icons/brain-curcuit';
 import { CheckIcon } from '@/components/icons/check';
-import { CloudIcon } from '@/components/icons/cloud';
+import { CloudUploadIcon } from '@/components/icons/cloud';
 import { CogIcon } from '@/components/icons/cog';
 import { CpuIcon } from '@/components/icons/cpu';
 import { RabbitIcon } from '@/components/icons/rabbit';
 import { WorkflowIcon } from '@/components/icons/workflow';
 
-export { CheckIcon, CloudIcon, CogIcon, CpuIcon, BrainCircuitIcon, RabbitIcon, WorkflowIcon };
+export { CheckIcon, CloudUploadIcon, CogIcon, CpuIcon, BrainCircuitIcon, RabbitIcon, WorkflowIcon };
