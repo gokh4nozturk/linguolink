@@ -23,7 +23,7 @@ const packages = [
     id: 'starter',
     name: 'Starter',
     description: 'For growing projects',
-    price: 19,
+    price: 44.99,
     features: [
       '3 projects',
       '5,000 words',
@@ -36,7 +36,7 @@ const packages = [
     id: 'growth',
     name: 'Growth',
     description: 'For professional teams',
-    price: 49,
+    price: 249.99,
     features: [
       '10 projects',
       '10,000 words',
