@@ -39,7 +39,7 @@ const packages = [
     price: 249.99,
     features: [
       '10 projects',
-      '10,000 words',
+      '20,000 words',
       'Collaboration features',
       'Role management',
       'No credit card required',
