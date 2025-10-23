@@ -4,6 +4,6 @@ export default function useCycle<T>(options: Array<T>, defaultValue?: T) {
   const [index, setIndex] = React.useState(defaultValue ? undefined : 0);
   const next = () => setIndex((i) => ((i ?? -1) + 1) % options.length);
 
-  // biome-ignore lint/style/noNonNullAssertion: <explanation>
+  // biome-ignore lint/style/noNonNullAssertion: false positive
   return [index == null && defaultValue ? defaultValue : options[index ?? 0]!, next] as const;
 }

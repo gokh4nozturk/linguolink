@@ -151,7 +151,7 @@ const PackageCard = ({
     onPackage();
   }, [onPackage]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: false positive
   useEffect(() => {
     if (doAnimate) {
       window.addEventListener('scroll', handleActive);

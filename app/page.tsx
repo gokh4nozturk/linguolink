@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Cookie from '@/components/shared/cookie';
 import StructuredData from '@/components/structured-data';
 import Banner from './_components/banner';
 import FAQ from './_components/faq';
@@ -96,6 +97,7 @@ export default function Home() {
           ],
         }}
       />
+      <Cookie />
     </main>
   );
 }

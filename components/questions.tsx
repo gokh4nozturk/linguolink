@@ -39,17 +39,17 @@ export default function Questions() {
   ];
 
   return (
-    <Accordion type="single" collapsible>
+    <Accordion type='single' collapsible>
       {faq.map((question, index) => (
         <AccordionItem
           key={`item-${
-            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            // biome-ignore lint/suspicious/noArrayIndexKey: false positive
             index
           }`}
           value={`item-${index}`}
         >
           <AccordionTrigger>{question.question}</AccordionTrigger>
-          <AccordionContent className="text-left">{question.answer}</AccordionContent>
+          <AccordionContent className='text-left'>{question.answer}</AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>
