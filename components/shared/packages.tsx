@@ -79,7 +79,7 @@ export default function Packages() {
 
   return (
     <div id='pricing-packages' className='flex flex-col items-center gap-12'>
-      <div className='mx-auto flex max-w-5xl flex-col gap-4 px-4 sm:flex-row'>
+      <div className='mx-auto flex flex-col gap-8 px-4 lg:max-w-5xl lg:flex-row lg:gap-4'>
         {packages.map((pkg, idx) => (
           <PackageCard key={pkg.id} pkg={pkg} idx={idx} handleSelectPackage={handleSelectPackage} />
         ))}
