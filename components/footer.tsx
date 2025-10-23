@@ -1,6 +1,5 @@
 import { Github, Mail, Twitter } from 'lucide-react';
 import Link from 'next/link';
-import { CookiePreferencesManager } from '@/components/cookie-preferences-manager';
 
 export default function Footer() {
   return (
@@ -99,9 +98,6 @@ export default function Footer() {
             </li>
             <li>
               <Link href='/privacy/cookies'>Cookie Policy</Link>
-            </li>
-            <li>
-              <CookiePreferencesManager />
             </li>
           </ul>
         </div>
