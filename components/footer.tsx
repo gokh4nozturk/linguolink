@@ -1,5 +1,7 @@
 import { Github, Mail, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import { CookiePreferencesManager } from '@/components/cookie-preferences-manager';
+
 export default function Footer() {
   return (
     <footer className='bg-soft-blue-foreground p-12 text-primary md:p-24 [&_*]:text-pretty [&_*]:dark:text-muted'>
@@ -94,6 +96,12 @@ export default function Footer() {
               >
                 Terms of Service
               </a>
+            </li>
+            <li>
+              <Link href='/privacy/cookies'>Cookie Policy</Link>
+            </li>
+            <li>
+              <CookiePreferencesManager />
             </li>
           </ul>
         </div>

@@ -1,11 +1,11 @@
+import type { Metadata, Viewport } from 'next';
+import { Inter as FontSans } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
+import { Analytics } from '@/components/analytics';
 import Footer from '@/components/footer';
 import { Header } from '@/components/header';
 import { SubscriptionProvider } from '@/contexts/subscription-context';
 import { cn } from '@/lib/utils';
-import { Analytics } from '@vercel/analytics/react';
-import type { Metadata, Viewport } from 'next';
-import { ThemeProvider } from 'next-themes';
-import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 
 const fontSans = FontSans({

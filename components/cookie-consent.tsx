@@ -1,30 +1,55 @@
-/** biome-ignore-all lint/suspicious/noDocumentCookie: false positive */
 'use client';
 
-import { CookieIcon } from 'lucide-react';
+import { CookieIcon, Settings } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { CookiePreferencesDialog } from '@/components/shared/cookie-preferences-dialog';
 import { Button } from '@/components/ui/button';
+import {
+  acceptAllCookies,
+  acceptEssentialOnly,
+  type CookiePreferences,
+  getCookiePreferences,
+  hasConsented,
+  hasDeclined,
+  loadAnalytics,
+  setCookiePreferences,
+} from '@/lib/cookie-utils';
 import { cn } from '@/lib/utils';
+
+interface CookieConsentProps {
+  variant?: 'default' | 'small' | 'minimal';
+  mode?: boolean;
+  onAcceptCallback?: () => void;
+  onDeclineCallback?: () => void;
+}
 
 export function CookieConsent({
   variant = 'default',
   mode = false,
   onAcceptCallback = () => {},
   onDeclineCallback = () => {},
-}) {
+}: CookieConsentProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [hide, setHide] = useState(false);
+  const [showPreferences, setShowPreferences] = useState(false);
+  const [preferences, setPreferences] = useState<CookiePreferences>({
+    essential: true,
+    analytics: false,
+    marketing: false,
+  });
 
-  const accept = () => {
+  const handleAcceptAll = () => {
+    acceptAllCookies();
     setIsOpen(false);
-    document.cookie = 'cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT';
     setTimeout(() => {
       setHide(true);
+      loadAnalytics();
     }, 700);
     onAcceptCallback();
   };
 
-  const decline = () => {
+  const handleDecline = () => {
+    acceptEssentialOnly();
     setIsOpen(false);
     setTimeout(() => {
       setHide(true);
@@ -32,130 +57,122 @@ export function CookieConsent({
     onDeclineCallback();
   };
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: false positive
+  const handleSavePreferences = () => {
+    setCookiePreferences(preferences);
+    setShowPreferences(false);
+    setIsOpen(false);
+    setTimeout(() => {
+      setHide(true);
+      if (preferences.analytics) {
+        loadAnalytics();
+      }
+    }, 700);
+    onAcceptCallback();
+  };
+
+  const handlePreferenceChange = (category: keyof CookiePreferences, value: boolean) => {
+    if (category === 'essential') return; // Essential cookies can't be disabled
+    setPreferences((prev) => ({ ...prev, [category]: value }));
+  };
+
   useEffect(() => {
     try {
-      setIsOpen(true);
-      if (document.cookie.includes('cookieConsent=true')) {
-        if (!mode) {
-          setIsOpen(false);
-          setTimeout(() => {
-            setHide(true);
-          }, 700);
+      const consented = hasConsented();
+      const declined = hasDeclined();
+
+      if (!consented && !declined && !mode) {
+        setIsOpen(true);
+      } else {
+        setHide(true);
+        if (consented) {
+          const currentPreferences = getCookiePreferences();
+          if (currentPreferences.analytics) {
+            loadAnalytics();
+          }
         }
       }
+
+      setPreferences(getCookiePreferences());
     } catch (error) {
       console.error('Error checking cookie consent:', error);
     }
-  }, []);
+  }, [mode]);
 
-  return variant === 'default' ? (
-    <div
-      className={cn(
-        'fixed right-0 bottom-0 left-0 z-200 w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-md sm:p-0',
-        !isOpen
-          ? 'translate-y-8 opacity-0 transition-[opacity,transform]'
-          : 'translate-y-0 opacity-100 transition-[opacity,transform]',
-        hide && 'hidden',
-      )}
-    >
-      <div className='rounded-lg border border-border bg-background shadow-lg sm:rounded-md dark:bg-card'>
-        <div className='grid gap-2'>
-          <div className='flex h-12 items-center justify-between border-border border-b p-3 sm:h-14 sm:p-4'>
-            <h1 className='font-medium text-base sm:text-lg'>We use cookies</h1>
-            <CookieIcon className='h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]' />
-          </div>
-          <div className='p-3 sm:p-4'>
-            <p className='text-start font-normal text-muted-foreground text-xs sm:text-sm'>
-              We use cookies to ensure you get the best experience on our website. For more
-              information on how we use cookies, please see our cookie policy.
-              <br />
-              <br />
-              <span className='text-xs'>
-                By clicking <span className='font-medium text-black dark:text-white'>Accept</span>,
-                you agree to our use of cookies.
-              </span>
-              <br />
-              <a href='/privacy' className='text-xs underline'>
-                Learn more.
-              </a>
-            </p>
-          </div>
-          <div className='grid grid-cols-2 items-center gap-2 border-border border-t p-3 sm:p-4 sm:py-5 dark:bg-background/20'>
-            <Button onClick={accept} variant='default' className='w-full'>
-              Accept
-            </Button>
-            <Button onClick={decline} variant='outline' className='w-full'>
-              Decline
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
-  ) : variant === 'small' ? (
-    <div
-      className={cn(
-        'fixed right-0 bottom-0 left-0 z-200 w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-md sm:p-0',
-        !isOpen
-          ? 'translate-y-8 opacity-0 transition-[opacity,transform]'
-          : 'translate-y-0 opacity-100 transition-[opacity,transform]',
-        hide && 'hidden',
-      )}
-    >
-      <div className='m-0 rounded-lg border border-border bg-background shadow-lg sm:m-3 dark:bg-card'>
-        <div className='flex items-center justify-between p-3'>
-          <h1 className='font-medium text-base sm:text-lg'>We use cookies</h1>
-          <CookieIcon className='h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]' />
-        </div>
-        <div className='-mt-2 p-3'>
-          <p className='text-left text-muted-foreground text-xs sm:text-sm'>
-            We use cookies to ensure you get the best experience on our website. For more
-            information on how we use cookies, please see our cookie policy.
-          </p>
-        </div>
-        <div className='mt-2 grid grid-cols-2 items-center gap-2 border-t p-3'>
-          <Button onClick={accept} className='w-full'>
-            Accept
-          </Button>
-          <Button onClick={decline} className='w-full' variant='outline'>
-            Decline
-          </Button>
-        </div>
-      </div>
-    </div>
-  ) : (
-    variant === 'minimal' && (
-      <div
-        className={cn(
-          'fixed right-0 bottom-0 left-0 z-200 w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-[300px] sm:p-0',
-          !isOpen
-            ? 'translate-y-8 opacity-0 transition-[opacity,transform]'
-            : 'translate-y-0 opacity-100 transition-[opacity,transform]',
-          hide && 'hidden',
-        )}
-      >
-        <div className='m-0 rounded-lg border border-border bg-background shadow-lg sm:m-3 dark:bg-card'>
-          <div className='flex items-center justify-between border-border border-b p-3'>
-            <div className='flex items-center gap-2'>
-              <CookieIcon className='h-3 w-3 sm:h-4 sm:w-4' />
-              <span className='font-medium text-xs sm:text-sm'>Cookie Notice</span>
+  return (
+    <>
+      {variant === 'minimal' && (
+        <div
+          className={cn(
+            'fixed right-0 bottom-0 left-0 z-50 w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-[400px] sm:p-0',
+            !isOpen
+              ? 'translate-y-8 opacity-0 transition-[opacity,transform]'
+              : 'translate-y-0 opacity-100 transition-[opacity,transform]',
+            hide && 'hidden',
+          )}
+          role='dialog'
+          aria-labelledby='cookie-consent-title'
+          aria-describedby='cookie-consent-description'
+        >
+          <div className='m-0 rounded-lg border border-border bg-background shadow-lg sm:m-3 dark:bg-card'>
+            <div className='flex items-center justify-between border-border border-b p-3'>
+              <div className='flex items-center gap-2'>
+                <CookieIcon className='h-3 w-3 sm:h-4 sm:w-4' />
+                <span id='cookie-consent-title' className='font-medium text-xs sm:text-sm'>
+                  Cookie Notice
+                </span>
+              </div>
             </div>
-          </div>
-          <div className='p-3'>
-            <p className='text-[11px] text-muted-foreground sm:text-xs'>
-              We use cookies to enhance your browsing experience.
-            </p>
-            <div className='mt-3 grid grid-cols-2 items-center gap-2'>
-              <Button onClick={accept} variant='default' className='w-full'>
-                Accept
-              </Button>
-              <Button onClick={decline} variant='ghost' className='w-full'>
-                Decline
-              </Button>
+            <div className='p-3'>
+              <p
+                id='cookie-consent-description'
+                className='text-[11px] text-muted-foreground sm:text-xs'
+              >
+                We use cookies to enhance your browsing experience and analyze site traffic.
+              </p>
+              <div className='mt-3 flex flex-col gap-2'>
+                <div className='grid grid-cols-2 gap-2'>
+                  <Button
+                    onClick={handleAcceptAll}
+                    variant='default'
+                    className='w-full text-xs'
+                    aria-label='Accept all cookies'
+                  >
+                    Accept All
+                  </Button>
+                  <Button
+                    onClick={handleDecline}
+                    variant='ghost'
+                    className='w-full text-xs'
+                    aria-label='Decline optional cookies'
+                  >
+                    Essential Only
+                  </Button>
+                </div>
+                <Button
+                  onClick={() => setShowPreferences(true)}
+                  variant='outline'
+                  size='sm'
+                  className='w-full text-xs'
+                  aria-label='Customize cookie preferences'
+                >
+                  <Settings className='mr-1 h-3 w-3' />
+                  Customize
+                </Button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )
+      )}
+
+      <CookiePreferencesDialog
+        isOpen={showPreferences}
+        onOpenChange={setShowPreferences}
+        preferences={preferences}
+        onPreferenceChange={handlePreferenceChange}
+        onSave={handleSavePreferences}
+        onCancel={() => setShowPreferences(false)}
+        useLabels={true}
+      />
+    </>
   );
 }
