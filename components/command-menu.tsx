@@ -1,5 +1,9 @@
 'use client';
 
+import { Command, Monitor, MoonIcon, SunIcon } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
+import * as React from 'react';
 import {
   CommandDialog,
   CommandEmpty,
@@ -9,10 +13,6 @@ import {
   CommandList,
 } from '@/components/ui/command';
 import { LINKS } from '@/constants';
-import { Command, Monitor, MoonIcon, SunIcon } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { useRouter } from 'next/navigation';
-import * as React from 'react';
 import { Button } from './ui/button';
 
 export function CommandMenu() {
@@ -43,7 +43,7 @@ export function CommandMenu() {
         router.push(href);
       }, 10);
     },
-    [router]
+    [router],
   );
 
   // Memoize link items to avoid unnecessary re-renders
@@ -51,7 +51,7 @@ export function CommandMenu() {
     () =>
       LINKS.map(({ href, text, icon }) => (
         <CommandItem
-          className="flex items-center gap-2"
+          className='flex items-center gap-2'
           key={href}
           onSelect={() => handleOnClick(href)}
         >
@@ -59,30 +59,30 @@ export function CommandMenu() {
           <span>{text}</span>
         </CommandItem>
       )),
-    [handleOnClick]
+    [handleOnClick],
   );
 
   return (
     <>
-      <Button variant="outline" size="icon" className="" onClick={() => setOpen(true)}>
+      <Button variant='outline' size='icon' className='' onClick={() => setOpen(true)}>
         <Command size={16} />
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder='Type a command or search...' />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Links">{linkItems}</CommandGroup>
-          <CommandGroup heading="Theme">
+          <CommandGroup heading='Links'>{linkItems}</CommandGroup>
+          <CommandGroup heading='Theme'>
             <CommandItem onSelect={() => setTheme('dark')}>
-              <MoonIcon className="mr-2 size-4" />
+              <MoonIcon className='mr-2 size-4' />
               Dark
             </CommandItem>
             <CommandItem onSelect={() => setTheme('light')}>
-              <SunIcon className="mr-2 size-4" />
+              <SunIcon className='mr-2 size-4' />
               Light
             </CommandItem>
             <CommandItem onSelect={() => setTheme('system')}>
-              <Monitor className="mr-2 size-4" />
+              <Monitor className='mr-2 size-4' />
               System
             </CommandItem>
           </CommandGroup>
