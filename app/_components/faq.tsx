@@ -5,7 +5,7 @@ export default function FAQ() {
   return (
     <section
       id='faq'
-      className='flex min-h-fit w-full scroll-m-24 flex-col justify-center text-center'
+      className='flex min-h-fit w-full scroll-m-24 flex-col justify-center pb-40 text-center'
     >
       <CTA
         title='Frequently asked questions'
