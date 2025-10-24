@@ -23,7 +23,7 @@ export default function Footer() {
           fill: { duration: 2, delay: 0.1, ease: 'cubic-bezier(0.77, 0, 0.175, 1)' },
         } as Transition
       }
-      className='reveal relative h-[160vh] bg-soft-blue-foreground p-12 text-primary sm:h-[92vh] md:h-[110vh] md:p-24 lg:h-[92vh] 2xl:h-[60vh] [&_*]:text-pretty [&_*]:dark:text-muted'
+      className='reveal relative h-[160vh] bg-soft-blue-foreground px-4 py-12 text-primary sm:h-[92vh] sm:px-12 md:h-[110vh] md:p-24 lg:h-[92vh] 2xl:h-[60vh] [&_*]:text-pretty [&_*]:dark:text-muted'
     >
       <div className='mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-4'>
         <div className='text-left'>

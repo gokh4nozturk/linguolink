@@ -104,7 +104,8 @@ export default function Packages() {
           variant='ghost'
           className='font-medium text-primary hover:text-primary/80'
         >
-          Contact our sales team for custom pricing
+          <span className='hidden sm:block'>Contact our sales team for custom pricing</span>
+          <span className='block sm:hidden'>Contact us</span>
         </GitHubButton>
       </div>
     </div>
