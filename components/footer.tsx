@@ -10,7 +10,7 @@ export default function Footer() {
       style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
       className='relative h-[--footer-height] bg-soft-blue-foreground px-4 py-12 text-primary [--footer-height:800px] sm:px-12 md:p-24 [&_*]:text-pretty [&_*]:dark:text-muted'
     >
-      <div className='fixed bottom-0 left-0 h-[--footer-height] w-full pt-24'>
+      <div className='fixed bottom-0 left-0 h-[--footer-height] w-full px-4 pt-24'>
         <div className='mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-4'>
           <div className='text-left'>
             <h3 className='mb-4 font-semibold text-lg'>Linguolink</h3>
