@@ -146,7 +146,7 @@
 }
 
 
-.image-reveal {
-  margin-top: 10vh;
+.reveal {
+  margin-top: 12vh;
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }

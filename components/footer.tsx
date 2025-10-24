@@ -1,10 +1,30 @@
+'use client';
+
 import { Github, Mail, Twitter } from 'lucide-react';
+import type { Transition } from 'motion/react';
+import * as motion from 'motion/react-client';
 import Link from 'next/link';
 import { CrowdCanvas } from './crowd-canvas';
 
 export default function Footer() {
   return (
-    <footer className='relative h-[160vh] bg-soft-blue-foreground p-12 text-primary sm:h-[92vh] md:h-[110vh] md:p-24 lg:h-[92vh] 2xl:h-[60vh] [&_*]:text-pretty [&_*]:dark:text-muted'>
+    <motion.footer
+      initial='hidden'
+      whileInView='visible'
+      variants={{
+        hidden: { clipPath: 'inset(0 0 100% 0)' },
+        visible: { clipPath: 'inset(0 0 0 0)' },
+      }}
+      transition={
+        {
+          duration: 1,
+          delay: 0.5,
+          fillMode: 'forwards',
+          fill: { duration: 1, delay: 0.5, ease: 'cubic-bezier(0.77, 0, 0.175, 1)' },
+        } as Transition
+      }
+      className='reveal relative h-[160vh] bg-soft-blue-foreground p-12 text-primary sm:h-[92vh] md:h-[110vh] md:p-24 lg:h-[92vh] 2xl:h-[60vh] [&_*]:text-pretty [&_*]:dark:text-muted'
+    >
       <div className='mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-4'>
         <div className='text-left'>
           <h3 className='mb-4 font-semibold text-lg'>Linguolink</h3>
@@ -108,13 +128,13 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} Linguolink. All rights reserved.</p>
       </div>
 
-      <div className='absolute bottom-0 left-0 h-full w-screen'>
+      <div className='absolute bottom-0 left-0 h-min w-screen'>
         <CrowdCanvas
           src='https://storage.linguol.ink/images/open-peeps-sheet.png'
           rows={15}
           cols={7}
         />
       </div>
-    </footer>
+    </motion.footer>
   );
 }
