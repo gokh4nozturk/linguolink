@@ -116,6 +116,9 @@ const config = {
 			fontFamily: {
 				sans: ["var(--font-sans)", ...fontFamily.sans],
 			},
+			spacing: {
+				"navigation-height": "var(--navigation-height)",
+			},
 		},
 	},
 	plugins: [require("tailwindcss-animate")],

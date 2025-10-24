@@ -1,5 +1,9 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
+import { useTheme } from 'next-themes';
+import * as React from 'react';
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -15,10 +19,6 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from '@/components/ui/context-menu';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import Link from 'next/link';
-import * as React from 'react';
 import { Badge } from './ui/badge';
 
 export function Logo() {
@@ -29,18 +29,18 @@ export function Logo() {
     setSrc(
       resolvedTheme === 'dark'
         ? 'https://storage.linguol.ink/brand/logo-dark.svg'
-        : 'https://storage.linguol.ink/brand/logo.svg'
+        : 'https://storage.linguol.ink/brand/logo.svg',
     );
   }, [resolvedTheme]);
 
   return (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-fit w-fit items-center justify-center">
-        <Link href="/" className="flex items-center gap-1">
+      <ContextMenuTrigger className='flex h-fit w-fit items-center justify-center'>
+        <Link href='/' className='flex items-center gap-2'>
           <Image
-            loading="lazy"
+            loading='lazy'
             src={src}
-            alt="logo"
+            alt='logo'
             width={100}
             style={{
               maxWidth: '100%',
@@ -48,12 +48,12 @@ export function Logo() {
             }}
             height={100}
           />
-          <Badge variant="custom" className="h-6">
+          <Badge variant='custom' className='h-5'>
             Beta
           </Badge>
         </Link>
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className='w-64'>
         <ContextMenuItem inset>
           Back
           <ContextMenuShortcut>⌘[</ContextMenuShortcut>
@@ -68,7 +68,7 @@ export function Logo() {
         </ContextMenuItem>
         <ContextMenuSub>
           <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
-          <ContextMenuSubContent className="w-48">
+          <ContextMenuSubContent className='w-48'>
             <ContextMenuItem>
               Save Page As...
               <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
@@ -86,11 +86,11 @@ export function Logo() {
         </ContextMenuCheckboxItem>
         <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
         <ContextMenuSeparator />
-        <ContextMenuRadioGroup value="pedro">
+        <ContextMenuRadioGroup value='pedro'>
           <ContextMenuLabel inset>People</ContextMenuLabel>
           <ContextMenuSeparator />
-          <ContextMenuRadioItem value="pedro">Pedro Duarte</ContextMenuRadioItem>
-          <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
+          <ContextMenuRadioItem value='pedro'>Pedro Duarte</ContextMenuRadioItem>
+          <ContextMenuRadioItem value='colm'>Colm Tuite</ContextMenuRadioItem>
         </ContextMenuRadioGroup>
       </ContextMenuContent>
     </ContextMenu>
