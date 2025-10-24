@@ -115,7 +115,7 @@ export function Header() {
           <Link
             href={href}
             className={cn(
-              'w-full p-0 text-muted-foreground hover:text-foreground',
+              'w-full p-0 text-muted-foreground text-sm hover:text-foreground',
               isLinkActive(href) && 'text-foreground underline underline-offset-4',
             )}
             onClick={(e) => {
@@ -133,10 +133,10 @@ export function Header() {
 
   return (
     <header className='fixed z-50 flex h-14 w-full items-center justify-between px-4 backdrop-blur-md dark:border-b dark:border-b-background/10'>
-      <div className='w-48 px-2'>
+      <div className='w-48 sm:px-2'>
         <Logo />
       </div>
-      <div className='invisible transition-[visibility] md:visible md:flex md:w-full md:items-center'>
+      <div className='hidden opacity-0 transition-[visibility,opacity] md:flex md:w-full md:items-center md:opacity-100'>
         <nav className='flex flex-1 items-center justify-center text-sm'>
           <ul className='flex items-center gap-4 rounded-full border bg-background/50 px-6 py-2 font-medium'>
             {navItems}
@@ -154,40 +154,50 @@ export function Header() {
           </div>
         </div>
       </div>
-      <div className='md:hidden'>
+      <div
+        className={cn('transition-[visibility]', isMenuOpen ? 'visible' : 'invisible delay-500')}
+      >
         <nav
           className={cn(
-            'fixed top-14 left-0 z-50 h-dvh w-full border-t bg-background px-4 pt-4',
-            isMenuOpen
-              ? 'visible translate-x-0 opacity-100'
-              : 'invisible translate-x-[-100vw] opacity-0 delay-500',
+            'fixed top-navigation-height left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto bg-background transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100 md:transition-none',
+            isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-[-100vw] opacity-0',
           )}
         >
-          <ul className='space-y-4'>{mobileNavItems}</ul>
-
-          <Button asChild className='mt-10 w-full'>
-            <a href={appRedirectionUrl} target='_blank' rel='noopener noreferrer'>
-              Login
-              <ArrowRightIcon className='ml-2 h-4 w-4' />
-            </a>
-          </Button>
-        </nav>
-        <div className='flex items-center gap-2'>
-          <ModeToggle />
-          <Button
-            size='icon'
-            variant='outline'
-            className='size-7 rounded-full'
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          <ul
+            className={cn(
+              'flex h-[calc(90%_-_var(--navigation-height))] flex-col md:hidden md:flex-row md:items-center [&_li]:mx-2 [&_li]:border-grey-dark [&_li]:border-b md:[&_li]:border-none',
+              'ease-in [&_a:hover]:text-grey [&_a]:flex [&_a]:h-navigation-height [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors',
+              isMenuOpen && '[&_a]:translate-y-0',
+            )}
           >
-            <EllipsisVertical
-              className={cn(
-                'h-4 w-4 transition-all delay-300',
-                isMenuOpen ? 'rotate-90' : 'rotate-0',
-              )}
-            />
-          </Button>
-        </div>
+            {mobileNavItems}
+          </ul>
+
+          <div className='flex items-center justify-center px-2 md:hidden'>
+            <Button asChild className='mt-10 w-full'>
+              <a href={appRedirectionUrl} target='_blank' rel='noopener noreferrer'>
+                Login
+                <ArrowRightIcon className='ml-2 h-4 w-4' />
+              </a>
+            </Button>
+          </div>
+        </nav>
+      </div>
+      <div className='flex items-center gap-2 md:hidden'>
+        <ModeToggle />
+        <Button
+          size='icon'
+          variant='outline'
+          className='size-7 rounded-full'
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <EllipsisVertical
+            className={cn(
+              'h-4 w-4 transition-all delay-300',
+              isMenuOpen ? 'rotate-90' : 'rotate-0',
+            )}
+          />
+        </Button>
       </div>
     </header>
   );
