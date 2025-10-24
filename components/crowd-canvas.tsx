@@ -66,8 +66,8 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
 
     const normalWalk = ({ peep, props }: { peep: any; props: any }) => {
       const { startX, startY, endX } = props;
-      const xDuration = 10;
-      const yDuration = 0.25;
+      const xDuration = 15; // Adjusted to make the peeps walk slower, default is 10
+      const yDuration = 0.3; // Adjusted to make the peeps walk slower, default is 0.25
 
       const tl = gsap.timeline();
       tl.timeScale(randomRange(0.5, 1.5));
@@ -128,7 +128,7 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
         setRect: (rect: number[]) => {
           peep.rect = rect;
           peep.width = rect[2];
-          peep.height = rect[3];
+          peep.height = rect[3] * 1.08; // Adjusted to make the peeps taller
           peep.drawArgs = [peep.image, ...rect, 0, 0, peep.width, peep.height];
         },
         render: (ctx: CanvasRenderingContext2D) => {
@@ -265,7 +265,7 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       });
     };
   }, []);
-  return <canvas ref={canvasRef} className='absolute bottom-0 h-[90vh] w-full' />;
+  return <canvas ref={canvasRef} className='absolute bottom-0 h-full w-full' />;
 };
 
 const Skiper39 = () => {

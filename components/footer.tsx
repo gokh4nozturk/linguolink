@@ -17,10 +17,10 @@ export default function Footer() {
       }}
       transition={
         {
-          duration: 1,
-          delay: 0.5,
+          duration: 2,
+          delay: 0.1,
           fillMode: 'forwards',
-          fill: { duration: 1, delay: 0.5, ease: 'cubic-bezier(0.77, 0, 0.175, 1)' },
+          fill: { duration: 2, delay: 0.1, ease: 'cubic-bezier(0.77, 0, 0.175, 1)' },
         } as Transition
       }
       className='reveal relative h-[160vh] bg-soft-blue-foreground p-12 text-primary sm:h-[92vh] md:h-[110vh] md:p-24 lg:h-[92vh] 2xl:h-[60vh] [&_*]:text-pretty [&_*]:dark:text-muted'
@@ -128,7 +128,7 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} Linguolink. All rights reserved.</p>
       </div>
 
-      <div className='absolute bottom-0 left-0 h-min w-screen'>
+      <div className='absolute bottom-0 left-0 h-[60vh] w-screen'>
         <CrowdCanvas
           src='https://storage.linguol.ink/images/open-peeps-sheet.png'
           rows={15}
