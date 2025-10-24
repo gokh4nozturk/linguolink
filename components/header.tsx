@@ -165,7 +165,7 @@ export function Header() {
         >
           <ul
             className={cn(
-              'flex h-[calc(90%_-_var(--navigation-height))] flex-col md:hidden md:flex-row md:items-center [&_li]:mx-2 [&_li]:border-grey-dark [&_li]:border-b md:[&_li]:border-none',
+              'flex h-[calc(60%_-_var(--navigation-height))] flex-col md:hidden md:flex-row md:items-center [&_li]:mx-2 [&_li]:border-grey-dark [&_li]:border-b md:[&_li]:border-none',
               'ease-in [&_a:hover]:text-grey [&_a]:flex [&_a]:h-navigation-height [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors',
               isMenuOpen && '[&_a]:translate-y-0',
             )}
