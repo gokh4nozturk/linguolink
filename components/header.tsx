@@ -13,18 +13,6 @@ import { LINKS } from '@/constants';
 import { useSmoothScroll } from '@/hooks/use-smooth-scroll';
 import { cn } from '@/lib/utils';
 
-// Simple debounce function to limit function call frequency
-function debounce<Args extends unknown[]>(
-  func: (...args: Args) => void,
-  delay = 300,
-): (...args: Args) => void {
-  let timeoutId: ReturnType<typeof setTimeout>;
-  return function debouncedFunction(...args: Args) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func(...args), delay);
-  };
-}
-
 export function Header() {
   const [activeSection, setActiveSection] = React.useState('');
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -36,29 +24,33 @@ export function Header() {
     const sections = document.querySelectorAll('section');
     if (sections.length === 0) return;
 
-    // Use a debounced handler to reduce the frequency of state updates
-    const updateActiveSection = debounce((entries: IntersectionObserverEntry[]) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-          break; // Only set the first intersecting section
-        }
-      }
-    }, 100);
+    const observer = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        // Find all intersecting sections
+        const intersectingSections = entries.filter((entry) => entry.isIntersecting);
 
-    const observer = new IntersectionObserver(updateActiveSection, {
-      threshold: 0.3, // Lower threshold for better performance
-      rootMargin: '0px 0px -20% 0px', // Adjust the detection area
-    });
+        if (intersectingSections.length === 0) return;
+
+        // Find the section with the highest intersection ratio (most visible)
+        const mostVisibleSection = intersectingSections.reduce((prev, current) => {
+          return current.intersectionRatio > prev.intersectionRatio ? current : prev;
+        });
+
+        if (mostVisibleSection.target.id) {
+          setActiveSection(mostVisibleSection.target.id);
+        }
+      },
+      {
+        threshold: [0, 0.25, 0.5, 0.75, 1], // Multiple thresholds for better accuracy
+        rootMargin: '-96px 0px -50% 0px', // Account for fixed header (96px) and bottom margin
+      },
+    );
 
     for (const section of sections) {
       observer.observe(section);
     }
 
     return () => {
-      for (const section of sections) {
-        observer.unobserve(section);
-      }
       observer.disconnect();
     };
   }, []);
@@ -116,7 +108,7 @@ export function Header() {
             href={href}
             className={cn(
               'w-full p-0 text-muted-foreground text-sm hover:text-foreground',
-              isLinkActive(href) && 'text-foreground underline underline-offset-4',
+              isLinkActive(href) && 'text-foreground underline underline-offset-4 transition-all',
             )}
             onClick={(e) => {
               setIsMenuOpen(false);
