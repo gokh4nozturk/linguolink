@@ -40,7 +40,7 @@ export default function DocsPage() {
 
       <div className='flex flex-col gap-10 md:flex-row'>
         {/* Sidebar Navigation */}
-        <aside className='w-full flex-shrink-0 md:w-64'>
+        <aside className='w-full shrink-0 md:w-64'>
           <nav className='sticky top-24'>
             <ul className='space-y-1'>
               {sidebarItems.map((item) => (

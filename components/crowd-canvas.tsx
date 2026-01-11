@@ -272,7 +272,7 @@ const Skiper39 = () => {
   return (
     <div className='relative h-full w-full bg-background text-foreground'>
       <div className='-translate-x-1/2 absolute top-22 left-1/2 grid content-start justify-items-center gap-6 text-center text-black'>
-        <span className="relative max-w-[12ch] text-xs uppercase leading-tight opacity-40 after:absolute after:top-full after:left-1/2 after:h-16 after:w-px after:bg-gradient-to-b after:from-white after:to-black after:content-['']">
+        <span className="relative max-w-[12ch] text-xs uppercase leading-tight opacity-40 after:absolute after:top-full after:left-1/2 after:h-16 after:w-px after:bg-linear-to-b after:from-white after:to-black after:content-['']">
           Croud Canvas
         </span>
       </div>

@@ -214,7 +214,7 @@ const PackageCard = ({
         </div>
 
         <Button
-          variant={idx === 1 ? 'default' : 'outline'}
+          variant={idx === 1 ? 'default' : 'outline-solid'}
           size='lg'
           className='mt-6 w-full'
           onClick={(e) => {

@@ -123,7 +123,7 @@ export default function Carousel() {
       {/* Navigation arrows */}
       <button
         onClick={prevImage}
-        className='-translate-y-1/2 absolute top-1/2 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary backdrop-blur-sm hover:bg-primary/20'
+        className='-translate-y-1/2 absolute top-1/2 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary backdrop-blur-xs hover:bg-primary/20'
         aria-label='Previous image'
         type='button'
       >
@@ -132,7 +132,7 @@ export default function Carousel() {
 
       <button
         onClick={nextImage}
-        className='-translate-y-1/2 absolute top-1/2 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary backdrop-blur-sm hover:bg-primary/20'
+        className='-translate-y-1/2 absolute top-1/2 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary backdrop-blur-xs hover:bg-primary/20'
         aria-label='Next image'
         type='button'
       >

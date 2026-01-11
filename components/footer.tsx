@@ -8,9 +8,9 @@ export default function Footer() {
   return (
     <footer
       style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
-      className='relative h-[--footer-height] bg-soft-blue-foreground px-4 py-12 text-primary [--footer-height:800px] sm:px-12 md:p-24 [&_*]:text-pretty [&_*]:dark:text-muted'
+      className='relative h-(--footer-height) bg-soft-blue-foreground px-4 py-12 text-primary [--footer-height:800px] **:text-pretty sm:px-12 md:p-24 dark:**:text-muted'
     >
-      <div className='fixed bottom-0 left-0 h-[--footer-height] w-full px-4 pt-24'>
+      <div className='fixed bottom-0 left-0 h-(--footer-height) w-full px-4 pt-24'>
         <div className='mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-4'>
           <div className='text-left'>
             <h3 className='mb-4 font-semibold text-lg'>Linguolink</h3>
@@ -153,7 +153,7 @@ export default function Footer() {
 //           fill: { duration: 2, delay: 0.1, ease: 'cubic-bezier(0.77, 0, 0.175, 1)' },
 //         } as Transition
 //       }
-//       className='reveal relative h-[160vh] bg-soft-blue-foreground px-4 py-12 text-primary sm:h-[92vh] sm:px-12 md:h-[110vh] md:p-24 lg:h-[92vh] 2xl:h-[60vh] [&_*]:text-pretty [&_*]:dark:text-muted'
+//       className='reveal relative h-[160vh] bg-soft-blue-foreground px-4 py-12 text-primary sm:h-[92vh] sm:px-12 md:h-[110vh] md:p-24 lg:h-[92vh] 2xl:h-[60vh] **:text-pretty dark:**:text-muted'
 //     >
 //       <div className='mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-4'>
 //         <div className='text-left'>

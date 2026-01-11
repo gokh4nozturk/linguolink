@@ -278,7 +278,7 @@ export function UsageBasedPricing({
         <div className='space-y-6'>
           <div className='relative mb-6 h-0'>
             <div className='-top-10 absolute' style={{ left: `${pct}%` }}>
-              <div className='-translate-x-1/2 rounded-md border bg-background px-3 py-1 text-xs shadow-sm'>
+              <div className='-translate-x-1/2 rounded-md border bg-background px-3 py-1 text-xs shadow-xs'>
                 {formatNumber(value)}
               </div>
             </div>
@@ -358,7 +358,7 @@ export function UsageBasedPricing({
                           animateTo(v);
                         }
                       }}
-                      className={`absolute rounded-full outline-none ${isActive ? 'bg-primary' : 'bg-muted-foreground/70'} focus:ring-2 focus:ring-primary/50`}
+                      className={`absolute rounded-full outline-hidden ${isActive ? 'bg-primary' : 'bg-muted-foreground/70'} focus:ring-2 focus:ring-primary/50`}
                       style={{
                         left,
                         top: 'calc(50% + 14px)',

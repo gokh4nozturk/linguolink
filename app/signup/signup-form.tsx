@@ -90,7 +90,7 @@ export default function SignupForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder='Enter your name'
-            className='w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary'
+            className='w-full rounded-md border px-3 py-2 focus:outline-hidden focus:ring-2 focus:ring-primary'
           />
           {errors.name && <p className='text-red-500 text-sm'>{errors.name}</p>}
         </div>
@@ -106,7 +106,7 @@ export default function SignupForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder='Enter your email'
-            className='w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary'
+            className='w-full rounded-md border px-3 py-2 focus:outline-hidden focus:ring-2 focus:ring-primary'
           />
           {errors.email && <p className='text-red-500 text-sm'>{errors.email}</p>}
         </div>
@@ -122,7 +122,7 @@ export default function SignupForm() {
             value={formData.password}
             onChange={handleChange}
             placeholder='Create a password'
-            className='w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary'
+            className='w-full rounded-md border px-3 py-2 focus:outline-hidden focus:ring-2 focus:ring-primary'
           />
           {errors.password && <p className='text-red-500 text-sm'>{errors.password}</p>}
         </div>
